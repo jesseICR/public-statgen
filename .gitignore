@@ -1,0 +1,7 @@
+tools/
+downloads/
+qc/
+merge/
+scrap/
+__pycache__/
+CLAUDE.md
