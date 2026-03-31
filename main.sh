@@ -14,6 +14,7 @@
 #   4. Set up Python virtual environment
 #   5. QC SGDP data (liftover hg19→hg38, match to KG, assign rsIDs)
 #   6. Merge KG + HGDP + SGDP into a single fileset
+#   7. Build merged metadata CSV with Neural ADMIXTURE ancestry labels
 #
 set -euo pipefail
 
@@ -120,6 +121,20 @@ else
 fi
 echo ""
 
+# ---------------------------------------------------------------------------
+# Step 7 — Build metadata CSV
+# ---------------------------------------------------------------------------
 echo "============================================"
-echo "Pipeline steps 1-6 complete."
+echo "Step 7: Build merged metadata CSV"
+echo "============================================"
+
+if [[ -f "${PROJECT_DIR}/summary/metadata.csv" ]]; then
+    echo "  [skip] Metadata CSV already exists in ${PROJECT_DIR}/summary/"
+else
+    "${PYTHON}" "${PROJECT_DIR}/build_metadata.py"
+fi
+echo ""
+
+echo "============================================"
+echo "Pipeline steps 1-7 complete."
 echo "============================================"
