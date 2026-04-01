@@ -226,8 +226,22 @@ def main():
     assert set(metadata["sample_id"]) == merged_or_related_ids
     assert metadata["superpopulation"].notna().all(), "Some samples still missing superpopulation"
 
+    # Convert Koenig outlier IDs from Illumina IDs to sample IDs and write to summary/
+    with open("literature_reference/koenig_harmonized_outliers_2024.txt", "r") as f:
+        koenig_outlier_ids = [line.strip() for line in f if line.strip()]
+    koenig_outlier_ids = [illumina_to_sample.get(x, x) for x in koenig_outlier_ids]
+    assert set(koenig_outlier_ids).issubset(set(metadata["sample_id"])), (
+        "Koenig outlier IDs not found in metadata: "
+        + str(set(koenig_outlier_ids) - set(metadata["sample_id"]))
+    )
+
     # Write output
     os.makedirs("summary", exist_ok=True)
+    with open("summary/koenig_harmonized_outliers_2024.txt", "w") as f:
+        for sid in koenig_outlier_ids:
+            f.write(sid + "\n")
+    print(f"Wrote {len(koenig_outlier_ids)} Koenig outlier IDs to summary/koenig_harmonized_outliers_2024.txt")
+
     metadata.to_csv("summary/metadata.csv", index=False)
     print(f"Wrote {len(metadata)} samples to summary/metadata.csv")
     print(f"  Datasets: {metadata['dataset'].value_counts().to_dict()}")

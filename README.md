@@ -69,8 +69,13 @@ public-statgen/
 │   ├── kg_qc.{bed,bim,fam}
 │   ├── hgdp_qc.{bed,bim,fam}
 │   └── sgdp_qc.{bed,bim,fam}
-└── merge/                       # Merged fileset
-    └── merged_kg_hgdp_sgdp.{bed,bim,fam}
+├── merge/                       # Merged fileset
+│   └── merged_kg_hgdp_sgdp.{bed,bim,fam}
+└── literature_reference/        # Sample-level info extracted from publications
+    ├── sharma_all_of_us_2025.csv
+    ├── koenig_harmonized_outliers_2024.txt
+    ├── other_spanish_outliers.txt
+    └── ancestry_martin_outliers_2017.csv
 ```
 
 ## Data Sources
@@ -78,3 +83,24 @@ public-statgen/
 - **1000 Genomes (KG)** — hg38 pfiles from the [PLINK 2.0 resources page](https://www.cog-genomics.org/plink/2.0/resources)
 - **HGDP** — hg38 pfiles (statistically phased) from the same source
 - **SGDP** — hg19 bed/bim/fam from the [Reich Lab](https://reichdata.hms.harvard.edu/pub/datasets/sgdp/)
+
+## Literature Reference
+
+The `literature_reference/` directory contains sample-level information extracted from publications that characterize the KG, HGDP, and SGDP reference panels. These files document ancestry outliers, population compositions, and other metadata used in the pipeline's quality control and interpretation.
+
+| File | Description |
+|------|-------------|
+| `sharma_all_of_us_2025.csv` | Reference populations and sample counts used in the All of Us ancestry analysis |
+| `koenig_harmonized_outliers_2024.txt` | Sample IDs of outliers identified during harmonization of diverse human genomes |
+| `ancestry_martin_outliers_2017.csv` | Samples with considerable admixture identified in genetic risk prediction analysis |
+| `other_spanish_outliers.txt` | Additional Spanish-ancestry outlier samples |
+
+### Publications
+
+- **Koenig et al.** — *A harmonized public resource of deeply sequenced diverse human genomes.* Genome Research (2024). [doi:10.1101/gr.278378.123](https://doi.org/10.1101/gr.278378.123)
+
+- **Martin et al.** — *Human Demographic History Impacts Genetic Risk Prediction across Diverse Populations.* American Journal of Human Genetics (2017). [doi:10.1016/j.ajhg.2017.03.004](https://doi.org/10.1016/j.ajhg.2017.03.004)
+
+- **Sharma et al.** — *Genetic ancestry and population structure in the All of Us Research Program cohort.* bioRxiv (2024). [doi:10.1101/2024.12.21.629909](https://doi.org/10.1101/2024.12.21.629909)
+
+- **Dominguez Mantes et al.** — *Neural ADMIXTURE for rapid genomic clustering.* Nature Computational Science (2023). [doi:10.1038/s43588-023-00482-7](https://doi.org/10.1038/s43588-023-00482-7) — Used in the pipeline for ancestry label assignment but not directly represented in the literature reference files.

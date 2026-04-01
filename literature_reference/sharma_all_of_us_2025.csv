@@ -1,0 +1,35 @@
+population_id,dataset,num_samples,superpopulation
+ESN,kg,99,African
+GWD,kg,106,African
+LWK,kg,97,African
+MSL,kg,85,African
+YRI,kg,107,African
+Colombian,hgdp,6,American
+Karitiana,hgdp,12,American
+Maya,hgdp,13,American
+PEL,kg,14,American
+Pima,hgdp,12,American
+Surui,hgdp,8,American
+Balochi,hgdp,17,South Asian
+Brahui,hgdp,20,South Asian
+Makrani,hgdp,12,South Asian
+CHB,kg,102,East Asian
+Dai,hgdp,9,East Asian
+JPT,kg,104,East Asian
+KHV,kg,96,East Asian
+She,hgdp,10,East Asian
+Tujia,hgdp,9,East Asian
+FIN,kg,85,European
+GBR,kg,87,European
+IBS,kg,86,European
+TSI,kg,100,European
+Tuscan,hgdp,8,European
+Bedouin,hgdp,15,West Asian
+Druze,hgdp,1,West Asian
+Palestinian,hgdp,41,West Asian
+Bougainville,hgdp,9,Oceanian
+PapuanHighlands,hgdp,9,Oceanian
+PapuanSepik,hgdp,7,Oceanian
+GIH,kg,2,South Asian
+ITU,kg,73,South Asian
+STU,kg,89,South Asian
