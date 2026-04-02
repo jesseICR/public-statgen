@@ -1,15 +1,14 @@
 """
-build_supervised.py — Assign samples to K=8 supervised ADMIXTURE reference populations.
+build_supervised.py — Assign samples to K=7 supervised ADMIXTURE reference populations.
 
 Rules derived from union of Sharma (All of Us) and Marino (creatinine) reference panels:
-  African:      Union of both, minus LWK
-  American:     Admix3way subset of PEL, Colombian, Maya, Pima, Karitiana, Surui + SGDP: Mixe, Quechua, Zapotec, Chane
-  East Asian:   Union of both, minus Cambodian and KHV, plus CDX and CHS from 1KGP
-  European:     Union of both
-  Oceanian:     All Sharma
-  South Asian:  STU, GIH
-  Central Asian: Kalash
-  West Asian:   Bedouin, Druze, Palestinian
+  African:              Union of both, minus LWK
+  American:             Admix3way subset of PEL, Colombian, Maya, Pima, Karitiana, Surui + SGDP: Mixe, Quechua, Zapotec, Chane
+  Central and South Asian: Sharma South Asian (Balochi, Brahui, Makrani, GIH, ITU, STU)
+  East Asian:           Union of both, minus Cambodian and KHV, plus CDX and CHS from 1KGP
+  European:             Union of both
+  Oceanian:             All Sharma
+  West Asian:           Sharma Middle Eastern (Bedouin, Druze, Palestinian)
 
 Outlier exclusions:
   - Koenig harmonized outliers (summary/koenig_harmonized_outliers_2024.txt)
@@ -25,8 +24,7 @@ REFERENCE_POPULATIONS = {
     "East Asian": ["CHB", "CHS", "CDX", "Dai", "JPT", "She", "Tujia"],
     "European": ["FIN", "GBR", "IBS", "TSI", "Tuscan", "French", "Basque", "BergamoItalian"],
     "Oceanian": ["Bougainville", "PapuanHighlands", "PapuanSepik"],
-    "South Asian": ["STU", "GIH"],
-    "Central Asian": ["Kalash"],
+    "Central and South Asian": ["Balochi", "Brahui", "Makrani", "GIH", "ITU", "STU"],
     "West Asian": ["Bedouin", "Druze", "Palestinian"],
 }
 
