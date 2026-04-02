@@ -15,6 +15,7 @@
 #   5. QC SGDP data (liftover hg19→hg38, match to KG, assign rsIDs)
 #   6. Merge KG + HGDP + SGDP into a single fileset
 #   7. Build merged metadata CSV with Neural ADMIXTURE ancestry labels
+#   8. Build supervised ADMIXTURE reference population assignments
 #
 set -euo pipefail
 
@@ -135,6 +136,20 @@ else
 fi
 echo ""
 
+# ---------------------------------------------------------------------------
+# Step 8 — Build supervised ADMIXTURE reference populations
+# ---------------------------------------------------------------------------
 echo "============================================"
-echo "Pipeline steps 1-7 complete."
+echo "Step 8: Build supervised ADMIXTURE reference populations"
+echo "============================================"
+
+if [[ -f "${PROJECT_DIR}/summary/supervised.csv" ]]; then
+    echo "  [skip] Supervised CSV already exists in ${PROJECT_DIR}/summary/"
+else
+    "${PYTHON}" "${PROJECT_DIR}/build_supervised.py"
+fi
+echo ""
+
+echo "============================================"
+echo "Pipeline steps 1-8 complete."
 echo "============================================"

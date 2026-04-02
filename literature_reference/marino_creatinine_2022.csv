@@ -1,0 +1,26 @@
+population_id,dataset,superpopulation
+YRI,kg,African
+ESN,kg,African
+LWK,kg,African
+GWD,kg,African
+Mbuti,hgdp,African
+Biaka,hgdp,African
+Kalash,hgdp,Central Asian
+CHB,kg,East Asian
+JPT,kg,East Asian
+Dai,hgdp,East Asian
+Cambodian,hgdp,East Asian
+She,hgdp,East Asian
+FIN,kg,European
+GBR,kg,European
+IBS,kg,European
+TSI,kg,European
+French,hgdp,European
+Basque,hgdp,European
+BergamoItalian,hgdp,European
+Tuscan,hgdp,European
+STU,kg,South Asian
+GIH,kg,South Asian
+Bedouin,hgdp,West Asian
+Druze,hgdp,West Asian
+Palestinian,hgdp,West Asian

@@ -34,6 +34,8 @@ Python dependencies (`pandas`, `liftover`) are installed into a local venv.
 | 4 | `setup_python.sh` | Creates a Python venv in `tools/venv/` and installs dependencies from `requirements.txt` |
 | 5 | `qc_sgdp.py` | Lifts SGDP from hg19→hg38, matches to KG by (chrom, pos, alleles), assigns rsIDs, outputs `qc/sgdp_qc.{bed,bim,fam}` |
 | 6 | `merge_kg_hgdp_sgdp.sh` | Aligns alleles, merges KG+HGDP, deduplicates SGDP samples, three-way merge into `merge/merged_kg_hgdp_sgdp.{bed,bim,fam}` |
+| 7 | `build_metadata.py` | Merges KG, HGDP, SGDP metadata with Neural ADMIXTURE ancestry labels into `summary/metadata.csv` |
+| 8 | `build_supervised.py` | Assigns samples to K=8 supervised ADMIXTURE reference populations, writes `summary/supervised.csv` |
 
 Additional stages (projection, ADMIXTURE) will be added to `main.sh` as the pipeline grows.
 
@@ -48,6 +50,8 @@ public-statgen/
 ├── setup_python.sh              # Stage 4: set up Python venv
 ├── qc_sgdp.py                   # Stage 5: QC SGDP (liftover + rsID match)
 ├── merge_kg_hgdp_sgdp.sh       # Stage 6: three-way merge
+├── build_metadata.py            # Stage 7: merge metadata + neural ancestry
+├── build_supervised.py          # Stage 8: supervised ADMIXTURE reference populations
 ├── requirements.txt             # Python dependencies
 ├── rsids_dense_chr1_22.txt      # SNP list for filtering
 ├── tools/
@@ -73,9 +77,11 @@ public-statgen/
 │   └── merged_kg_hgdp_sgdp.{bed,bim,fam}
 └── literature_reference/        # Sample-level info extracted from publications
     ├── sharma_all_of_us_2025.csv
+    ├── marino_creatinine_2022.csv
     ├── koenig_harmonized_outliers_2024.txt
+    ├── ancestry_martin_outliers_2017.csv
     ├── other_spanish_outliers.txt
-    └── ancestry_martin_outliers_2017.csv
+    └── american_admixed_outliers.txt
 ```
 
 ## Data Sources
@@ -91,9 +97,11 @@ The `literature_reference/` directory contains sample-level information extracte
 | File | Description |
 |------|-------------|
 | `sharma_all_of_us_2025.csv` | Reference populations and sample counts used in the All of Us ancestry analysis |
+| `marino_creatinine_2022.csv` | Reference populations used in creatinine ancestry analysis |
 | `koenig_harmonized_outliers_2024.txt` | Sample IDs of outliers identified during harmonization of diverse human genomes |
 | `ancestry_martin_outliers_2017.csv` | Samples with considerable admixture identified in genetic risk prediction analysis |
 | `other_spanish_outliers.txt` | Additional Spanish-ancestry outlier samples |
+| `american_admixed_outliers.txt` | American reference samples excluded due to admixture |
 
 ### Publications
 
@@ -102,5 +110,7 @@ The `literature_reference/` directory contains sample-level information extracte
 - **Martin et al.** — *Human Demographic History Impacts Genetic Risk Prediction across Diverse Populations.* American Journal of Human Genetics (2017). [doi:10.1016/j.ajhg.2017.03.004](https://doi.org/10.1016/j.ajhg.2017.03.004)
 
 - **Sharma et al.** — *Genetic ancestry and population structure in the All of Us Research Program cohort.* bioRxiv (2024). [doi:10.1101/2024.12.21.629909](https://doi.org/10.1101/2024.12.21.629909)
+
+- **Marino-Ramirez et al.** — *Effects of genetic ancestry and socioeconomic deprivation on ethnic differences in serum creatinine.* Gene (2022). [doi:10.1016/j.gene.2022.146709](https://doi.org/10.1016/j.gene.2022.146709)
 
 - **Dominguez Mantes et al.** — *Neural ADMIXTURE for rapid genomic clustering.* Nature Computational Science (2023). [doi:10.1038/s43588-023-00482-7](https://doi.org/10.1038/s43588-023-00482-7) — Used in the pipeline for ancestry label assignment but not directly represented in the literature reference files.
