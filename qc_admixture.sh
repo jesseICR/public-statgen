@@ -11,17 +11,17 @@
 # remain in the panel for projection.
 #
 # QC order:
-#   0. Extract supervised samples for SNP filtering
+#   0. Extract supervised samples for QC
 #   1. Genotype missingness filter (--geno 0.01)          [supervised only]
 #   2. Minor allele frequency filter (--maf 0.03)         [supervised only]
 #   3. Hardy-Weinberg equilibrium exact test (--hwe 1e-50) [supervised only]
 #   4. Exclude long-range LD regions                       [supervised only]
 #   5. LD pruning (--indep-pairwise 50 10 0.1)            [supervised only]
-#   6. Apply SNP list to ALL samples
-#   7. Individual missingness filter (--mind 0.01)         [all samples]
-#   8. Kinship: remove related individuals                 [all samples]
+#   6. Individual missingness filter (--mind 0.01)         [supervised only]
+#   7. Kinship: remove related individuals                 [supervised only]
 #        AMR samples:     KING cutoff 0.088  (approx 3rd-degree)
 #        Non-AMR samples: KING cutoff 0.05   (approx 2nd-degree)
+#   8. Apply final supervised SNP+sample list to all samples for projection
 #
 # Expected environment:
 #   MERGE_DIR              — directory containing merged_kg_hgdp_sgdp.{bed,bim,fam}
@@ -199,38 +199,26 @@ echo "  Step 5/8: LD pruning (window=50, step=10, r2=0.1) [supervised only]"
 
 SNPS_BEFORE_PRUNE=${SNPS_AFTER}
 
-# Save the final SNP list — this is what we'll apply to all samples
-cp "${SCRAP}/ld_prune.prune.in" "${SCRAP}/supervised_snps.txt"
-SNPS_AFTER=$(wc -l < "${SCRAP}/supervised_snps.txt")
-SNPS_REMOVED=$((SNPS_BEFORE_PRUNE - SNPS_AFTER))
-echo "    Removed $(fmt ${SNPS_REMOVED}) SNPs by LD pruning"
-echo "    Final supervised SNP list: $(fmt ${SNPS_AFTER}) SNPs"
-echo ""
-
-# ===================================================================
-# STEP 6 — Apply supervised SNP list to ALL samples
-# ===================================================================
-echo "  Step 6/8: Apply supervised SNP list to all samples"
-
-"${PLINK2}" --bfile "${INPUT}" \
-    --extract "${SCRAP}/supervised_snps.txt" \
+"${PLINK2}" --bfile "${SCRAP}/ldregion_excluded" \
+    --extract "${SCRAP}/ld_prune.prune.in" \
     --make-bed \
-    --out "${SCRAP}/all_snp_filtered" \
+    --out "${SCRAP}/ld_pruned" \
     "${PLINK_FLAGS[@]}"
 
-SNPS_FINAL=$(count_snps "${SCRAP}/all_snp_filtered")
-SAMPLES_ALL=$(count_samples "${SCRAP}/all_snp_filtered")
-echo "    All samples with supervised SNPs: $(fmt ${SAMPLES_ALL}) samples, $(fmt ${SNPS_FINAL}) SNPs"
+SNPS_AFTER=$(count_snps "${SCRAP}/ld_pruned")
+SNPS_REMOVED=$((SNPS_BEFORE_PRUNE - SNPS_AFTER))
+echo "    Removed $(fmt ${SNPS_REMOVED}) SNPs by LD pruning"
+echo "    Remaining: $(fmt ${SNPS_AFTER}) SNPs"
 echo ""
 
 # ===================================================================
-# STEP 7 — Individual missingness (--mind 0.01) [all samples]
+# STEP 6 — Individual missingness (--mind 0.01) [supervised only]
 # ===================================================================
-echo "  Step 7/8: Individual missingness filter (--mind 0.01) [all samples]"
+echo "  Step 6/8: Individual missingness filter (--mind 0.01) [supervised only]"
 
-SAMPLES_BEFORE_MIND=$(count_samples "${SCRAP}/all_snp_filtered")
+SAMPLES_BEFORE_MIND=$(count_samples "${SCRAP}/ld_pruned")
 
-"${PLINK2}" --bfile "${SCRAP}/all_snp_filtered" \
+"${PLINK2}" --bfile "${SCRAP}/ld_pruned" \
     --mind 0.01 \
     --make-bed \
     --out "${SCRAP}/mind_filtered" \
@@ -240,55 +228,49 @@ SAMPLES_AFTER_MIND=$(count_samples "${SCRAP}/mind_filtered")
 SAMPLES_REMOVED_MIND=$((SAMPLES_BEFORE_MIND - SAMPLES_AFTER_MIND))
 
 if [[ ${SAMPLES_REMOVED_MIND} -gt 0 ]]; then
-    echo "    Removed $(fmt ${SAMPLES_REMOVED_MIND}) individuals with >1% missingness"
+    echo "    Removed $(fmt ${SAMPLES_REMOVED_MIND}) supervised individuals with >1% missingness"
 
-    awk '{print $2}' "${SCRAP}/all_snp_filtered.fam" | sort > "${SCRAP}/before_mind_iids.txt"
+    awk '{print $2}' "${SCRAP}/ld_pruned.fam" | sort > "${SCRAP}/before_mind_iids.txt"
     awk '{print $2}' "${SCRAP}/mind_filtered.fam" | sort > "${SCRAP}/after_mind_iids.txt"
     comm -23 "${SCRAP}/before_mind_iids.txt" "${SCRAP}/after_mind_iids.txt" > "${SCRAP}/removed_mind_iids.txt"
 
     "${PYTHON}" -c "
-import pandas as pd, sys
-meta = pd.read_csv('${PROJECT_DIR}/summary/metadata.csv')
+import pandas as pd
 sup = pd.read_csv('${PROJECT_DIR}/summary/supervised.csv')
 removed = set(open('${SCRAP}/removed_mind_iids.txt').read().split())
-meta_removed = meta[meta['sample_id'].isin(removed)]
-print('    Removed individuals by population:')
-for pop, group in meta_removed.groupby('population_id'):
-    sup_match = sup[sup['population_id'] == pop]
-    ref_pop = sup_match['reference_population'].iloc[0] if len(sup_match) > 0 else 'non-reference'
-    ids = group['sample_id'].tolist()
-    if len(ids) <= 5:
-        print(f'      {pop} ({ref_pop}): {\", \".join(ids)}')
-    else:
-        print(f'      {pop} ({ref_pop}): {len(ids)} samples')
+sup_removed = sup[sup['sample_id'].isin(removed)]
+print('    Removed supervised individuals:')
+for _, row in sup_removed.iterrows():
+    print(f'      {row[\"sample_id\"]} — {row[\"population_id\"]} ({row[\"reference_population\"]})')
 "
 else
-    echo "    No individuals removed (all pass missingness threshold)"
+    echo "    No supervised individuals removed"
 fi
-echo "    Remaining: $(fmt ${SAMPLES_AFTER_MIND}) individuals"
+echo "    Remaining: $(fmt ${SAMPLES_AFTER_MIND}) supervised individuals"
 echo ""
 
 # ===================================================================
-# STEP 8 — Kinship (separate AMR and non-AMR) [all samples]
+# STEP 7 — Kinship (separate AMR and non-AMR) [supervised only]
 # ===================================================================
-echo "  Step 8/8: Kinship filtering (AMR threshold=0.088, non-AMR threshold=0.05)"
+echo "  Step 7/8: Kinship filtering [supervised only] (AMR threshold=0.088, non-AMR threshold=0.05)"
 
 "${PYTHON}" -c "
 import pandas as pd
-meta = pd.read_csv('${PROJECT_DIR}/summary/metadata.csv')
+sup = pd.read_csv('${PROJECT_DIR}/summary/supervised.csv')
 fam = pd.read_csv('${SCRAP}/mind_filtered.fam', sep='\s+', header=None, names=['FID','IID','PAT','MAT','SEX','PHENO'])
-amr_ids = set(meta.loc[meta['superpopulation'] == 'American', 'sample_id'])
+sup_ref = dict(zip(sup['sample_id'], sup['reference_population']))
+amr_ids = set(sup.loc[sup['reference_population'] == 'American', 'sample_id'])
 amr_in_fam = fam[fam['IID'].isin(amr_ids)]
 nonamr_in_fam = fam[~fam['IID'].isin(amr_ids)]
 amr_in_fam[['FID', 'IID']].to_csv('${SCRAP}/amr_samples.txt', sep='\t', header=False, index=False)
 nonamr_in_fam[['FID', 'IID']].to_csv('${SCRAP}/nonamr_samples.txt', sep='\t', header=False, index=False)
-print(f'    AMR samples: {len(amr_in_fam):,}')
-print(f'    Non-AMR samples: {len(nonamr_in_fam):,}')
+print(f'    Supervised AMR: {len(amr_in_fam):,}')
+print(f'    Supervised non-AMR: {len(nonamr_in_fam):,}')
 "
 
-# --- 8a. Kinship on AMR (threshold 0.088) ---
+# --- 7a. Kinship on AMR (threshold 0.088) ---
 echo ""
-echo "    8a. AMR kinship (KING cutoff = 0.088)"
+echo "    7a. AMR kinship (KING cutoff = 0.088)"
 
 AMR_COUNT_BEFORE=$(wc -l < "${SCRAP}/amr_samples.txt")
 
@@ -312,26 +294,19 @@ echo "        AMR removed (related): $(fmt ${AMR_REMOVED}) of $(fmt ${AMR_COUNT_
 if [[ ${AMR_REMOVED} -gt 0 ]]; then
     "${PYTHON}" -c "
 import pandas as pd
-meta = pd.read_csv('${PROJECT_DIR}/summary/metadata.csv')
 sup = pd.read_csv('${PROJECT_DIR}/summary/supervised.csv')
 removed = pd.read_csv('${SCRAP}/amr_king.king.cutoff.out.id', sep='\t')
 removed_ids = set(removed.iloc[:, 1] if removed.columns[0] == '#FID' else removed.iloc[:, 0])
-meta_removed = meta[meta['sample_id'].isin(removed_ids)]
-print('        Removed AMR individuals by population:')
-for pop, group in meta_removed.groupby('population_id'):
-    sup_match = sup[sup['population_id'] == pop]
-    ref_pop = sup_match['reference_population'].iloc[0] if len(sup_match) > 0 else 'non-reference'
-    ids = group['sample_id'].tolist()
-    if len(ids) <= 5:
-        print(f'          {pop} ({ref_pop}): {\", \".join(ids)}')
-    else:
-        print(f'          {pop} ({ref_pop}): {len(ids)} samples')
+sup_removed = sup[sup['sample_id'].isin(removed_ids)]
+print('        Removed supervised AMR individuals:')
+for _, row in sup_removed.iterrows():
+    print(f'          {row[\"sample_id\"]} — {row[\"population_id\"]} ({row[\"reference_population\"]})')
 "
 fi
 
-# --- 8b. Kinship on non-AMR (threshold 0.05) ---
+# --- 7b. Kinship on non-AMR (threshold 0.05) ---
 echo ""
-echo "    8b. Non-AMR kinship (KING cutoff = 0.05)"
+echo "    7b. Non-AMR kinship (KING cutoff = 0.05)"
 
 NONAMR_COUNT_BEFORE=$(wc -l < "${SCRAP}/nonamr_samples.txt")
 
@@ -355,56 +330,79 @@ echo "        Non-AMR removed (related): $(fmt ${NONAMR_REMOVED}) of $(fmt ${NON
 if [[ ${NONAMR_REMOVED} -gt 0 ]]; then
     "${PYTHON}" -c "
 import pandas as pd
-meta = pd.read_csv('${PROJECT_DIR}/summary/metadata.csv')
 sup = pd.read_csv('${PROJECT_DIR}/summary/supervised.csv')
 removed = pd.read_csv('${SCRAP}/nonamr_king.king.cutoff.out.id', sep='\t')
 removed_ids = set(removed.iloc[:, 1] if removed.columns[0] == '#FID' else removed.iloc[:, 0])
-meta_removed = meta[meta['sample_id'].isin(removed_ids)]
-print('        Removed non-AMR individuals by population:')
-for pop, group in meta_removed.groupby('population_id'):
-    sup_match = sup[sup['population_id'] == pop]
-    ref_pop = sup_match['reference_population'].iloc[0] if len(sup_match) > 0 else 'non-reference'
-    ids = group['sample_id'].tolist()
-    if len(ids) <= 5:
-        print(f'          {pop} ({ref_pop}): {\", \".join(ids)}')
-    else:
-        print(f'          {pop} ({ref_pop}): {len(ids)} samples')
+sup_removed = sup[sup['sample_id'].isin(removed_ids)]
+if len(sup_removed) > 0:
+    print('        Removed supervised non-AMR individuals:')
+    for _, row in sup_removed.iterrows():
+        print(f'          {row[\"sample_id\"]} — {row[\"population_id\"]} ({row[\"reference_population\"]})')
 "
 fi
 
-# --- Combine kept samples from both kinship runs ---
+# --- Save supervised QC'd sample list ---
 echo ""
-echo "    Combining kept samples from AMR and non-AMR kinship ..."
-
-tail -n +2 "${SCRAP}/amr_king.king.cutoff.in.id" > "${SCRAP}/kinship_keep.txt"
-tail -n +2 "${SCRAP}/nonamr_king.king.cutoff.in.id" >> "${SCRAP}/kinship_keep.txt"
+tail -n +2 "${SCRAP}/amr_king.king.cutoff.in.id" > "${SCRAP}/supervised_qc_keep.txt"
+tail -n +2 "${SCRAP}/nonamr_king.king.cutoff.in.id" >> "${SCRAP}/supervised_qc_keep.txt"
 
 TOTAL_REMOVED=$((AMR_REMOVED + NONAMR_REMOVED))
-echo "    Total removed by kinship: $(fmt ${TOTAL_REMOVED})"
+SUP_FINAL=$(wc -l < "${SCRAP}/supervised_qc_keep.txt")
+echo "    Total supervised removed by kinship: $(fmt ${TOTAL_REMOVED})"
+echo "    Supervised samples after all QC: $(fmt ${SUP_FINAL})"
+echo ""
 
-"${PLINK2}" --bfile "${SCRAP}/mind_filtered" \
-    --keep "${SCRAP}/kinship_keep.txt" \
+# ===================================================================
+# STEP 8 — Apply final SNPs + add non-supervised back for projection
+# ===================================================================
+echo "  Step 8/8: Build final panel (supervised QC'd SNPs, all samples)"
+
+# Get the SNP list from the supervised QC
+awk '{print $2}' "${SCRAP}/mind_filtered.bim" > "${SCRAP}/final_snps.txt"
+SNPS_FINAL=$(wc -l < "${SCRAP}/final_snps.txt")
+
+# Apply SNP list to the full merged panel (brings non-supervised back)
+# then remove only the supervised individuals who failed QC
+"${PYTHON}" -c "
+import pandas as pd
+sup = pd.read_csv('${PROJECT_DIR}/summary/supervised.csv')
+sup_ids = set(sup['sample_id'])
+keep = set(open('${SCRAP}/supervised_qc_keep.txt').read().split())
+# Supervised samples that were removed by QC
+sup_removed = sup_ids - keep
+fam = pd.read_csv('${INPUT}.fam', sep='\s+', header=None, names=['FID','IID','PAT','MAT','SEX','PHENO'])
+# Keep: all non-supervised + supervised that passed QC
+keep_fam = fam[~fam['IID'].isin(sup_removed)]
+keep_fam[['FID','IID']].to_csv('${SCRAP}/final_keep.txt', sep='\t', header=False, index=False)
+n_nonsup = (~keep_fam['IID'].isin(sup_ids)).sum()
+n_sup = keep_fam['IID'].isin(sup_ids).sum()
+print(f'    Supervised (QC passed): {n_sup:,}')
+print(f'    Non-supervised (all): {n_nonsup:,}')
+print(f'    Total: {len(keep_fam):,}')
+"
+
+"${PLINK2}" --bfile "${INPUT}" \
+    --extract "${SCRAP}/final_snps.txt" \
+    --keep "${SCRAP}/final_keep.txt" \
     --make-bed \
     --out "${SUPERVISED_ADMIXTURE}/ancestry_qc" \
     "${PLINK_FLAGS[@]}"
 
 SAMPLES_FINAL=$(count_samples "${SUPERVISED_ADMIXTURE}/ancestry_qc")
-SNPS_FINAL=$(count_snps "${SUPERVISED_ADMIXTURE}/ancestry_qc")
-echo "    After kinship: $(fmt ${SAMPLES_FINAL}) individuals, $(fmt ${SNPS_FINAL}) SNPs"
+SNPS_FINAL_OUT=$(count_snps "${SUPERVISED_ADMIXTURE}/ancestry_qc")
+echo "    Output: $(fmt ${SAMPLES_FINAL}) samples, $(fmt ${SNPS_FINAL_OUT}) SNPs"
 echo ""
 
 # ===================================================================
 # Summary
 # ===================================================================
-TOTAL_SNPS_REMOVED=$((SNPS_BEFORE - SNPS_FINAL))
-TOTAL_SAMPLES_REMOVED=$((SAMPLES_BEFORE - SAMPLES_FINAL))
-
 echo "  ================================================"
 echo "  QC Summary"
 echo "  ================================================"
-echo "  SNP filters computed on supervised samples only (n=$(fmt ${SUP_SAMPLES}))"
-echo "  SNPs:    $(fmt ${SNPS_BEFORE}) -> $(fmt ${SNPS_FINAL})  (removed $(fmt ${TOTAL_SNPS_REMOVED}))"
-echo "  Samples: $(fmt ${SAMPLES_BEFORE}) -> $(fmt ${SAMPLES_FINAL})  (removed $(fmt ${TOTAL_SAMPLES_REMOVED}))"
+echo "  All filters computed on supervised samples only (n=$(fmt ${SUP_SAMPLES}))"
+echo "  SNPs:    $(fmt ${SNPS_BEFORE}) -> $(fmt ${SNPS_FINAL_OUT})"
+echo "  Supervised samples: $(fmt ${SUP_SAMPLES}) -> $(fmt ${SUP_FINAL})"
+echo "  Final panel: $(fmt ${SAMPLES_FINAL}) samples ($(fmt ${SUP_FINAL}) supervised + non-supervised)"
 echo "  Output:  ${SUPERVISED_ADMIXTURE}/ancestry_qc.{bed,bim,fam}"
 echo ""
 
