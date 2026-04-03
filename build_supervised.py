@@ -1,37 +1,37 @@
 """
-build_supervised.py — Assign samples to K=7 supervised ADMIXTURE reference populations.
+build_supervised.py — Assign samples to K=6 supervised ADMIXTURE reference populations.
 
 Rules derived from union of Sharma (All of Us) and Marino (creatinine) reference panels:
-  African:              Union of both, minus LWK
-  American:             Admix3way subset of PEL, Colombian, Maya, Pima, Karitiana, Surui + SGDP: Mixe, Quechua, Zapotec, Chane
-  Central and South Asian: Sharma South Asian (Balochi, Brahui, Makrani, GIH, ITU, STU)
-  East Asian:           Union of both, minus Cambodian and KHV, plus CDX and CHS from 1KGP
-  European:             Union of both
-  Oceanian:             All Sharma
-  West Asian:           Sharma Middle Eastern (Bedouin, Druze, Palestinian)
+  African:     Union of both, minus LWK
+  American:    Admix3way subset of PEL, Colombian, Maya, Pima, Karitiana, Surui + SGDP: Mixe, Quechua, Zapotec, Chane, Nahua
+  East Asian:  Union of both, minus Cambodian and KHV, plus CDX and CHS from 1KGP
+  European:    Union of both
+  Oceanian:    All Sharma
+  South Asian: GIH, ITU, STU
 
 Outlier exclusions:
   - Koenig harmonized outliers (summary/koenig_harmonized_outliers_2024.txt)
   - Other Spanish outliers (literature_reference/other_spanish_outliers.txt)
   - American admixed outliers (literature_reference/american_admixed_outliers.txt)
+  - Oceanian admixed outliers (literature_reference/oceanian_admixed_outliers.txt)
 """
 
 import pandas as pd
 
 REFERENCE_POPULATIONS = {
     "African": ["ESN", "MSL", "YRI", "Mbuti", "Biaka"],
-    "American": ["PEL", "Colombian", "Maya", "Pima", "Karitiana", "Surui", "Mixe", "Quechua", "Zapotec", "Chane"],
+    "American": ["PEL", "Colombian", "Maya", "Pima", "Karitiana", "Surui", "Mixe", "Quechua", "Zapotec", "Chane", "Nahua"],
     "East Asian": ["CHB", "CHS", "CDX", "Dai", "JPT", "She", "Tujia"],
     "European": ["FIN", "GBR", "IBS", "TSI", "Tuscan", "French", "Basque", "BergamoItalian"],
     "Oceanian": ["Bougainville", "PapuanHighlands", "PapuanSepik"],
-    "Central and South Asian": ["Balochi", "Brahui", "Makrani", "GIH", "ITU", "STU"],
-    "West Asian": ["Bedouin", "Druze", "Palestinian"],
+    "South Asian": ["GIH", "ITU", "STU"],
 }
 
 OUTLIER_FILES = {
     "Koenig harmonized outliers": "summary/koenig_harmonized_outliers_2024.txt",
     "Other Spanish outliers": "literature_reference/other_spanish_outliers.txt",
     "American admixed outliers": "literature_reference/american_admixed_outliers.txt",
+    "Oceanian admixed outliers": "literature_reference/oceanian_admixed_outliers.txt",
 }
 
 # Invert to population_id -> reference_population

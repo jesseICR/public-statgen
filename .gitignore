@@ -2,6 +2,8 @@ tools/
 downloads/
 qc/
 merge/
+supervised_admix/
+supervised_admixture/
 scrap/
 __pycache__/
 CLAUDE.md

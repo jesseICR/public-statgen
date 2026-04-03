@@ -7,15 +7,19 @@
 # Usage:
 #   bash main.sh
 #
-# Steps (current):
+# Steps:
 #   1. Install PLINK 1.9 & 2.0
 #   2. Download KG, HGDP, SGDP, and Neural ADMIXTURE data
 #   3. QC KG and HGDP data
 #   4. Set up Python virtual environment
-#   5. QC SGDP data (liftover hg19→hg38, match to KG, assign rsIDs)
+#   5. QC SGDP data (liftover hg19->hg38, match to KG, assign rsIDs)
 #   6. Merge KG + HGDP + SGDP into a single fileset
 #   7. Build merged metadata CSV with Neural ADMIXTURE ancestry labels
-#   8. Build supervised ADMIXTURE reference population assignments
+#   8. Build supervised reference population assignments (K=6)
+#   9. Install ADMIXTURE software
+#  10. QC merged panel for ADMIXTURE (geno/MAF0.03/HWE/LD/mind/kinship)
+#  11. Run ADMIXTURE supervised ancestry (3-fold CV + final projection)
+#  12. Analyze ADMIXTURE results (structure plots, metadata, allele freqs)
 #
 set -euo pipefail
 
@@ -35,6 +39,8 @@ export PLINK_MEMORY=14000
 export PLINK_THREADS=6
 export GENO_THRESHOLD=0.03
 export PYTHON="${PROJECT_DIR}/tools/venv/bin/python"
+export SUPERVISED_ADMIXTURE="${PROJECT_DIR}/supervised_admixture"
+export ADMIXTURE="${TOOLS_BIN}/admixture"
 
 # ---------------------------------------------------------------------------
 # Step 1 — Install PLINK
@@ -137,10 +143,10 @@ fi
 echo ""
 
 # ---------------------------------------------------------------------------
-# Step 8 — Build supervised ADMIXTURE reference populations
+# Step 8 — Build supervised reference populations (K=6)
 # ---------------------------------------------------------------------------
 echo "============================================"
-echo "Step 8: Build supervised ADMIXTURE reference populations"
+echo "Step 8: Build supervised reference populations (K=6)"
 echo "============================================"
 
 if [[ -f "${PROJECT_DIR}/summary/supervised.csv" ]]; then
@@ -150,6 +156,66 @@ else
 fi
 echo ""
 
+# ---------------------------------------------------------------------------
+# Step 9 — Install ADMIXTURE
+# ---------------------------------------------------------------------------
 echo "============================================"
-echo "Pipeline steps 1-8 complete."
+echo "Step 9: Install ADMIXTURE"
+echo "============================================"
+bash "${PROJECT_DIR}/setup_admixture.sh"
+
+"${ADMIXTURE}" --version 2>&1 | head -1 || { echo "Error: admixture failed to run" >&2; exit 1; }
+echo ""
+
+# ---------------------------------------------------------------------------
+# Step 10 — QC merged panel for ADMIXTURE (MAF 0.03)
+# ---------------------------------------------------------------------------
+echo "============================================"
+echo "Step 10: QC merged panel for ADMIXTURE (MAF 0.03)"
+echo "============================================"
+
+if [[ -f "${SUPERVISED_ADMIXTURE}/ancestry_qc.bed" ]]; then
+    echo "  [skip] ADMIXTURE QC already complete in ${SUPERVISED_ADMIXTURE}/"
+else
+    mkdir -p "${SUPERVISED_ADMIXTURE}/scrap"
+    bash "${PROJECT_DIR}/qc_admixture.sh"
+fi
+echo ""
+
+# ---------------------------------------------------------------------------
+# Step 11 — Run ADMIXTURE supervised ancestry (3-fold CV + final)
+# ---------------------------------------------------------------------------
+echo "============================================"
+echo "Step 11: Run ADMIXTURE supervised ancestry estimation"
+echo "============================================"
+
+# Detect K from supervised.csv
+K=$("${PYTHON}" -c "
+import pandas as pd
+print(pd.read_csv('${PROJECT_DIR}/summary/supervised.csv')['reference_population'].nunique())
+")
+
+if [[ -f "${SUPERVISED_ADMIXTURE}/admixture_final.${K}.Q" ]]; then
+    echo "  [skip] ADMIXTURE output already exists in ${SUPERVISED_ADMIXTURE}/"
+else
+    "${PYTHON}" "${PROJECT_DIR}/run_admixture_supervised.py"
+fi
+echo ""
+
+# ---------------------------------------------------------------------------
+# Step 12 — Analyze ADMIXTURE results
+# ---------------------------------------------------------------------------
+echo "============================================"
+echo "Step 12: Analyze ADMIXTURE results"
+echo "============================================"
+
+if [[ -f "${PROJECT_DIR}/summary/admixture-global-${K}/metadata_ancestry.csv" ]]; then
+    echo "  [skip] ADMIXTURE analysis output already exists"
+else
+    "${PYTHON}" "${PROJECT_DIR}/analyze_admixture_results.py"
+fi
+echo ""
+
+echo "============================================"
+echo "Pipeline steps 1-12 complete."
 echo "============================================"
