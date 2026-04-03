@@ -9,17 +9,18 @@
 #
 # Steps:
 #   1. Install PLINK 1.9 & 2.0
-#   2. Download KG, HGDP, SGDP, and Neural ADMIXTURE data
+#   2. Download KG, HGDP, SGDP, Neural ADMIXTURE, and GIAB data
 #   3. QC KG and HGDP data
 #   4. Set up Python virtual environment
 #   5. QC SGDP data (liftover hg19->hg38, match to KG, assign rsIDs)
 #   6. Merge KG + HGDP + SGDP into a single fileset
-#   7. Build merged metadata CSV with Neural ADMIXTURE ancestry labels
-#   8. Build supervised reference population assignments (K=6)
-#   9. Install ADMIXTURE software
-#  10. QC merged panel for ADMIXTURE (geno/MAF0.03/HWE/LD/mind/kinship)
-#  11. Run ADMIXTURE supervised ancestry (3-fold CV + final projection)
-#  12. Analyze ADMIXTURE results (structure plots, metadata, allele freqs)
+#   7. Prepare and merge GIAB Ashkenazi parents (HG003, HG004)
+#   8. Build merged metadata CSV with Neural ADMIXTURE ancestry labels
+#   9. Build supervised reference population assignments (K=6)
+#  10. Install ADMIXTURE software
+#  11. QC merged panel for ADMIXTURE (geno/MAF0.03/HWE/LD/mind/kinship)
+#  12. Run ADMIXTURE supervised ancestry (3-fold CV + final projection)
+#  13. Analyze ADMIXTURE results (structure plots, metadata, allele freqs)
 #
 set -euo pipefail
 
@@ -129,10 +130,26 @@ fi
 echo ""
 
 # ---------------------------------------------------------------------------
-# Step 7 — Build metadata CSV
+# Step 7 — Prepare and merge GIAB Ashkenazi parents
 # ---------------------------------------------------------------------------
 echo "============================================"
-echo "Step 7: Build merged metadata CSV"
+echo "Step 7: Prepare and merge GIAB Ashkenazi parents"
+echo "============================================"
+
+# Check if GIAB samples are already in the merged fam
+if grep -qw "HG003" "${MERGE_DIR}/merged_kg_hgdp_sgdp.fam" 2>/dev/null; then
+    echo "  [skip] GIAB samples already in merged panel"
+else
+    "${PYTHON}" "${PROJECT_DIR}/prepare_giab.py"
+    bash "${PROJECT_DIR}/merge_giab.sh"
+fi
+echo ""
+
+# ---------------------------------------------------------------------------
+# Step 8 — Build metadata CSV
+# ---------------------------------------------------------------------------
+echo "============================================"
+echo "Step 8: Build merged metadata CSV"
 echo "============================================"
 
 if [[ -f "${PROJECT_DIR}/summary/metadata.csv" ]]; then
@@ -143,10 +160,10 @@ fi
 echo ""
 
 # ---------------------------------------------------------------------------
-# Step 8 — Build supervised reference populations (K=6)
+# Step 9 — Build supervised reference populations (K=6)
 # ---------------------------------------------------------------------------
 echo "============================================"
-echo "Step 8: Build supervised reference populations (K=6)"
+echo "Step 9: Build supervised reference populations (K=6)"
 echo "============================================"
 
 if [[ -f "${PROJECT_DIR}/summary/supervised.csv" ]]; then
@@ -157,10 +174,10 @@ fi
 echo ""
 
 # ---------------------------------------------------------------------------
-# Step 9 — Install ADMIXTURE
+# Step 10 — Install ADMIXTURE
 # ---------------------------------------------------------------------------
 echo "============================================"
-echo "Step 9: Install ADMIXTURE"
+echo "Step 10: Install ADMIXTURE"
 echo "============================================"
 bash "${PROJECT_DIR}/setup_admixture.sh"
 
@@ -168,10 +185,10 @@ bash "${PROJECT_DIR}/setup_admixture.sh"
 echo ""
 
 # ---------------------------------------------------------------------------
-# Step 10 — QC merged panel for ADMIXTURE (MAF 0.03)
+# Step 11 — QC merged panel for ADMIXTURE (MAF 0.03)
 # ---------------------------------------------------------------------------
 echo "============================================"
-echo "Step 10: QC merged panel for ADMIXTURE (MAF 0.03)"
+echo "Step 11: QC merged panel for ADMIXTURE (MAF 0.03)"
 echo "============================================"
 
 if [[ -f "${SUPERVISED_ADMIXTURE}/ancestry_qc.bed" ]]; then
@@ -183,10 +200,10 @@ fi
 echo ""
 
 # ---------------------------------------------------------------------------
-# Step 11 — Run ADMIXTURE supervised ancestry (3-fold CV + final)
+# Step 12 — Run ADMIXTURE supervised ancestry (3-fold CV + final)
 # ---------------------------------------------------------------------------
 echo "============================================"
-echo "Step 11: Run ADMIXTURE supervised ancestry estimation"
+echo "Step 12: Run ADMIXTURE supervised ancestry estimation"
 echo "============================================"
 
 # Detect K from supervised.csv
@@ -203,10 +220,10 @@ fi
 echo ""
 
 # ---------------------------------------------------------------------------
-# Step 12 — Analyze ADMIXTURE results
+# Step 13 — Analyze ADMIXTURE results
 # ---------------------------------------------------------------------------
 echo "============================================"
-echo "Step 12: Analyze ADMIXTURE results"
+echo "Step 13: Analyze ADMIXTURE results"
 echo "============================================"
 
 if [[ -f "${PROJECT_DIR}/summary/admixture-global-${K}/metadata_ancestry.csv" ]]; then
@@ -217,5 +234,5 @@ fi
 echo ""
 
 echo "============================================"
-echo "Pipeline steps 1-12 complete."
+echo "Pipeline steps 1-13 complete."
 echo "============================================"
