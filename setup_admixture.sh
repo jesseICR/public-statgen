@@ -38,7 +38,7 @@ TARBALL="${ADMIXTURE_DIR}/admixture_linux-1.3.0.tar.gz"
 curl -fSL -o "${TARBALL}" \
     "https://dalexander.github.io/admixture/binaries/admixture_linux-1.3.0.tar.gz"
 
-tar -xzf "${TARBALL}" -C "${ADMIXTURE_DIR}" --strip-components=1
+tar -xzf "${TARBALL}" -C "${ADMIXTURE_DIR}" --strip-components=2
 rm -f "${TARBALL}"
 
 # Symlink into tools/bin

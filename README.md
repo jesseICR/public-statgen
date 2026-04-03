@@ -106,6 +106,48 @@ public-statgen/
 └── literature_reference/        # Sample-level info extracted from publications
 ```
 
+## Runtime and Storage
+
+**Benchmarked on:** 128 cores, 503 GiB RAM | PLINK threads: 6, PLINK memory: 14 GB
+
+### Per-Step Runtime
+
+| Step | Description | Runtime |
+|------|-------------|---------|
+| 1 | Install PLINK (1.9 + 2.0) | 1 s |
+| 2 | Download KG, HGDP, SGDP, Neural ADMIXTURE, GIAB | ~7 m 30 s |
+| 3 | QC KG and HGDP (decompress zst, filter, convert) | 9 m 49 s |
+| 4 | Set up Python venv + dependencies | 11 s |
+| 5 | QC SGDP (liftover hg19 → hg38, filter) | 1 m 38 s |
+| 6 | Merge KG + HGDP + SGDP | 16 s |
+| 7 | Prepare and merge GIAB Ashkenazi parents | TBD |
+| 8 | Build metadata CSV | < 1 s |
+| 9 | Build supervised reference populations | < 1 s |
+| 10 | Install ADMIXTURE | < 1 s |
+| 11 | QC for ADMIXTURE (geno, MAF, HWE, LD prune, kinship) | 4 s |
+| 12 | Run ADMIXTURE supervised (3-fold CV + final, K=6) | 70 m 15 s |
+| 13 | Analyze ADMIXTURE results (CV stats, plots, metadata) | 16 s |
+
+**Total pipeline runtime: ~90 minutes** (steps 7 not yet timed).
+
+The two dominant steps are Step 3 (QC KG + HGDP, ~10 min) and Step 12 (ADMIXTURE runs, ~70 min), which together account for ~89% of total runtime. Step 12 runs ADMIXTURE 4 times (3 CV folds + 1 final), each taking ~17–19 min wall time using 6 threads.
+
+### Storage
+
+| Directory | Size | Contents |
+|-----------|------|----------|
+| `downloads/` | 13 GB | Raw downloaded files (KG, HGDP pgen.zst, SGDP bed, Neural ADMIXTURE, GIAB VCFs) |
+| `tools/` | 296 MB | PLINK 1.9 + 2.0, ADMIXTURE, Python venv |
+| `qc/` | 496 MB | QC'd BED/BIM/FAM for KG, HGDP, SGDP |
+| `merge/` | 389 MB | Merged three-dataset BED/BIM/FAM |
+| `supervised_admixture/` | 858 MB | ADMIXTURE QC panel, fold .Q/.P files, final .Q/.P |
+| `summary/` | 7.5 MB | metadata, supervised CSV, structure plots, allele freqs |
+| **Total** | **~15 GB** | |
+
+**Peak transient storage:** Step 3 decompresses KG and HGDP pgen.zst files (~5 GB each → ~8.9 GB uncompressed). Peak project size during step 3 is approximately **91 GB** before intermediates are removed.
+
+The `downloads/` directory can be deleted after QC (steps 3 + 5) to reclaim ~13 GB, reducing the final footprint to ~2 GB.
+
 ## Data Sources
 
 - **1000 Genomes (KG)** — hg38 pfiles from the [PLINK 2.0 resources page](https://www.cog-genomics.org/plink/2.0/resources)

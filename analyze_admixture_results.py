@@ -140,8 +140,8 @@ def structure_plot(q_df, title, output_path, group_col, pop_col,
     """
     ancestry_cols = [c for c in ref_pops if c in q_df.columns]
     df = q_df[ancestry_cols].copy()
-    df["_group"] = df.index.map(group_col)
-    df["_pop"] = df.index.map(pop_col)
+    df["_group"] = group_col.values if hasattr(group_col, 'values') else df.index.map(group_col)
+    df["_pop"] = pop_col.values if hasattr(pop_col, 'values') else df.index.map(pop_col)
     df = df.sort_values(["_group", "_pop"])
 
     groups = df["_group"].values
