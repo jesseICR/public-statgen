@@ -5,29 +5,43 @@ Performs 3-fold stratified cross-validation on supervised reference samples,
 then a final run using all supervised samples as reference with projection
 onto every sample in the dataset.
 
+K model selection (env K_MODEL):
+  K=3: African, American, European
+  K=5: African, American, East Asian, European, South Asian
+  K=6: African, American, East Asian, European, Oceanian, South Asian
+
+The supervised.csv always contains all populations, but only populations
+in the active K model are labeled in the .pop file. Samples from inactive
+populations are projected (unlabeled).
+
 Cross-validation:
-  - Splits supervised samples into 3 stratified folds (balanced by
-    reference_population, seed=42).
+  - Splits active supervised samples into N stratified folds (balanced by
+    reference_population, seed from env).
   - For each fold: creates a .pop file labeling training samples with
     their reference_population, holdout and non-supervised with "-".
   - Runs ADMIXTURE in --supervised mode.
 
 Final run:
-  - All supervised samples labeled in .pop.
+  - All active supervised samples labeled in .pop.
   - ADMIXTURE estimates ancestry for every sample (supervised + non-supervised).
 
 Expected environment:
   SUPERVISED_ADMIXTURE  — directory with ancestry_qc.{bed,bim,fam}
+  K_MODEL               — ADMIXTURE model (3, 5, or 6)
+  N_FOLDS               — number of cross-validation folds (default 3)
+  ADMIXTURE_SEED        — random seed (default 42)
+  PLINK_THREADS         — thread count for ADMIXTURE
+  ADMIXTURE             — path to admixture binary (optional)
 
 Input files:
   summary/supervised.csv     — sample_id, population_id, reference_population
   {SUPERVISED_ADMIXTURE}/ancestry_qc.{bed,bim,fam}
 
 Output files (in SUPERVISED_ADMIXTURE):
-  admixture_fold{1,2,3}.K.Q  — fold ancestry proportions
-  admixture_final.K.Q        — final ancestry proportions (all samples)
-  admixture_final.K.P        — allele frequency matrix (for projection)
-  fold_assignments.csv       — which fold each supervised sample belongs to
+  admixture_fold{1..N}.K.Q   — fold ancestry proportions
+  admixture_final.K.Q         — final ancestry proportions (all samples)
+  admixture_final.K.P         — allele frequency matrix (for projection)
+  fold_assignments.csv        — which fold each supervised sample belongs to
 """
 
 import os
@@ -44,9 +58,17 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 SUPERVISED_ADMIXTURE = os.environ["SUPERVISED_ADMIXTURE"]
 SCRAP = os.path.join(SUPERVISED_ADMIXTURE, "scrap")
 THREADS = os.environ.get("PLINK_THREADS", "6")
-ADMIXTURE = os.path.join(PROJECT_DIR, "tools", "bin", "admixture")
-N_FOLDS = 3
-SEED = 42
+ADMIXTURE = os.environ.get("ADMIXTURE", os.path.join(PROJECT_DIR, "tools", "bin", "admixture"))
+N_FOLDS = int(os.environ.get("N_FOLDS", "3"))
+SEED = int(os.environ.get("ADMIXTURE_SEED", "42"))
+
+K_MODEL = int(os.environ.get("K_MODEL", "6"))
+K_MODEL_POPS = {
+    3: ["African", "American", "European"],
+    5: ["African", "American", "East Asian", "European", "South Asian"],
+    6: ["African", "American", "East Asian", "European", "Oceanian", "South Asian"],
+}
+active_pops = set(K_MODEL_POPS[K_MODEL])
 
 os.makedirs(SCRAP, exist_ok=True)
 
@@ -63,16 +85,28 @@ print("ADMIXTURE supervised ancestry estimation")
 print("=" * 60)
 
 supervised = pd.read_csv(os.path.join(PROJECT_DIR, "summary", "supervised.csv"))
-ref_pops = sorted(supervised["reference_population"].unique())
-K = len(ref_pops)
-print(f"\nReference populations (K={K}):")
-for rp in ref_pops:
-    n = (supervised["reference_population"] == rp).sum()
-    print(f"  {rp}: {fmt(n)}")
-print(f"  Total supervised: {fmt(len(supervised))}")
 
-# Map sample_id → reference_population
-sid_to_ref = dict(zip(supervised["sample_id"], supervised["reference_population"]))
+# Filter to active populations for this K model
+supervised_active = supervised[supervised["reference_population"].isin(active_pops)].copy()
+ref_pops = sorted(active_pops)
+K = len(ref_pops)
+
+print(f"\nK model: K={K_MODEL}")
+print(f"Active reference populations (K={K}):")
+for rp in ref_pops:
+    n = (supervised_active["reference_population"] == rp).sum()
+    print(f"  {rp}: {fmt(n)}")
+print(f"  Total active supervised: {fmt(len(supervised_active))}")
+
+inactive = supervised[~supervised["reference_population"].isin(active_pops)]
+if len(inactive) > 0:
+    print(f"\nInactive populations (projected, not labeled):")
+    for rp in sorted(inactive["reference_population"].unique()):
+        n = (inactive["reference_population"] == rp).sum()
+        print(f"  {rp}: {fmt(n)}")
+
+# Map sample_id → reference_population (active only)
+sid_to_ref = dict(zip(supervised_active["sample_id"], supervised_active["reference_population"]))
 
 # Read the QC'd fam to get sample order
 fam_path = os.path.join(SUPERVISED_ADMIXTURE, "ancestry_qc.fam")
@@ -81,14 +115,14 @@ fam = pd.read_csv(fam_path, sep=r"\s+", header=None,
 sample_order = fam["IID"].tolist()
 print(f"\nQC'd samples: {fmt(len(sample_order))}")
 
-# Which supervised samples survived QC?
-supervised_in_qc = supervised[supervised["sample_id"].isin(sample_order)]
+# Which active supervised samples survived QC?
+supervised_in_qc = supervised_active[supervised_active["sample_id"].isin(sample_order)].copy()
 n_survived = len(supervised_in_qc)
-n_lost = len(supervised) - n_survived
-print(f"Supervised samples in QC'd data: {fmt(n_survived)} ({fmt(n_lost)} removed by QC)")
+n_lost = len(supervised_active) - n_survived
+print(f"Active supervised samples in QC'd data: {fmt(n_survived)} ({fmt(n_lost)} removed by QC)")
 
 if n_lost > 0:
-    lost = supervised[~supervised["sample_id"].isin(sample_order)]
+    lost = supervised_active[~supervised_active["sample_id"].isin(sample_order)]
     print("  Lost by reference population:")
     for rp, grp in lost.groupby("reference_population"):
         pops = grp.groupby("population_id").size()
@@ -100,12 +134,11 @@ if n_lost > 0:
                 print(f"    {pop} ({rp}): {cnt} samples")
 
 # ---------------------------------------------------------------------------
-# 2. Stratified 3-fold split (same seed as Rye for comparability)
+# 2. Stratified N-fold split
 # ---------------------------------------------------------------------------
-print(f"\nSplitting {fmt(n_survived)} supervised samples into {N_FOLDS} stratified folds ...")
+print(f"\nSplitting {fmt(n_survived)} active supervised samples into {N_FOLDS} stratified folds ...")
 
 rng = np.random.RandomState(SEED)
-supervised_in_qc = supervised_in_qc.copy()
 supervised_in_qc["fold"] = -1
 
 for rp in ref_pops:
@@ -208,7 +241,7 @@ def setup_fold_files(fold_name, labeled_ids):
 # 4. Cross-validation runs
 # ---------------------------------------------------------------------------
 print("\n" + "=" * 60)
-print("3-fold cross-validation")
+print(f"{N_FOLDS}-fold cross-validation")
 print("=" * 60)
 
 labeled_all = {row["sample_id"]: row["reference_population"]
@@ -235,7 +268,7 @@ for fold in range(1, N_FOLDS + 1):
 # 5. Final run: all supervised labeled, project onto everyone
 # ---------------------------------------------------------------------------
 print("\n" + "=" * 60)
-print("Final run: all supervised as reference")
+print("Final run: all active supervised as reference")
 print("=" * 60)
 
 prefix = setup_fold_files("final", labeled_all)

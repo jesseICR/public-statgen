@@ -130,4 +130,12 @@ download "${GIAB_DIR}/HG004_GRCh38_1_22_v4.2.1_benchmark.vcf.gz" \
 download "${GIAB_DIR}/HG004_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed" \
     "${GIAB_BASE}/HG004_NA24143_mother/latest/GRCh38/HG004_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed"
 
+# ---------------------------------------------------------------------------
+# 1000 Genomes population descriptions (for plot labels)
+# ---------------------------------------------------------------------------
+echo "==> Downloading 1000 Genomes population descriptions ..."
+
+download "${DOWNLOADS_DIR}/kg_population_names.tsv" \
+    "https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/20131219.populations.tsv"
+
 echo "==> Downloads complete."

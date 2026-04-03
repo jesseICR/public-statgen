@@ -5,22 +5,26 @@
 # Quality-control pipeline preparing the merged reference panel for
 # supervised ancestry estimation with ADMIXTURE.
 #
-# SNP-based filters (geno, MAF, HWE, LD) are computed ONLY on supervised
+# SNP-based filters (geno, MAF, LD) are computed ONLY on supervised
 # samples — the individuals that will actually train the model. The resulting
 # SNP list is then applied to all samples so non-supervised individuals
 # remain in the panel for projection.
 #
+# Hardy-Weinberg filtering is performed AFTER kinship pruning so that it
+# runs only on unrelated supervised individuals, avoiding HWE inflation
+# from cryptic relatedness.
+#
 # QC order:
 #   0. Extract supervised samples for QC
-#   1. Genotype missingness filter (--geno 0.01)          [supervised only]
-#   2. Minor allele frequency filter (--maf 0.03)         [supervised only]
-#   3. Hardy-Weinberg equilibrium exact test (--hwe 1e-50) [supervised only]
-#   4. Exclude long-range LD regions                       [supervised only]
-#   5. LD pruning (--indep-pairwise 50 10 0.1)            [supervised only]
-#   6. Individual missingness filter (--mind 0.01)         [supervised only]
-#   7. Kinship: remove related individuals                 [supervised only]
-#        AMR samples:     KING cutoff 0.088  (approx 3rd-degree)
-#        Non-AMR samples: KING cutoff 0.05   (approx 2nd-degree)
+#   1. Genotype missingness filter (--geno)                  [supervised only]
+#   2. Minor allele frequency filter (--maf)                 [supervised only]
+#   3. Exclude long-range LD regions                          [supervised only]
+#   4. LD pruning (--indep-pairwise)                          [supervised only]
+#   5. Individual missingness filter (--mind)                 [supervised only]
+#   6. Kinship: remove related individuals                    [supervised only]
+#        AMR samples:     KING cutoff (env KING_CUTOFF_AMR)
+#        Non-AMR samples: KING cutoff (env KING_CUTOFF_NONAMR)
+#   7. Hardy-Weinberg equilibrium exact test (--hwe)          [unrelated supervised]
 #   8. Apply final supervised SNP+sample list to all samples for projection
 #
 # Expected environment:
@@ -31,6 +35,15 @@
 #   PLINK_MEMORY           — memory limit in MB
 #   PLINK_THREADS          — number of threads
 #   SUPERVISED_ADMIXTURE   — output directory for all ADMIXTURE work
+#   GENO_ADMIXTURE         — genotype missingness threshold (e.g. 0.01)
+#   MAF_ADMIXTURE          — minor allele frequency threshold (e.g. 0.02)
+#   HWE_PVALUE             — Hardy-Weinberg p-value threshold (e.g. 1e-50)
+#   LD_WINDOW              — LD pruning window size in SNPs (e.g. 50)
+#   LD_STEP                — LD pruning step size (e.g. 10)
+#   LD_R2                  — LD pruning r-squared threshold (e.g. 0.1)
+#   MIND_ADMIXTURE         — individual missingness threshold (e.g. 0.01)
+#   KING_CUTOFF_AMR        — kinship cutoff for AMR samples (e.g. 0.088)
+#   KING_CUTOFF_NONAMR     — kinship cutoff for non-AMR samples (e.g. 0.05)
 #
 # Input files (read-only):
 #   summary/supervised.csv  — sample_id,population_id,reference_population
@@ -44,7 +57,9 @@ set -euo pipefail
 # ---------------------------------------------------------------------------
 # Validate environment
 # ---------------------------------------------------------------------------
-for var in MERGE_DIR PLINK1 PLINK2 PYTHON PLINK_MEMORY PLINK_THREADS SUPERVISED_ADMIXTURE; do
+for var in MERGE_DIR PLINK1 PLINK2 PYTHON PLINK_MEMORY PLINK_THREADS SUPERVISED_ADMIXTURE \
+           GENO_ADMIXTURE MAF_ADMIXTURE HWE_PVALUE LD_WINDOW LD_STEP LD_R2 \
+           MIND_ADMIXTURE KING_CUTOFF_AMR KING_CUTOFF_NONAMR; do
     if [[ -z "${!var:-}" ]]; then
         echo "Error: ${var} is not set." >&2
         exit 1
@@ -103,62 +118,44 @@ echo "    Extracted $(fmt ${SUP_SAMPLES}) supervised samples for SNP filtering"
 echo ""
 
 # ===================================================================
-# STEP 1 — Genotype missingness (--geno 0.01) [supervised only]
+# STEP 1 — Genotype missingness (--geno) [supervised only]
 # ===================================================================
-echo "  Step 1/8: Genotype missingness filter (--geno 0.01) [supervised only]"
+echo "  Step 1/8: Genotype missingness filter (--geno ${GENO_ADMIXTURE}) [supervised only]"
 
 "${PLINK2}" --bfile "${SCRAP}/supervised_only" \
-    --geno 0.01 \
+    --geno "${GENO_ADMIXTURE}" \
     --make-bed \
     --out "${SCRAP}/geno_filtered" \
     "${PLINK_FLAGS[@]}"
 
 SNPS_AFTER=$(count_snps "${SCRAP}/geno_filtered")
 SNPS_REMOVED=$((SNPS_BEFORE - SNPS_AFTER))
-echo "    Removed $(fmt ${SNPS_REMOVED}) SNPs with >1% missingness in supervised samples"
+echo "    Removed $(fmt ${SNPS_REMOVED}) SNPs with >${GENO_ADMIXTURE} missingness in supervised samples"
 echo "    Remaining: $(fmt ${SNPS_AFTER}) SNPs"
 echo ""
 
 # ===================================================================
-# STEP 2 — Minor allele frequency (--maf 0.03) [supervised only]
+# STEP 2 — Minor allele frequency (--maf) [supervised only]
 # ===================================================================
-echo "  Step 2/8: MAF filter (--maf 0.03) [supervised only]"
+echo "  Step 2/8: MAF filter (--maf ${MAF_ADMIXTURE}) [supervised only]"
 
 SNPS_BEFORE_MAF=${SNPS_AFTER}
 "${PLINK2}" --bfile "${SCRAP}/geno_filtered" \
-    --maf 0.03 \
+    --maf "${MAF_ADMIXTURE}" \
     --make-bed \
     --out "${SCRAP}/maf_filtered" \
     "${PLINK_FLAGS[@]}"
 
 SNPS_AFTER=$(count_snps "${SCRAP}/maf_filtered")
 SNPS_REMOVED=$((SNPS_BEFORE_MAF - SNPS_AFTER))
-echo "    Removed $(fmt ${SNPS_REMOVED}) SNPs with MAF < 0.03 in supervised samples"
+echo "    Removed $(fmt ${SNPS_REMOVED}) SNPs with MAF < ${MAF_ADMIXTURE} in supervised samples"
 echo "    Remaining: $(fmt ${SNPS_AFTER}) SNPs"
 echo ""
 
 # ===================================================================
-# STEP 3 — Hardy-Weinberg equilibrium (--hwe 1e-50) [supervised only]
+# STEP 3 — Exclude long-range LD regions [supervised only]
 # ===================================================================
-echo "  Step 3/8: HWE exact test (--hwe 1e-50) [supervised only]"
-
-SNPS_BEFORE_HWE=${SNPS_AFTER}
-"${PLINK2}" --bfile "${SCRAP}/maf_filtered" \
-    --hwe 1e-50 \
-    --make-bed \
-    --out "${SCRAP}/hwe_filtered" \
-    "${PLINK_FLAGS[@]}"
-
-SNPS_AFTER=$(count_snps "${SCRAP}/hwe_filtered")
-SNPS_REMOVED=$((SNPS_BEFORE_HWE - SNPS_AFTER))
-echo "    Removed $(fmt ${SNPS_REMOVED}) SNPs failing HWE (p < 1e-50)"
-echo "    Remaining: $(fmt ${SNPS_AFTER}) SNPs"
-echo ""
-
-# ===================================================================
-# STEP 4 — Exclude long-range LD regions [supervised only]
-# ===================================================================
-echo "  Step 4/8: Exclude long-range LD regions (Price et al. 2008, hg38) [supervised only]"
+echo "  Step 3/8: Exclude long-range LD regions (Price et al. 2008, hg38) [supervised only]"
 
 # Download the hg38 high-LD regions BED file
 HIGH_LD_BED="${SCRAP}/high_ld_regions_hg38.bed"
@@ -175,7 +172,7 @@ awk 'BEGIN{OFS="\t"} {
 }' "${HIGH_LD_BED}" > "${SCRAP}/high_ld_ranges.txt"
 
 SNPS_BEFORE_LD=${SNPS_AFTER}
-"${PLINK2}" --bfile "${SCRAP}/hwe_filtered" \
+"${PLINK2}" --bfile "${SCRAP}/maf_filtered" \
     --exclude range "${SCRAP}/high_ld_ranges.txt" \
     --make-bed \
     --out "${SCRAP}/ldregion_excluded" \
@@ -188,12 +185,12 @@ echo "    Remaining: $(fmt ${SNPS_AFTER}) SNPs"
 echo ""
 
 # ===================================================================
-# STEP 5 — LD pruning (--indep-pairwise 50 10 0.1) [supervised only]
+# STEP 4 — LD pruning (--indep-pairwise) [supervised only]
 # ===================================================================
-echo "  Step 5/8: LD pruning (window=50, step=10, r2=0.1) [supervised only]"
+echo "  Step 4/8: LD pruning (window=${LD_WINDOW}, step=${LD_STEP}, r2=${LD_R2}) [supervised only]"
 
 "${PLINK2}" --bfile "${SCRAP}/ldregion_excluded" \
-    --indep-pairwise 50 10 0.1 \
+    --indep-pairwise "${LD_WINDOW}" "${LD_STEP}" "${LD_R2}" \
     --out "${SCRAP}/ld_prune" \
     "${PLINK_FLAGS[@]}"
 
@@ -212,14 +209,14 @@ echo "    Remaining: $(fmt ${SNPS_AFTER}) SNPs"
 echo ""
 
 # ===================================================================
-# STEP 6 — Individual missingness (--mind 0.01) [supervised only]
+# STEP 5 — Individual missingness (--mind) [supervised only]
 # ===================================================================
-echo "  Step 6/8: Individual missingness filter (--mind 0.01) [supervised only]"
+echo "  Step 5/8: Individual missingness filter (--mind ${MIND_ADMIXTURE}) [supervised only]"
 
 SAMPLES_BEFORE_MIND=$(count_samples "${SCRAP}/ld_pruned")
 
 "${PLINK2}" --bfile "${SCRAP}/ld_pruned" \
-    --mind 0.01 \
+    --mind "${MIND_ADMIXTURE}" \
     --make-bed \
     --out "${SCRAP}/mind_filtered" \
     "${PLINK_FLAGS[@]}"
@@ -228,7 +225,7 @@ SAMPLES_AFTER_MIND=$(count_samples "${SCRAP}/mind_filtered")
 SAMPLES_REMOVED_MIND=$((SAMPLES_BEFORE_MIND - SAMPLES_AFTER_MIND))
 
 if [[ ${SAMPLES_REMOVED_MIND} -gt 0 ]]; then
-    echo "    Removed $(fmt ${SAMPLES_REMOVED_MIND}) supervised individuals with >1% missingness"
+    echo "    Removed $(fmt ${SAMPLES_REMOVED_MIND}) supervised individuals with >${MIND_ADMIXTURE} missingness"
 
     awk '{print $2}' "${SCRAP}/ld_pruned.fam" | sort > "${SCRAP}/before_mind_iids.txt"
     awk '{print $2}' "${SCRAP}/mind_filtered.fam" | sort > "${SCRAP}/after_mind_iids.txt"
@@ -250,9 +247,9 @@ echo "    Remaining: $(fmt ${SAMPLES_AFTER_MIND}) supervised individuals"
 echo ""
 
 # ===================================================================
-# STEP 7 — Kinship (separate AMR and non-AMR) [supervised only]
+# STEP 6 — Kinship (separate AMR and non-AMR) [supervised only]
 # ===================================================================
-echo "  Step 7/8: Kinship filtering [supervised only] (AMR threshold=0.088, non-AMR threshold=0.05)"
+echo "  Step 6/8: Kinship filtering [supervised only] (AMR=${KING_CUTOFF_AMR}, non-AMR=${KING_CUTOFF_NONAMR})"
 
 "${PYTHON}" -c "
 import pandas as pd
@@ -268,15 +265,15 @@ print(f'    Supervised AMR: {len(amr_in_fam):,}')
 print(f'    Supervised non-AMR: {len(nonamr_in_fam):,}')
 "
 
-# --- 7a. Kinship on AMR (threshold 0.088) ---
+# --- 6a. Kinship on AMR ---
 echo ""
-echo "    7a. AMR kinship (KING cutoff = 0.088)"
+echo "    6a. AMR kinship (KING cutoff = ${KING_CUTOFF_AMR})"
 
 AMR_COUNT_BEFORE=$(wc -l < "${SCRAP}/amr_samples.txt")
 
 "${PLINK2}" --bfile "${SCRAP}/mind_filtered" \
     --keep "${SCRAP}/amr_samples.txt" \
-    --king-cutoff 0.088 \
+    --king-cutoff "${KING_CUTOFF_AMR}" \
     --out "${SCRAP}/amr_king" \
     "${PLINK_FLAGS[@]}"
 
@@ -304,15 +301,15 @@ for _, row in sup_removed.iterrows():
 "
 fi
 
-# --- 7b. Kinship on non-AMR (threshold 0.05) ---
+# --- 6b. Kinship on non-AMR ---
 echo ""
-echo "    7b. Non-AMR kinship (KING cutoff = 0.05)"
+echo "    6b. Non-AMR kinship (KING cutoff = ${KING_CUTOFF_NONAMR})"
 
 NONAMR_COUNT_BEFORE=$(wc -l < "${SCRAP}/nonamr_samples.txt")
 
 "${PLINK2}" --bfile "${SCRAP}/mind_filtered" \
     --keep "${SCRAP}/nonamr_samples.txt" \
-    --king-cutoff 0.05 \
+    --king-cutoff "${KING_CUTOFF_NONAMR}" \
     --out "${SCRAP}/nonamr_king" \
     "${PLINK_FLAGS[@]}"
 
@@ -349,7 +346,33 @@ tail -n +2 "${SCRAP}/nonamr_king.king.cutoff.in.id" >> "${SCRAP}/supervised_qc_k
 TOTAL_REMOVED=$((AMR_REMOVED + NONAMR_REMOVED))
 SUP_FINAL=$(wc -l < "${SCRAP}/supervised_qc_keep.txt")
 echo "    Total supervised removed by kinship: $(fmt ${TOTAL_REMOVED})"
-echo "    Supervised samples after all QC: $(fmt ${SUP_FINAL})"
+echo "    Supervised samples after kinship: $(fmt ${SUP_FINAL})"
+echo ""
+
+# ===================================================================
+# STEP 7 — HWE on unrelated supervised samples
+# ===================================================================
+echo "  Step 7/8: HWE exact test (--hwe ${HWE_PVALUE}) [unrelated supervised only]"
+
+# Extract unrelated supervised from LD-pruned fileset
+"${PLINK2}" --bfile "${SCRAP}/ld_pruned" \
+    --keep "${SCRAP}/supervised_qc_keep.txt" \
+    --make-bed \
+    --out "${SCRAP}/unrelated_supervised" \
+    "${PLINK_FLAGS[@]}"
+
+SNPS_BEFORE_HWE=$(count_snps "${SCRAP}/unrelated_supervised")
+
+"${PLINK2}" --bfile "${SCRAP}/unrelated_supervised" \
+    --hwe "${HWE_PVALUE}" \
+    --make-bed \
+    --out "${SCRAP}/hwe_filtered" \
+    "${PLINK_FLAGS[@]}"
+
+SNPS_AFTER_HWE=$(count_snps "${SCRAP}/hwe_filtered")
+SNPS_REMOVED_HWE=$((SNPS_BEFORE_HWE - SNPS_AFTER_HWE))
+echo "    Removed $(fmt ${SNPS_REMOVED_HWE}) SNPs failing HWE (p < ${HWE_PVALUE}) in unrelated supervised"
+echo "    Remaining: $(fmt ${SNPS_AFTER_HWE}) SNPs"
 echo ""
 
 # ===================================================================
@@ -357,8 +380,8 @@ echo ""
 # ===================================================================
 echo "  Step 8/8: Build final panel (supervised QC'd SNPs, all samples)"
 
-# Get the SNP list from the supervised QC
-awk '{print $2}' "${SCRAP}/mind_filtered.bim" > "${SCRAP}/final_snps.txt"
+# Get the SNP list from the HWE-filtered unrelated supervised data
+awk '{print $2}' "${SCRAP}/hwe_filtered.bim" > "${SCRAP}/final_snps.txt"
 SNPS_FINAL=$(wc -l < "${SCRAP}/final_snps.txt")
 
 # Apply SNP list to the full merged panel (brings non-supervised back)
@@ -400,6 +423,10 @@ echo "  ================================================"
 echo "  QC Summary"
 echo "  ================================================"
 echo "  All filters computed on supervised samples only (n=$(fmt ${SUP_SAMPLES}))"
+echo "  Parameters:"
+echo "    Geno=${GENO_ADMIXTURE}, MAF=${MAF_ADMIXTURE}, HWE=${HWE_PVALUE}"
+echo "    LD window=${LD_WINDOW} step=${LD_STEP} r2=${LD_R2}"
+echo "    Mind=${MIND_ADMIXTURE}, KING AMR=${KING_CUTOFF_AMR}, KING non-AMR=${KING_CUTOFF_NONAMR}"
 echo "  SNPs:    $(fmt ${SNPS_BEFORE}) -> $(fmt ${SNPS_FINAL_OUT})"
 echo "  Supervised samples: $(fmt ${SUP_SAMPLES}) -> $(fmt ${SUP_FINAL})"
 echo "  Final panel: $(fmt ${SAMPLES_FINAL}) samples ($(fmt ${SUP_FINAL}) supervised + non-supervised)"

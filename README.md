@@ -99,7 +99,6 @@ public-statgen/
 │   ├── koenig_harmonized_outliers_2024.txt
 │   └── admixture-global-K/
 │       ├── metadata_ancestry.csv
-│       ├── crossval_summary.csv
 │       ├── structure_holdout.png
 │       ├── structure_projected.png
 │       └── admixture_allele_freqs.tsv
