@@ -8,7 +8,12 @@ A fully reproducible pipeline for harmonizing, aligning, and performing rigorous
 bash main.sh
 ```
 
-That's it. The pipeline is idempotent — re-running skips any steps that have already completed.
+The pipeline will prompt for two configuration choices:
+
+1. **ADMIXTURE K model** — K=3, K=5, or K=6 (default: K=6)
+2. **MAF threshold** — minor allele frequency percentage for ADMIXTURE QC (default: 2%)
+
+After that it runs unattended. The pipeline is idempotent — re-running skips any steps that have already completed.
 
 ## Requirements
 
@@ -38,7 +43,7 @@ Python dependencies (`pandas`, `liftover`, `numpy`, `matplotlib`) are installed 
 | 8 | `build_metadata.py` | Merges KG, HGDP, SGDP, GIAB metadata with Neural ADMIXTURE ancestry labels into `summary/metadata.csv` |
 | 9 | `build_supervised.py` | Assigns samples to K=6 supervised ADMIXTURE reference populations, writes `summary/supervised.csv` |
 | 10 | `setup_admixture.sh` | Downloads and installs ADMIXTURE into `tools/bin/` |
-| 11 | `qc_admixture.sh` | QC on supervised samples only: geno, MAF, HWE, long-range LD exclusion, LD pruning, mind, kinship. Applies resulting SNP list to all samples for projection. |
+| 11 | `qc_admixture.sh` | QC on supervised samples only: geno, MAF, long-range LD exclusion, LD pruning, mind, kinship, HWE (on unrelated). Applies resulting SNP list to all samples for projection. |
 | 12 | `run_admixture_supervised.py` | 3-fold stratified cross-validation + final supervised ADMIXTURE run (K=6) |
 | 13 | `analyze_admixture_results.py` | Structure plots, cross-validation accuracy, augmented metadata with ancestry fractions, formatted allele frequency file |
 
@@ -173,6 +178,7 @@ The `literature_reference/` directory contains sample-level information extracte
 | `ancestry_martin_outliers_2017.csv` | Samples with considerable admixture identified in genetic risk prediction analysis |
 | `other_spanish_outliers.txt` | Additional Spanish-ancestry outlier samples |
 | `american_admixed_outliers.txt` | American reference samples excluded due to admixture |
+| `oceanian_admixed_outliers.txt` | Oceanian reference samples excluded due to admixture |
 
 ### Publications
 
