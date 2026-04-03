@@ -198,7 +198,7 @@ def main():
     )
 
     # Build merged + related ID set (needed for Neural ADMIXTURE ID resolution)
-    merged_fam = pd.read_csv("merge/merged_kg_hgdp_sgdp.fam", sep="\t", header=None)
+    merged_fam = pd.read_csv("merge/merged_kg_hgdp_sgdp.fam", sep=r"\s+", header=None)
     merged_ids = merged_fam.iloc[:, 1].tolist()
     kg_related = pd.read_csv("downloads/deg2_hg38.king.cutoff.out.id", sep="\t")
     kg_related_ids = kg_related.iloc[:, 0].tolist()
@@ -207,8 +207,17 @@ def main():
     # Load Neural ADMIXTURE ancestry classifications
     neural_ancestry = load_neural_ancestry(illumina_to_sample, sample_to_alias, merged_or_related_ids)
 
-    # Merge all three datasets vertically, then join neural ancestry
-    metadata = pd.concat([kg_metadata, hgdp_metadata, sgdp_metadata], ignore_index=True)
+    # GIAB Ashkenazi Jewish parents (HG003=father, HG004=mother)
+    giab_metadata = pd.DataFrame({
+        "sample_id": ["HG003", "HG004"],
+        "population_id": ["Ashkenazi", "Ashkenazi"],
+        "superpopulation": ["European", "European"],
+        "dataset": ["giab", "giab"],
+        "country": [pd.NA, pd.NA],
+    })
+
+    # Merge all datasets vertically, then join neural ancestry
+    metadata = pd.concat([kg_metadata, hgdp_metadata, sgdp_metadata, giab_metadata], ignore_index=True)
     metadata = metadata.merge(neural_ancestry, on="sample_id", how="left")
 
     # Impute missing superpopulations from other samples with the same population_id

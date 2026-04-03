@@ -108,4 +108,26 @@ else
     rm -f "${NEURAL_DIR}/data.tar.gz"
 fi
 
+# ---------------------------------------------------------------------------
+# GIAB Ashkenazi Jewish parents — hg38 benchmark VCFs + high-confidence BEDs
+# ---------------------------------------------------------------------------
+echo "==> Downloading GIAB Ashkenazi parent data ..."
+
+GIAB_DIR="${DOWNLOADS_DIR}/giab"
+mkdir -p "${GIAB_DIR}"
+
+GIAB_BASE="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio"
+
+download "${GIAB_DIR}/HG003_GRCh38_1_22_v4.2.1_benchmark.vcf.gz" \
+    "${GIAB_BASE}/HG003_NA24149_father/latest/GRCh38/HG003_GRCh38_1_22_v4.2.1_benchmark.vcf.gz"
+
+download "${GIAB_DIR}/HG003_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed" \
+    "${GIAB_BASE}/HG003_NA24149_father/latest/GRCh38/HG003_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed"
+
+download "${GIAB_DIR}/HG004_GRCh38_1_22_v4.2.1_benchmark.vcf.gz" \
+    "${GIAB_BASE}/HG004_NA24143_mother/latest/GRCh38/HG004_GRCh38_1_22_v4.2.1_benchmark.vcf.gz"
+
+download "${GIAB_DIR}/HG004_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed" \
+    "${GIAB_BASE}/HG004_NA24143_mother/latest/GRCh38/HG004_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed"
+
 echo "==> Downloads complete."
