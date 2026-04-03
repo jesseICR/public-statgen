@@ -33,10 +33,17 @@ fi
 mkdir -p "${ADMIXTURE_DIR}" "${BIN_DIR}"
 
 echo "  [download] Downloading ADMIXTURE 1.3.0 ..."
-TARBALL="${ADMIXTURE_DIR}/admixture_linux-1.3.0.tar.gz"
+
+case "$(uname -s)" in
+    Darwin) PLATFORM="macosx" ;;
+    Linux)  PLATFORM="linux"  ;;
+    *)      echo "Error: unsupported platform $(uname -s)" >&2; exit 1 ;;
+esac
+
+TARBALL="${ADMIXTURE_DIR}/admixture_${PLATFORM}-1.3.0.tar.gz"
 
 curl -fSL -o "${TARBALL}" \
-    "https://dalexander.github.io/admixture/binaries/admixture_linux-1.3.0.tar.gz"
+    "https://dalexander.github.io/admixture/binaries/admixture_${PLATFORM}-1.3.0.tar.gz"
 
 tar -xzf "${TARBALL}" -C "${ADMIXTURE_DIR}" --strip-components=2
 rm -f "${TARBALL}"
