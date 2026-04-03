@@ -7,18 +7,22 @@
 # Usage:
 #   bash main.sh
 #
+# The pipeline will prompt for:
+#   - ADMIXTURE K model (K=3, K=5, or K=6)
+#   - Minor allele frequency (MAF) threshold
+#
 # Steps:
 #   1. Install PLINK 1.9 & 2.0
-#   2. Download KG, HGDP, SGDP, Neural ADMIXTURE, and GIAB data
+#   2. Download KG, HGDP, SGDP, Neural ADMIXTURE, GIAB, and population data
 #   3. QC KG and HGDP data
 #   4. Set up Python virtual environment
 #   5. QC SGDP data (liftover hg19->hg38, match to KG, assign rsIDs)
 #   6. Merge KG + HGDP + SGDP into a single fileset
 #   7. Prepare and merge GIAB Ashkenazi parents (HG003, HG004)
 #   8. Build merged metadata CSV with Neural ADMIXTURE ancestry labels
-#   9. Build supervised reference population assignments (K=6)
+#   9. Build supervised reference population assignments
 #  10. Install ADMIXTURE software
-#  11. QC merged panel for ADMIXTURE (geno/MAF0.03/HWE/LD/mind/kinship)
+#  11. QC merged panel for ADMIXTURE (geno/MAF/LD/mind/kinship/HWE)
 #  12. Run ADMIXTURE supervised ancestry (3-fold CV + final projection)
 #  13. Analyze ADMIXTURE results (structure plots, metadata, allele freqs)
 #
@@ -38,10 +42,109 @@ export PLINK2="${TOOLS_BIN}/plink2"
 export SNPS_FILE="${PROJECT_DIR}/rsids_dense_chr1_22.txt"
 export PLINK_MEMORY=14000
 export PLINK_THREADS=6
-export GENO_THRESHOLD=0.03
 export PYTHON="${PROJECT_DIR}/tools/venv/bin/python"
 export SUPERVISED_ADMIXTURE="${PROJECT_DIR}/supervised_admixture"
 export ADMIXTURE="${TOOLS_BIN}/admixture"
+
+# ---------------------------------------------------------------------------
+# Pipeline constants
+# ---------------------------------------------------------------------------
+# Post-merge genotype missingness
+export GENO_THRESHOLD=0.03
+
+# ADMIXTURE QC — genotype missingness
+export GENO_ADMIXTURE=0.01
+
+# ADMIXTURE QC — Hardy-Weinberg p-value threshold
+export HWE_PVALUE="1e-50"
+
+# ADMIXTURE QC — LD pruning parameters
+export LD_WINDOW=50
+export LD_STEP=10
+export LD_R2=0.1
+
+# ADMIXTURE QC — individual missingness
+export MIND_ADMIXTURE=0.01
+
+# ADMIXTURE QC — kinship (KING cutoffs)
+export KING_CUTOFF_AMR=0.088          # AMR: ~3rd-degree relatives
+export KING_CUTOFF_NONAMR=0.05        # Non-AMR: ~2nd-degree relatives
+
+# ADMIXTURE run parameters
+export N_FOLDS=3
+export ADMIXTURE_SEED=42
+export FLAG_THRESHOLD=0.95
+
+# ---------------------------------------------------------------------------
+# Interactive configuration
+# ---------------------------------------------------------------------------
+echo "============================================"
+echo "Pipeline Configuration"
+echo "============================================"
+echo ""
+echo "Select ADMIXTURE model:"
+echo ""
+echo "  K=3  African, American, European"
+echo "       Basic 3-way continental ancestry. Use for populations of"
+echo "       primarily African, American, and European descent."
+echo ""
+echo "  K=5  African, American, East Asian, European, South Asian"
+echo "       Adds East Asian and South Asian ancestry components."
+echo "       Use when samples may include or be admixed with"
+echo "       these ancestries."
+echo ""
+echo "  K=6  African, American, East Asian, European, Oceanian, South Asian"
+echo "       Full global ancestry including Oceanian / Pacific Islander."
+echo ""
+read -r -p "Enter K (3, 5, or 6) [default: 6]: " K_INPUT
+K_INPUT="${K_INPUT:-6}"
+if [[ "$K_INPUT" != "3" && "$K_INPUT" != "5" && "$K_INPUT" != "6" ]]; then
+    echo "Error: K must be 3, 5, or 6." >&2
+    exit 1
+fi
+export K_MODEL="${K_INPUT}"
+echo "  -> K=${K_MODEL}"
+echo ""
+
+echo "Select minor allele frequency (MAF) threshold for ADMIXTURE QC."
+echo "  Recommended range: 0.5% to 5%."
+echo "  Higher MAF = fewer, more common SNPs (faster, less noise)."
+echo "  Lower MAF  = more SNPs retained (more resolution, noisier)."
+echo ""
+read -r -p "Enter MAF as a percentage, e.g. 2 for 2% [default: 2]: " MAF_INPUT
+MAF_INPUT="${MAF_INPUT:-2}"
+if ! [[ "$MAF_INPUT" =~ ^[0-9]*\.?[0-9]+$ ]]; then
+    echo "Error: MAF must be a number." >&2
+    exit 1
+fi
+MAF_ADMIXTURE=$(awk "BEGIN {printf \"%.4f\", ${MAF_INPUT} / 100}")
+export MAF_ADMIXTURE
+echo "  -> MAF=${MAF_ADMIXTURE} (${MAF_INPUT}%)"
+echo ""
+
+# ---------------------------------------------------------------------------
+# Logging — all subsequent output goes to both terminal and log file
+# ---------------------------------------------------------------------------
+mkdir -p "${PROJECT_DIR}/logs"
+LOG_FILE="${PROJECT_DIR}/logs/main_run_$(date +%Y%m%d_%H%M%S).log"
+exec > >(tee -a "${LOG_FILE}") 2>&1
+
+echo "============================================"
+echo "Pipeline Run — $(date)"
+echo "============================================"
+echo "  K_MODEL=${K_MODEL}"
+echo "  MAF_ADMIXTURE=${MAF_ADMIXTURE}"
+echo "  GENO_ADMIXTURE=${GENO_ADMIXTURE}"
+echo "  HWE_PVALUE=${HWE_PVALUE}"
+echo "  LD_WINDOW=${LD_WINDOW}, LD_STEP=${LD_STEP}, LD_R2=${LD_R2}"
+echo "  MIND_ADMIXTURE=${MIND_ADMIXTURE}"
+echo "  KING_CUTOFF_AMR=${KING_CUTOFF_AMR}"
+echo "  KING_CUTOFF_NONAMR=${KING_CUTOFF_NONAMR}"
+echo "  N_FOLDS=${N_FOLDS}, ADMIXTURE_SEED=${ADMIXTURE_SEED}"
+echo "  LOG_FILE=${LOG_FILE}"
+echo ""
+
+K="${K_MODEL}"
 
 # ---------------------------------------------------------------------------
 # Step 1 — Install PLINK
@@ -60,7 +163,7 @@ echo ""
 # Step 2 — Download reference panel data
 # ---------------------------------------------------------------------------
 echo "============================================"
-echo "Step 2: Download KG, HGDP, SGDP, and Neural ADMIXTURE data"
+echo "Step 2: Download KG, HGDP, SGDP, Neural ADMIXTURE, GIAB, and population data"
 echo "============================================"
 mkdir -p "${DOWNLOADS_DIR}"
 bash "${PROJECT_DIR}/download_files.sh"
@@ -160,10 +263,10 @@ fi
 echo ""
 
 # ---------------------------------------------------------------------------
-# Step 9 — Build supervised reference populations (K=6)
+# Step 9 — Build supervised reference populations
 # ---------------------------------------------------------------------------
 echo "============================================"
-echo "Step 9: Build supervised reference populations (K=6)"
+echo "Step 9: Build supervised reference populations"
 echo "============================================"
 
 if [[ -f "${PROJECT_DIR}/summary/supervised.csv" ]]; then
@@ -185,10 +288,10 @@ bash "${PROJECT_DIR}/setup_admixture.sh"
 echo ""
 
 # ---------------------------------------------------------------------------
-# Step 11 — QC merged panel for ADMIXTURE (MAF 0.03)
+# Step 11 — QC merged panel for ADMIXTURE
 # ---------------------------------------------------------------------------
 echo "============================================"
-echo "Step 11: QC merged panel for ADMIXTURE (MAF 0.03)"
+echo "Step 11: QC merged panel for ADMIXTURE (MAF ${MAF_ADMIXTURE})"
 echo "============================================"
 
 if [[ -f "${SUPERVISED_ADMIXTURE}/ancestry_qc.bed" ]]; then
@@ -203,14 +306,8 @@ echo ""
 # Step 12 — Run ADMIXTURE supervised ancestry (3-fold CV + final)
 # ---------------------------------------------------------------------------
 echo "============================================"
-echo "Step 12: Run ADMIXTURE supervised ancestry estimation"
+echo "Step 12: Run ADMIXTURE supervised ancestry estimation (K=${K})"
 echo "============================================"
-
-# Detect K from supervised.csv
-K=$("${PYTHON}" -c "
-import pandas as pd
-print(pd.read_csv('${PROJECT_DIR}/summary/supervised.csv')['reference_population'].nunique())
-")
 
 if [[ -f "${SUPERVISED_ADMIXTURE}/admixture_final.${K}.Q" ]]; then
     echo "  [skip] ADMIXTURE output already exists in ${SUPERVISED_ADMIXTURE}/"
@@ -223,7 +320,7 @@ echo ""
 # Step 13 — Analyze ADMIXTURE results
 # ---------------------------------------------------------------------------
 echo "============================================"
-echo "Step 13: Analyze ADMIXTURE results"
+echo "Step 13: Analyze ADMIXTURE results (K=${K})"
 echo "============================================"
 
 if [[ -f "${PROJECT_DIR}/summary/admixture-global-${K}/metadata_ancestry.csv" ]]; then
@@ -235,4 +332,5 @@ echo ""
 
 echo "============================================"
 echo "Pipeline steps 1-13 complete."
+echo "Log saved to ${LOG_FILE}"
 echo "============================================"

@@ -4,32 +4,33 @@ analyze_admixture_results.py — Post-hoc analysis of ADMIXTURE supervised resul
 Reads the cross-validation and final ADMIXTURE .Q/.P files, then produces:
 
   1. Structure plot of all supervised holdout samples (OOS predictions combined)
-  2. Structure plot of non-supervised samples (full-model predictions)
-  3. Per-fold cross-validation accuracy summary
-  4. Augmented metadata CSV with ancestry fractions and supervised flag
-  5. Formatted allele frequency file (.P) for downstream projection
+  2. Structure plot of projected samples (full-model predictions), organized
+     by metadata superpopulation with within-population ancestry sorting
+  3. Augmented metadata CSV with ancestry fractions and supervised flag
+  4. Formatted allele frequency file (.P) for downstream projection
 
 Ancestry prediction logic:
-  - Supervised samples (used to train the full model): their ancestry comes
-    from the fold where they were HELD OUT. Each supervised sample appears in
-    exactly one of the 3 folds as holdout, so we get a true out-of-sample
-    estimate for every supervised sample.
-  - Non-supervised samples (never used in any training): their ancestry comes
-    from the FINAL run where all supervised samples are labeled. The final
-    .P file is the inference artifact for projecting new data.
+  - Active supervised samples (used to train the model): their ancestry comes
+    from the fold where they were HELD OUT. Each sample appears in exactly one
+    fold as holdout, yielding a true out-of-sample estimate.
+  - All other samples (non-supervised + inactive supervised): their ancestry
+    comes from the FINAL run where all active supervised samples are labeled.
 
 Expected environment:
   SUPERVISED_ADMIXTURE — directory with ADMIXTURE output files
+  K_MODEL              — ADMIXTURE model (3, 5, or 6)
+  FLAG_THRESHOLD       — ancestry fraction pass threshold (default 0.95)
+  N_FOLDS              — cross-validation folds (default 3)
 
 Output files (in summary/admixture-global-K/):
   structure_holdout.png       — supervised samples, OOS ancestry estimates
-  structure_projected.png     — non-supervised samples, full-model estimates
-  crossval_summary.csv        — per-fold, per-population accuracy stats
+  structure_projected.png     — projected samples, full-model estimates
   metadata_ancestry.csv       — full metadata + supervised flag + ancestry fractions
   admixture_allele_freqs.tsv  — final .P file with SNP IDs and population headers
 """
 
 import os
+import re
 
 import numpy as np
 import pandas as pd
@@ -44,8 +45,16 @@ import matplotlib.pyplot as plt
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 SUPERVISED_ADMIXTURE = os.environ["SUPERVISED_ADMIXTURE"]
 
-FLAG_THRESHOLD = 0.95
-N_FOLDS = 3
+FLAG_THRESHOLD = float(os.environ.get("FLAG_THRESHOLD", "0.95"))
+N_FOLDS = int(os.environ.get("N_FOLDS", "3"))
+
+K_MODEL = int(os.environ.get("K_MODEL", "6"))
+K_MODEL_POPS = {
+    3: ["African", "American", "European"],
+    5: ["African", "American", "East Asian", "European", "South Asian"],
+    6: ["African", "American", "East Asian", "European", "Oceanian", "South Asian"],
+}
+active_pops = set(K_MODEL_POPS[K_MODEL])
 
 PALETTE = {
     "African":      "#E69F00",
@@ -56,9 +65,45 @@ PALETTE = {
     "South Asian":  "#56B4E9",
 }
 
+# Geographic display order for superpopulation grouping (roughly out-of-Africa)
+SUPERPOP_DISPLAY_ORDER = [
+    "African",
+    "Middle Eastern",
+    "European",
+    "West Eurasian",
+    "South Asian",
+    "Central South Asian",
+    "Central Asian Siberian",
+    "East Asian",
+    "Oceanian",
+    "American",
+]
+
+DATASET_ABBREV = {
+    "kg": "1000G",
+    "hgdp": "HGDP",
+    "sgdp": "SGDP",
+    "giab": "GIAB",
+}
+DATASET_FULLNAME = {
+    "1000G": "1000 Genomes Project",
+    "HGDP": "Human Genome Diversity Project",
+    "SGDP": "Simons Genome Diversity Project",
+    "GIAB": "Genome in a Bottle",
+}
+DATASET_ORDER = ["kg", "hgdp", "sgdp", "giab"]
+
 
 def fmt(n):
     return f"{n:,}"
+
+
+def superpop_sort_key(sp):
+    """Return sort key for superpopulation display order."""
+    try:
+        return SUPERPOP_DISPLAY_ORDER.index(sp)
+    except ValueError:
+        return len(SUPERPOP_DISPLAY_ORDER)
 
 
 # ---------------------------------------------------------------------------
@@ -68,14 +113,21 @@ supervised = pd.read_csv(os.path.join(PROJECT_DIR, "summary", "supervised.csv"))
 metadata = pd.read_csv(os.path.join(PROJECT_DIR, "summary", "metadata.csv"))
 folds = pd.read_csv(os.path.join(SUPERVISED_ADMIXTURE, "fold_assignments.csv"))
 
-ref_pops = sorted(supervised["reference_population"].unique())
+ref_pops = sorted(active_pops)
 K = len(ref_pops)
 
 OUTPUT_DIR = os.path.join(PROJECT_DIR, "summary", f"admixture-global-{K}")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-sid_to_ref = dict(zip(supervised["sample_id"], supervised["reference_population"]))
+# Active supervised: only populations used for labeling in this K model
+supervised_active = supervised[supervised["reference_population"].isin(active_pops)]
+active_sup_ids = set(supervised_active["sample_id"])
+all_sup_ids = set(supervised["sample_id"])
+
+sid_to_ref = dict(zip(supervised_active["sample_id"], supervised_active["reference_population"]))
 sid_to_pop = dict(zip(metadata["sample_id"], metadata["population_id"]))
+sid_to_superpop = dict(zip(metadata["sample_id"], metadata["superpopulation"]))
+sid_to_dataset = dict(zip(metadata["sample_id"], metadata["dataset"]))
 
 # Read fam for sample order
 fam = pd.read_csv(
@@ -85,6 +137,42 @@ fam = pd.read_csv(
 )
 sample_ids = fam["IID"].tolist()
 sample_id_set = set(sample_ids)
+
+# ---------------------------------------------------------------------------
+# Load 1KG population descriptions for formatted labels
+# ---------------------------------------------------------------------------
+pop_desc_path = os.path.join(PROJECT_DIR, "downloads", "kg_population_names.tsv")
+pop_code_to_name = {}
+if os.path.exists(pop_desc_path):
+    try:
+        pop_desc_df = pd.read_csv(pop_desc_path, sep="\t")
+        if "Population Code" in pop_desc_df.columns and "Population Description" in pop_desc_df.columns:
+            pop_code_to_name = dict(zip(
+                pop_desc_df["Population Code"],
+                pop_desc_df["Population Description"],
+            ))
+            print(f"Loaded {len(pop_code_to_name)} population descriptions from {pop_desc_path}")
+    except Exception as e:
+        print(f"Warning: could not load population descriptions: {e}")
+
+
+def humanize_label(text):
+    """Make a population label more readable.
+
+    Replaces underscores with spaces and inserts spaces before CamelCase
+    transitions (e.g. 'BergamoItalian' -> 'Bergamo Italian',
+    'PapuanHighlands' -> 'Papuan Highlands').
+    """
+    text = text.replace("_", " ")
+    text = re.sub(r'([a-z])([A-Z])', r'\1 \2', text)
+    return text
+
+
+def format_pop_label(pop_id):
+    """Format a population label with description if available."""
+    if pop_id in pop_code_to_name:
+        return f"{pop_code_to_name[pop_id]} ({pop_id})"
+    return humanize_label(pop_id)
 
 
 # ---------------------------------------------------------------------------
@@ -129,77 +217,189 @@ def load_q_file(q_path):
 
 
 # ---------------------------------------------------------------------------
-# Structure plot with population_id labels
+# Structure plot with population_id labels and within-population sorting
 # ---------------------------------------------------------------------------
 def structure_plot(q_df, title, output_path, group_col, pop_col,
+                   group_order=None, dataset_col=None, format_labels=False,
                    figsize_per_sample=0.02, min_width=14, max_width=50):
-    """Stacked-bar structure plot sorted by group then population.
+    """Stacked-bar structure plot with hierarchical sorting and variable-width bars.
 
-    group_col: Series mapping sample_id -> group (for thick dividers + top labels)
-    pop_col:   Series mapping sample_id -> population_id (for thin dividers + bottom labels)
+    group_col:    Series mapping sample_id -> group (thick dividers + top labels)
+    pop_col:      Series mapping sample_id -> population_id (thin dividers + bottom labels)
+    group_order:  optional list of group names in display order
+    dataset_col:  optional Series mapping sample_id -> dataset (medium dividers + mid labels)
+    format_labels: if True, use population descriptions for bottom labels
+
+    Small populations get wider bars for visibility: n<3 → 3x width, n<8 → 2x.
+    All dividers use a white-gap underlay so colored bars don't bleed through.
+    All population labels are rendered using two stagger levels with tick marks.
     """
     ancestry_cols = [c for c in ref_pops if c in q_df.columns]
     df = q_df[ancestry_cols].copy()
-    df["_group"] = group_col.values if hasattr(group_col, 'values') else df.index.map(group_col)
-    df["_pop"] = pop_col.values if hasattr(pop_col, 'values') else df.index.map(pop_col)
-    df = df.sort_values(["_group", "_pop"])
+    df["_group"] = group_col.values if hasattr(group_col, "values") else df.index.map(group_col)
+    df["_pop"] = pop_col.values if hasattr(pop_col, "values") else df.index.map(pop_col)
+    has_dataset = dataset_col is not None
+    if has_dataset:
+        df["_dataset"] = dataset_col.values if hasattr(dataset_col, "values") else df.index.map(dataset_col)
 
+    if group_order is None:
+        group_order = sorted(df["_group"].dropna().unique())
+
+    def _sort_pop_block(block):
+        means = block[ancestry_cols].mean().sort_values(ascending=False)
+        return block.sort_values(by=means.index.tolist(),
+                                 ascending=[False] * len(ancestry_cols))
+
+    # Build sorted dataframe: group → dataset → population → ancestry sort
+    sorted_parts = []
+    for grp in group_order:
+        grp_df = df[df["_group"] == grp]
+        if grp_df.empty:
+            continue
+        if has_dataset:
+            ds_order = [d for d in DATASET_ORDER if d in grp_df["_dataset"].values]
+            ds_order += sorted(set(grp_df["_dataset"].unique()) - set(ds_order))
+            for ds in ds_order:
+                ds_df = grp_df[grp_df["_dataset"] == ds]
+                for pop in sorted(ds_df["_pop"].unique()):
+                    block = ds_df[ds_df["_pop"] == pop].copy()
+                    sorted_parts.append(_sort_pop_block(block))
+        else:
+            for pop in sorted(grp_df["_pop"].unique()):
+                block = grp_df[grp_df["_pop"] == pop].copy()
+                sorted_parts.append(_sort_pop_block(block))
+
+    missing = df[df["_group"].isna()]
+    if not missing.empty:
+        sorted_parts.append(missing)
+
+    df = pd.concat(sorted_parts)
     groups = df["_group"].values
     pops = df["_pop"].values
-    df = df.drop(columns=["_group", "_pop"])
+    datasets = df["_dataset"].values if has_dataset else None
+    drop_cols = ["_group", "_pop"] + (["_dataset"] if has_dataset else [])
+    df = df.drop(columns=drop_cols)
 
     n = len(df)
-    width = max(min_width, min(max_width, n * figsize_per_sample))
-    fig, ax = plt.subplots(figsize=(width, 4.5))
 
-    x = np.arange(n)
+    # --- Compute variable widths per individual ---
+    # Count population sizes and assign wider bars to small populations
+    pop_sizes = pd.Series(pops).groupby(pops).transform("size").values
+    ind_widths = np.where(pop_sizes < 3, 3.0, np.where(pop_sizes < 8, 2.0, 1.0))
+    x_pos = np.concatenate([[0.0], np.cumsum(ind_widths[:-1])])
+    total_x = x_pos[-1] + ind_widths[-1] if n > 0 else 0
+
+    fig_width = max(min_width, min(max_width, total_x * figsize_per_sample))
+    fig, ax = plt.subplots(figsize=(fig_width, 5))
+
     bottom = np.zeros(n)
     for col in ancestry_cols:
         color = PALETTE.get(col, "#999999")
-        ax.bar(x, df[col].values, bottom=bottom, width=1.0, color=color,
-               edgecolor="none", label=col, align="edge")
+        ax.bar(x_pos, df[col].values, bottom=bottom, width=ind_widths,
+               color=color, edgecolor="none", label=col, align="edge")
         bottom += df[col].values
 
-    ax.set_xlim(0, n)
+    ax.set_xlim(0, total_x)
     ax.set_ylim(0, 1)
     ax.set_ylabel("Ancestry proportion")
-    ax.set_title(title, fontsize=11, pad=30)
+    ax.set_title(title, fontsize=11, pad=45 if has_dataset else 30)
     ax.set_xticks([])
 
-    # --- Group dividers (thick) and top labels ---
+    def _block_mid(start_idx, end_idx):
+        """Midpoint in x-space for a block of bars [start_idx, end_idx)."""
+        left = x_pos[start_idx]
+        right = x_pos[end_idx - 1] + ind_widths[end_idx - 1]
+        return (left + right) / 2
+
+    def _divider_x(idx):
+        """X coordinate for a divider at the left edge of bar idx."""
+        return x_pos[idx]
+
+    # --- Group dividers (white gap + black line) and top labels ---
     group_starts = [0]
     for i in range(1, n):
         if groups[i] != groups[i - 1]:
-            ax.axvline(i, color="black", linewidth=2, zorder=10)
+            dx = _divider_x(i)
+            ax.axvline(dx, color="white", linewidth=4, zorder=9)
+            ax.axvline(dx, color="black", linewidth=1.5, zorder=10)
             group_starts.append(i)
     group_starts.append(n)
 
+    top_y = 1.07 if has_dataset else 1.02
     for j in range(len(group_starts) - 1):
-        mid = (group_starts[j] + group_starts[j + 1]) / 2
+        mid = _block_mid(group_starts[j], group_starts[j + 1])
         grp = groups[group_starts[j]]
-        ax.text(mid, 1.02, grp, ha="center", va="bottom", fontsize=8,
-                fontweight="bold", transform=ax.get_xaxis_transform())
+        ax.text(mid, top_y, humanize_label(str(grp)), ha="center", va="bottom",
+                fontsize=7, fontweight="bold",
+                transform=ax.get_xaxis_transform())
 
-    # --- Population dividers (thin) and bottom labels ---
+    # --- Dataset dividers (white gap + dashed gray) and labels ---
+    if datasets is not None:
+        ds_starts = [0]
+        for i in range(1, n):
+            if datasets[i] != datasets[i - 1]:
+                if groups[i] == groups[i - 1]:
+                    dx = _divider_x(i)
+                    ax.axvline(dx, color="white", linewidth=2.5, zorder=6)
+                    ax.axvline(dx, color="#444444", linewidth=0.8,
+                               linestyle=(0, (4, 2)), zorder=7)
+                ds_starts.append(i)
+        ds_starts.append(n)
+
+        for j in range(len(ds_starts) - 1):
+            mid = _block_mid(ds_starts[j], ds_starts[j + 1])
+            ds = datasets[ds_starts[j]]
+            ds_label = DATASET_ABBREV.get(ds, ds)
+            ax.text(mid, 1.015, ds_label, ha="center", va="bottom",
+                    fontsize=5, fontstyle="italic", color="#333333",
+                    transform=ax.get_xaxis_transform())
+
+    # --- Population dividers (white gap + thin line) and bottom labels ---
     pop_starts = [0]
     for i in range(1, n):
         if pops[i] != pops[i - 1]:
-            if groups[i] == groups[i - 1]:
-                ax.axvline(i, color="black", linewidth=0.5, zorder=5)
+            same_group = groups[i] == groups[i - 1]
+            same_dataset = datasets is None or datasets[i] == datasets[i - 1]
+            if same_group and same_dataset:
+                dx = _divider_x(i)
+                ax.axvline(dx, color="white", linewidth=1.5, zorder=4)
+                ax.axvline(dx, color="black", linewidth=0.3, zorder=5)
             pop_starts.append(i)
     pop_starts.append(n)
 
-    for j in range(len(pop_starts) - 1):
-        mid = (pop_starts[j] + pop_starts[j + 1]) / 2
-        pop_label = pops[pop_starts[j]]
-        pop_n = pop_starts[j + 1] - pop_starts[j]
-        if pop_n >= 2:
-            ax.text(mid, -0.01, pop_label, ha="right", va="top", fontsize=6,
-                    rotation=45, transform=ax.get_xaxis_transform())
+    # Stagger labels at two y-levels with tick marks to avoid overlap
+    trans = ax.get_xaxis_transform()
+    stagger_y = [-0.03, -0.14]
 
+    for j in range(len(pop_starts) - 1):
+        mid = _block_mid(pop_starts[j], pop_starts[j + 1])
+        pop_label = pops[pop_starts[j]]
+        display_label = format_pop_label(pop_label) if format_labels else humanize_label(pop_label)
+
+        level = j % 2
+        label_y = stagger_y[level]
+
+        # Tick mark from bar bottom to label
+        ax.plot([mid, mid], [-0.005, label_y + 0.008], transform=trans,
+                color="#aaaaaa", linewidth=0.3, clip_on=False, zorder=1)
+        # Label text
+        ax.text(mid, label_y, display_label, ha="right", va="top", fontsize=4,
+                rotation=90, transform=trans, clip_on=False)
+
+    # --- Legends ---
     ax.legend(loc="upper left", bbox_to_anchor=(1.01, 1), fontsize=8, frameon=False)
-    fig.tight_layout()
-    fig.savefig(output_path, dpi=200, bbox_inches="tight")
+
+    # Dataset key (if datasets are shown)
+    if has_dataset:
+        key_lines = [f"{abbr} = {DATASET_FULLNAME[abbr]}"
+                     for abbr in DATASET_ABBREV.values() if abbr in DATASET_FULLNAME]
+        key_text = "\n".join(key_lines)
+        ax.text(1.01, 0.38, key_text, fontsize=5.5, ha="left", va="top",
+                transform=ax.transAxes, linespacing=1.5,
+                bbox=dict(boxstyle="round,pad=0.4", facecolor="#f8f8f8",
+                          edgecolor="#cccccc", linewidth=0.5))
+
+    fig.savefig(output_path, dpi=300, bbox_inches="tight")
     plt.close(fig)
     print(f"  Saved {output_path}")
 
@@ -211,7 +411,7 @@ print("=" * 60)
 print("Building out-of-sample predictions")
 print("=" * 60)
 
-# For each supervised sample, get their ancestry from the fold where
+# For each active supervised sample, get their ancestry from the fold where
 # they were held out (not used in training). This gives a true OOS estimate.
 oos_frames = []
 for fold in range(1, N_FOLDS + 1):
@@ -225,51 +425,7 @@ oos = pd.concat(oos_frames)
 print(f"  Total OOS predictions: {fmt(len(oos))}")
 
 # ===================================================================
-# 2. Cross-validation summary
-# ===================================================================
-print("\n" + "=" * 60)
-print("Cross-validation accuracy")
-print("=" * 60)
-
-oos["reference_population"] = oos.index.map(sid_to_ref)
-oos["expected_ancestry"] = oos.apply(
-    lambda row: row.get(row["reference_population"], 0.0), axis=1
-)
-oos["fold"] = oos.index.map(dict(zip(folds["sample_id"], folds["fold"])))
-
-cv_rows = []
-for fold in range(1, N_FOLDS + 1):
-    for rp in ref_pops:
-        sub = oos[(oos["fold"] == fold) & (oos["reference_population"] == rp)]
-        if len(sub) == 0:
-            continue
-        n_pass = (sub["expected_ancestry"] >= FLAG_THRESHOLD).sum()
-        cv_rows.append({
-            "fold": fold,
-            "reference_population": rp,
-            "n_holdout": len(sub),
-            "mean_expected_ancestry": round(sub["expected_ancestry"].mean(), 4),
-            "median_expected_ancestry": round(sub["expected_ancestry"].median(), 4),
-            "min_expected_ancestry": round(sub["expected_ancestry"].min(), 4),
-            "n_pass_95pct": n_pass,
-            "pct_pass_95pct": round(n_pass / len(sub) * 100, 1),
-        })
-
-cv_summary = pd.DataFrame(cv_rows)
-cv_path = os.path.join(OUTPUT_DIR, "crossval_summary.csv")
-cv_summary.to_csv(cv_path, index=False)
-print(f"Wrote {cv_path}\n")
-
-for rp in ref_pops:
-    rp_rows = cv_summary[cv_summary["reference_population"] == rp]
-    mean_acc = rp_rows["mean_expected_ancestry"].mean()
-    total_n = rp_rows["n_holdout"].sum()
-    total_pass = rp_rows["n_pass_95pct"].sum()
-    pct = total_pass / total_n * 100 if total_n > 0 else 0
-    print(f"  {rp}: mean OOS={mean_acc:.4f}, pass>=95%: {fmt(total_pass)}/{fmt(total_n)} ({pct:.1f}%)")
-
-# ===================================================================
-# 3. Structure plot — supervised holdout (OOS)
+# 2. Structure plot — supervised holdout (OOS)
 # ===================================================================
 print("\n" + "=" * 60)
 print("Structure plots")
@@ -285,55 +441,69 @@ structure_plot(
     os.path.join(OUTPUT_DIR, "structure_holdout.png"),
     group_col=oos_group,
     pop_col=oos_pop,
+    group_order=ref_pops,
+    format_labels=True,
 )
 
 # ===================================================================
-# 4. Structure plot — non-supervised (full model)
+# 3. Structure plot — projected samples (full model)
 # ===================================================================
 q_final = load_q_file(final_q_path)
-sup_ids = set(supervised["sample_id"])
-nonsup_mask = ~q_final.index.isin(sup_ids)
-q_nonsup = q_final.loc[nonsup_mask]
 
-nonsup_assigned = q_nonsup[ancestry_cols].idxmax(axis=1)
-nonsup_pop = q_nonsup.index.map(sid_to_pop)
+# Projected = everything NOT in the active supervised holdout set
+# (includes non-supervised + inactive supervised populations)
+oos_sids = set(oos.index)
+projected_mask = ~q_final.index.isin(oos_sids)
+q_projected = q_final.loc[projected_mask]
+
+# Group by metadata superpopulation (not majority ancestry)
+projected_group = q_projected.index.map(sid_to_superpop)
+projected_pop = q_projected.index.map(sid_to_pop)
+projected_dataset = q_projected.index.map(sid_to_dataset)
+
+# Determine display order based on superpopulations present
+present_superpops = sorted(projected_group.dropna().unique(), key=superpop_sort_key)
 
 structure_plot(
-    q_nonsup[ancestry_cols],
-    f"ADMIXTURE K={K} — Non-Supervised Samples, Full Model (n={fmt(len(q_nonsup))})",
+    q_projected[ancestry_cols],
+    f"ADMIXTURE K={K} — Projected Ancestry, Full Model (n={fmt(len(q_projected))})",
     os.path.join(OUTPUT_DIR, "structure_projected.png"),
-    group_col=nonsup_assigned,
-    pop_col=nonsup_pop,
+    group_col=projected_group,
+    pop_col=projected_pop,
+    group_order=present_superpops,
+    dataset_col=projected_dataset,
+    format_labels=True,
 )
 
 # ===================================================================
-# 5. Augmented metadata CSV
+# 4. Augmented metadata CSV
 # ===================================================================
 print("\n" + "=" * 60)
 print("Building metadata with ancestry fractions")
 print("=" * 60)
 
-# OOS ancestry for supervised samples
+# OOS ancestry for active supervised samples
 oos_anc = oos[ancestry_cols].copy()
 oos_anc.index.name = "sample_id"
 
-# Full-model ancestry for non-supervised samples
-final_nonsup = q_final.loc[nonsup_mask, ancestry_cols].copy()
-final_nonsup.index.name = "sample_id"
+# Full-model ancestry for all other samples in the QC panel
+final_rest = q_final.loc[projected_mask, ancestry_cols].copy()
+final_rest.index.name = "sample_id"
 
-# Combine: OOS for supervised, final for non-supervised
-ancestry_combined = pd.concat([oos_anc, final_nonsup])
+# Combine: OOS for active supervised, final for everyone else
+ancestry_combined = pd.concat([oos_anc, final_rest])
 
 # Build output
 meta_out = metadata.copy()
-meta_out["supervised"] = meta_out["sample_id"].isin(sup_ids).map({True: "yes", False: "no"})
+meta_out["supervised"] = meta_out["sample_id"].isin(all_sup_ids).map({True: "yes", False: "no"})
 meta_out["in_qc_panel"] = meta_out["sample_id"].isin(sample_id_set).map({True: "yes", False: "no"})
 
 ancestry_reset = ancestry_combined.reset_index()
 meta_out = meta_out.merge(ancestry_reset, on="sample_id", how="left")
 
 meta_out["max_ancestry"] = meta_out[ancestry_cols].max(axis=1)
-meta_out["assigned_group"] = meta_out[ancestry_cols].idxmax(axis=1)
+has_ancestry = meta_out[ancestry_cols].notna().any(axis=1)
+meta_out.loc[has_ancestry, "assigned_group"] = meta_out.loc[has_ancestry, ancestry_cols].idxmax(axis=1)
 
 id_cols = ["sample_id", "population_id", "superpopulation", "dataset", "country",
            "neural_ancestry", "supervised", "in_qc_panel"]
@@ -345,14 +515,14 @@ meta_path = os.path.join(OUTPUT_DIR, "metadata_ancestry.csv")
 meta_out.to_csv(meta_path, index=False)
 print(f"Wrote {meta_path}")
 print(f"  Total samples: {fmt(len(meta_out))}")
-print(f"  Supervised (OOS predictions): {(meta_out['supervised'] == 'yes').sum()}")
-print(f"  Non-supervised (full-model predictions): "
-      f"{((meta_out['supervised'] == 'no') & (meta_out['in_qc_panel'] == 'yes')).sum()}")
+print(f"  Supervised (OOS predictions): {len(oos)}")
+print(f"  Projected (full-model predictions): "
+      f"{(meta_out['in_qc_panel'] == 'yes').sum() - len(oos)}")
 print(f"  Not in QC panel (no predictions): "
       f"{(meta_out['in_qc_panel'] == 'no').sum()}")
 
 # ===================================================================
-# 6. Format and copy the final .P file
+# 5. Format and copy the final .P file
 # ===================================================================
 print("\n" + "=" * 60)
 print("Formatting allele frequency file (.P)")

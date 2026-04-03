@@ -4,8 +4,9 @@ build_supervised.py — Assign samples to K=6 supervised ADMIXTURE reference pop
 Rules derived from union of Sharma (All of Us) and Marino (creatinine) reference panels:
   African:     Union of both, minus LWK
   American:    Admix3way subset of PEL, Colombian, Maya, Pima, Karitiana, Surui + SGDP: Mixe, Quechua, Zapotec, Chane, Nahua
-  East Asian:  Union of both, minus Cambodian and KHV, plus CDX and CHS from 1KGP
-  European:    Union of both
+  East Asian:  Union of both, minus Cambodian and KHV, plus CDX and CHS from 1KGP,
+               plus HGDP Japanese and Han
+  European:    Union of both, plus CEU, HGDP Orcadian and Sardinian
   Oceanian:    All Sharma
   South Asian: GIH, ITU, STU
 
@@ -19,10 +20,10 @@ Outlier exclusions:
 import pandas as pd
 
 REFERENCE_POPULATIONS = {
-    "African": ["ESN", "MSL", "YRI", "Mbuti", "Biaka"],
+    "African": ["ESN", "MSL", "YRI", "Mbuti", "Biaka", "Yoruba"],
     "American": ["PEL", "Colombian", "Maya", "Pima", "Karitiana", "Surui", "Mixe", "Quechua", "Zapotec", "Chane", "Nahua"],
-    "East Asian": ["CHB", "CHS", "CDX", "Dai", "JPT", "She", "Tujia"],
-    "European": ["FIN", "GBR", "IBS", "TSI", "Tuscan", "French", "Basque", "BergamoItalian"],
+    "East Asian": ["CHB", "CHS", "CDX", "Dai", "JPT", "She", "Tujia", "Japanese", "Han"],
+    "European": ["FIN", "GBR", "IBS", "TSI", "CEU", "Tuscan", "French", "Basque", "BergamoItalian", "Orcadian", "Sardinian"],
     "Oceanian": ["Bougainville", "PapuanHighlands", "PapuanSepik"],
     "South Asian": ["GIH", "ITU", "STU"],
 }
