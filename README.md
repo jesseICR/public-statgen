@@ -1,6 +1,6 @@
-# Public Statistical Genetics Pipeline
+# Public Statistical Genetics Pipeline — Global Ancestry Estimation from 1000 Genomes, HGDP, SGDP, and GIAB
 
-A fully reproducible pipeline for harmonizing, aligning, and performing rigorous quality control on the 1000 Genomes (KG), Human Genome Diversity Project (HGDP), Simons Genome Diversity Project (SGDP), and Genome in a Bottle (GIAB) Ashkenazi Jewish reference panels, followed by supervised ADMIXTURE ancestry estimation.
+A fully reproducible bioinformatics pipeline for harmonizing, aligning, and performing rigorous quality control on the 1000 Genomes (KG), Human Genome Diversity Project (HGDP), Simons Genome Diversity Project (SGDP), and Genome in a Bottle (GIAB) Ashkenazi Jewish reference panels, followed by supervised ADMIXTURE ancestry estimation. The pipeline merges four major human genetic diversity datasets into a single reference panel of 4,324 samples, runs supervised ADMIXTURE with cross-validation, and produces continental ancestry fractions, structure plots, and estimated allele frequencies — all from a single `bash main.sh` command.
 
 ## Quick Start
 
@@ -245,3 +245,7 @@ The final QC-pruned SNP set at MAF 0.01 contains **135,020 SNPs** (after genotyp
 ### SNP Density Sensitivity
 
 We also tested expanding the input SNP list from the default ~500K rsID set (`rsids_dense_chr1_22.txt`) to the SBayesRC array of ~7 million SNPs. After the same QC pipeline, the denser set yielded approximately 245K post-QC SNPs — roughly 1.8x the 135K from the default list. The resulting ancestry fractions were nearly identical: differences were negligible across all populations and samples. The population structure captured by the K=6 model is fully saturated by the LD-pruned SNPs derived from the original ~500K starter list, and increasing marker density provides no meaningful improvement in ancestry resolution.
+
+## Keywords
+
+population genetics, statistical genetics, genetic ancestry, global ancestry estimation, ancestry inference, population structure analysis, ADMIXTURE, supervised ADMIXTURE, ancestry fractions, structure plot, reference panel, 1000 Genomes, HGDP, Human Genome Diversity Project, SGDP, Simons Genome Diversity Project, GIAB, Genome in a Bottle, Ashkenazi Jewish genetics, PLINK, PLINK2, bioinformatics pipeline, reproducible genomics, SNP quality control, genotype QC, allele frequency estimation, LD pruning, linkage disequilibrium, Hardy-Weinberg equilibrium, kinship filtering, liftover, hg19 to hg38, genome build conversion, GRCh38, continental ancestry, population stratification, cross-validation, K=6, minor allele frequency, MAF filtering, human genetic diversity, genomic data harmonization, merge reference panels, ancestry estimation pipeline, open source genetics
