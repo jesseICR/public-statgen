@@ -164,7 +164,7 @@ The `downloads/` directory can be deleted after QC (steps 3 + 5) to reclaim ~13 
 - **HGDP** — hg38 pfiles (statistically phased) from the same source
 - **SGDP** — hg19 bed/bim/fam from the [Reich Lab](https://reichdata.hms.harvard.edu/pub/datasets/sgdp/)
 - **GIAB Ashkenazi Jewish trio** — hg38 benchmark VCFs from [NIST GIAB](https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/) (parents HG003 and HG004 only)
-- **Neural ADMIXTURE** — pretrained ancestry model from [Figshare](https://figshare.com/articles/dataset/Neural_ADMIXTURE_data/19672408)
+- **Neural ADMIXTURE** — pretrained ancestry model from [Figshare](https://doi.org/10.6084/m9.figshare.19387538.v1)
 
 ## GIAB Integration
 
@@ -202,7 +202,7 @@ The `literature_reference/` directory contains sample-level information extracte
 
 ## ADMIXTURE Results (K=6)
 
-The pipeline produces a supervised ADMIXTURE analysis at K=6 with six continental ancestry components: **African**, **American**, **East Asian**, **European**, **Oceanian**, and **South Asian**. A copy of the output files is checked into [`outputs/admixture-global-6/`](outputs/admixture-global-6/) so results are visible directly from the repository.
+The results below were obtained using the pipeline defaults (K=6, MAF=0.01). The pipeline produces a supervised ADMIXTURE analysis with six continental ancestry components: **African**, **American**, **East Asian**, **European**, **Oceanian**, and **South Asian**. A copy of the output files is checked into [`outputs/admixture-global-6/`](outputs/admixture-global-6/) so results are visible directly from the repository.
 
 ### Structure Plots
 
@@ -216,7 +216,17 @@ The holdout plot shows out-of-sample ancestry estimates for supervised reference
 
 ![Structure plot — projected ancestry](outputs/admixture-global-6/structure_projected.png)
 
-The projected plot shows ancestry estimates from the final ADMIXTURE model (trained on all supervised samples) applied to the full panel of 3,695 individuals, including unsupervised samples such as the two GIAB Ashkenazi Jewish parents (HG003 and HG004). Each vertical bar represents one individual; bar height shows the proportion assigned to each of the six ancestry components. Populations are grouped by superpopulation and dataset (1000 Genomes, HGDP, SGDP, GIAB). The GIAB Ashkenazi parents appear in the European block and show a characteristic mixed profile (~78% European, ~12% South Asian, ~6% African), consistent with known Ashkenazi Jewish population genetics.
+The projected plot shows ancestry estimates from the final ADMIXTURE model (trained on all supervised samples) applied to the full panel of 3,695 individuals, including unsupervised samples such as the two GIAB Ashkenazi Jewish parents (HG003 and HG004). Each vertical bar represents one individual; bar height shows the proportion assigned to each of the six ancestry components. Populations are grouped by superpopulation and dataset (1000 Genomes, HGDP, SGDP, GIAB).
+
+The GIAB Ashkenazi parents appear in the European block and show a mixed profile (~78% European, ~12% South Asian, ~6% African). This does not indicate literal sub-Saharan African or South Asian ancestry. Rather, it reflects the smooth allele frequency cline across Western Eurasia, the Middle East, and North Africa. With only six components, the model has no dedicated Middle Eastern or North African cluster, so the Levantine and Near Eastern ancestry signal in Ashkenazi Jews is partitioned across the nearest available components: allele frequencies shared with populations along the Mediterranean and North African coast are absorbed by the African component, while those shared with populations along the Central and Western Asian gradient are captured by the South Asian component. This is a well-understood limitation of unsupervised clustering methods applied to populations that fall along continuous geographic clines rather than between discrete genetic clusters.
+
+### Limitations of the South Asian Reference Panel
+
+The South Asian supervised component is trained on three 1000 Genomes populations: **GIH** (Gujarati Indian, Houston), **ITU** (Indian Telugu, UK), and **STU** (Sri Lankan Tamil, UK). These 324 samples are all drawn from the Indian subcontinent's southern and western Dravidian-speaking and Indo-European-speaking groups, and two of the three are diaspora samples collected in the US and UK. This creates several limitations:
+
+- **Geographic bias.** The reference panel has no representation from the northern tier of South Asia (e.g., Punjabi, Pashtun, Balochi, Sindhi, Bengali populations), nor from Central Asian groups that form the eastern end of the West Eurasian cline. The "South Asian" component is therefore anchored to a geographically narrow slice of the subcontinent's genetic diversity.
+- **Cline truncation.** South Asian genetic variation is structured along a north–south and west–east Ancestral North Indian (ANI) to Ancestral South Indian (ASI) cline. By sampling only the middle-to-southern portion of this cline, the supervised labels train the model on a restricted allele frequency range. Populations at the ANI-heavy end of the cline (e.g., northwestern South Asians) will have their ANI-associated alleles partially absorbed by the European component, inflating European fractions and deflating South Asian fractions for these groups.
+- **Diaspora sampling effects.** GIH, ITU, and STU were recruited from immigrant communities, which may not be representative of the source populations due to founder effects, selective migration, and community endogamy in the diaspora.
 
 ### Output Data Files
 
