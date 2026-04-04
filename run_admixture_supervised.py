@@ -193,9 +193,9 @@ def run_admixture(prefix, run_name):
         ADMIXTURE, bed_path, str(K),
         "--supervised",
         f"-j{THREADS}",
-        f"--seed={SEED}",
+        f"-s", str(SEED),
     ]
-    print(f"    Running: admixture {bed_path} {K} --supervised -j{THREADS} --seed={SEED}")
+    print(f"    Running: admixture {bed_path} {K} --supervised -j{THREADS} -s {SEED}")
     result = subprocess.run(cmd, capture_output=True, text=True,
                             cwd=SUPERVISED_ADMIXTURE)
     if result.returncode != 0:
