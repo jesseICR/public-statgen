@@ -107,6 +107,12 @@ public-statgen/
 │       ├── structure_holdout.png
 │       ├── structure_projected.png
 │       └── admixture_allele_freqs.tsv
+├── outputs/                     # Git-tracked deterministic outputs
+│   └── admixture-global-6/
+│       ├── metadata_ancestry.csv
+│       ├── structure_holdout.png
+│       ├── structure_projected.png
+│       └── admixture_allele_freqs.tsv
 └── literature_reference/        # Sample-level info extracted from publications
 ```
 
@@ -124,7 +130,7 @@ public-statgen/
 | 4 | Set up Python venv + dependencies | 11 s |
 | 5 | QC SGDP (liftover hg19 → hg38, filter) | 1 m 38 s |
 | 6 | Merge KG + HGDP + SGDP | 16 s |
-| 7 | Prepare and merge GIAB Ashkenazi parents | TBD |
+| 7 | Prepare and merge GIAB Ashkenazi parents | 16 s |
 | 8 | Build metadata CSV | < 1 s |
 | 9 | Build supervised reference populations | < 1 s |
 | 10 | Install ADMIXTURE | < 1 s |
@@ -132,7 +138,7 @@ public-statgen/
 | 12 | Run ADMIXTURE supervised (3-fold CV + final, K=6) | 70 m 15 s |
 | 13 | Analyze ADMIXTURE results (CV stats, plots, metadata) | 16 s |
 
-**Total pipeline runtime: ~90 minutes** (steps 7 not yet timed).
+**Total pipeline runtime: ~90 minutes.**
 
 The two dominant steps are Step 3 (QC KG + HGDP, ~10 min) and Step 12 (ADMIXTURE runs, ~70 min), which together account for ~89% of total runtime. Step 12 runs ADMIXTURE 4 times (3 CV folds + 1 final), each taking ~17–19 min wall time using 6 threads.
 
@@ -193,3 +199,40 @@ The `literature_reference/` directory contains sample-level information extracte
 - **Dominguez Mantes et al.** — *Neural ADMIXTURE for rapid genomic clustering.* Nature Computational Science (2023). [doi:10.1038/s43588-023-00482-7](https://doi.org/10.1038/s43588-023-00482-7)
 
 - **Zook et al.** — *An open resource for accurately benchmarking small variant and reference calls.* Nature Biotechnology (2019). [doi:10.1038/s41587-019-0074-6](https://doi.org/10.1038/s41587-019-0074-6)
+
+## ADMIXTURE Results (K=6)
+
+The pipeline produces a supervised ADMIXTURE analysis at K=6 with six continental ancestry components: **African**, **American**, **East Asian**, **European**, **Oceanian**, and **South Asian**. A copy of the output files is checked into [`outputs/admixture-global-6/`](outputs/admixture-global-6/) so results are visible directly from the repository.
+
+### Structure Plots
+
+#### Cross-Validation Holdout
+
+![Structure plot — supervised holdout](outputs/admixture-global-6/structure_holdout.png)
+
+The holdout plot shows out-of-sample ancestry estimates for supervised reference samples. The pipeline uses 3-fold stratified cross-validation: in each fold, one-third of supervised samples are held out from training and their ancestry is predicted by the model trained on the remaining two-thirds. The three folds are combined into a single plot. Clean, single-color bars indicate the model accurately recovers known ancestry labels; mixed bars would indicate misclassification or genuine admixture within the reference panel. Samples are grouped by superpopulation and sorted geographically (roughly out-of-Africa order: African, European, East Asian, Oceanian, South Asian).
+
+#### Projected Ancestry (Full Model)
+
+![Structure plot — projected ancestry](outputs/admixture-global-6/structure_projected.png)
+
+The projected plot shows ancestry estimates from the final ADMIXTURE model (trained on all supervised samples) applied to the full panel of 3,695 individuals, including unsupervised samples such as the two GIAB Ashkenazi Jewish parents (HG003 and HG004). Each vertical bar represents one individual; bar height shows the proportion assigned to each of the six ancestry components. Populations are grouped by superpopulation and dataset (1000 Genomes, HGDP, SGDP, GIAB). The GIAB Ashkenazi parents appear in the European block and show a characteristic mixed profile (~78% European, ~12% South Asian, ~6% African), consistent with known Ashkenazi Jewish population genetics.
+
+### Output Data Files
+
+- [**metadata_ancestry.csv**](outputs/admixture-global-6/metadata_ancestry.csv) — Per-sample metadata augmented with the six ancestry fraction columns, max ancestry, and assigned group for all 4,324 samples in the panel.
+- [**admixture_allele_freqs.tsv**](outputs/admixture-global-6/admixture_allele_freqs.tsv) — Estimated allele frequencies at each SNP for each of the six ancestry clusters (the ADMIXTURE P matrix), formatted with rsID and allele columns.
+
+### MAF Threshold Selection
+
+We evaluated four minor allele frequency thresholds (0.005, 0.01, 0.02, 0.05) during the ADMIXTURE QC step and observed the following:
+
+- **Higher MAF thresholds (0.02, 0.05)** inflate European ancestry fractions in South Asian, admixed American, Middle Eastern, and African groups. At MAF 0.05, low-frequency variants that distinguish these populations from Europeans are discarded, collapsing real structure into the European component.
+- **Very low MAF (0.005)** preserves more rare variation but introduces degeneracies — the model assigns excess Oceanian ancestry to European samples, likely due to noise from very rare variants or convergence artifacts.
+- **MAF 0.01** provides the best balance: it retains enough low-frequency variants to separate closely related continental groups while avoiding the noise that degrades the model at MAF 0.005. This is the threshold used in the results checked into this repository.
+
+The final QC-pruned SNP set at MAF 0.01 contains **135,020 SNPs** (after genotype missingness, MAF, long-range LD exclusion, LD pruning, sample missingness, kinship, and HWE filters).
+
+### SNP Density Sensitivity
+
+We also tested expanding the input SNP list from the default ~500K rsID set (`rsids_dense_chr1_22.txt`) to the SBayesRC array of ~7 million SNPs. After the same QC pipeline, the denser set yielded approximately 245K post-QC SNPs — roughly 1.8x the 135K from the default list. The resulting ancestry fractions were nearly identical: differences were negligible across all populations and samples. The population structure captured by the K=6 model is fully saturated by the LD-pruned SNPs derived from the original ~500K starter list, and increasing marker density provides no meaningful improvement in ancestry resolution.

@@ -40,7 +40,7 @@ download() {
         return 0
     fi
     echo "  [download] $(basename "${dest}")"
-    wget --quiet --show-progress -O "${dest}" "${url}"
+    wget --quiet -O "${dest}" "${url}"
 }
 
 # ---------------------------------------------------------------------------
