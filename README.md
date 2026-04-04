@@ -11,7 +11,7 @@ bash main.sh
 The pipeline will prompt for two configuration choices:
 
 1. **ADMIXTURE K model** — K=3, K=5, or K=6 (default: K=6)
-2. **MAF threshold** — minor allele frequency percentage for ADMIXTURE QC (default: 2%)
+2. **MAF threshold** — minor allele frequency percentage for ADMIXTURE QC (default: 1%)
 
 After that it runs unattended. The pipeline is idempotent — re-running skips any steps that have already completed.
 

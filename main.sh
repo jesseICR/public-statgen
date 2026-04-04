@@ -111,8 +111,8 @@ echo "  Recommended range: 0.5% to 5%."
 echo "  Higher MAF = fewer, more common SNPs (faster, less noise)."
 echo "  Lower MAF  = more SNPs retained (more resolution, noisier)."
 echo ""
-read -r -p "Enter MAF as a percentage, e.g. 2 for 2% [default: 2]: " MAF_INPUT
-MAF_INPUT="${MAF_INPUT:-2}"
+read -r -p "Enter MAF as a percentage, e.g. 1 for 1% [default: 1]: " MAF_INPUT
+MAF_INPUT="${MAF_INPUT:-1}"
 if ! [[ "$MAF_INPUT" =~ ^[0-9]*\.?[0-9]+$ ]]; then
     echo "Error: MAF must be a number." >&2
     exit 1
