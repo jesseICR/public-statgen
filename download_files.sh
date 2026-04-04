@@ -40,7 +40,7 @@ download() {
         return 0
     fi
     echo "  [download] $(basename "${dest}")"
-    wget --quiet -O "${dest}" "${url}"
+    curl -sSf -o "${dest}" "${url}"
 }
 
 # ---------------------------------------------------------------------------

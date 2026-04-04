@@ -18,7 +18,7 @@ After that it runs unattended. The pipeline is idempotent — re-running skips a
 ## Requirements
 
 - **Python 3** (for SGDP liftover / QC; a venv is created automatically)
-- **wget** and **curl** (for downloading data and tools)
+- **curl** (for downloading data and tools)
 - **unzip** (for extracting PLINK archives and SGDP bim)
 - macOS (Intel or Apple Silicon) or Linux (x86_64)
 
