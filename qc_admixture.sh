@@ -157,12 +157,11 @@ echo ""
 # ===================================================================
 echo "  Step 3/8: Exclude long-range LD regions (Price et al. 2008, hg38) [supervised only]"
 
-# Download the hg38 high-LD regions BED file
-HIGH_LD_BED="${SCRAP}/high_ld_regions_hg38.bed"
+HIGH_LD_BED="${DOWNLOADS_DIR}/high_ld_regions_hg38.bed"
 if [[ ! -f "${HIGH_LD_BED}" ]]; then
-    echo "    Downloading high-LD regions ..."
-    curl -fSL -o "${HIGH_LD_BED}" \
-        "https://raw.githubusercontent.com/meyer-lab-cshl/plinkQC/master/inst/extdata/high-LD-regions-hg38-GRCh38.bed"
+    echo "Error: high-LD regions file not found: ${HIGH_LD_BED}" >&2
+    echo "Run download_files.sh first." >&2
+    exit 1
 fi
 
 # Convert BED (0-based) to PLINK range format (1-based)

@@ -14,6 +14,7 @@
 #   sgdp_all.{bed,bim.zip,fam}           — SGDP bed/bim/fam (hg19)
 #   sgdp_metadata.txt                    — SGDP sample metadata
 #   neural/data/                         — Neural ADMIXTURE pretrained data
+#   high_ld_regions_hg38.bed             — Long-range LD regions (hg38)
 #
 set -euo pipefail
 
@@ -137,5 +138,13 @@ echo "==> Downloading 1000 Genomes population descriptions ..."
 
 download "${DOWNLOADS_DIR}/kg_population_names.tsv" \
     "https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/20131219.populations.tsv"
+
+# ---------------------------------------------------------------------------
+# High-LD regions BED (for ADMIXTURE QC LD exclusion)
+# ---------------------------------------------------------------------------
+echo "==> Downloading high-LD regions ..."
+
+download "${DOWNLOADS_DIR}/high_ld_regions_hg38.bed" \
+    "https://raw.githubusercontent.com/meyer-lab-cshl/plinkQC/master/inst/extdata/high-LD-regions-hg38-GRCh38.bed"
 
 echo "==> Downloads complete."
