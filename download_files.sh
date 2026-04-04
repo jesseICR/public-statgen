@@ -41,7 +41,7 @@ download() {
         return 0
     fi
     echo "  [download] $(basename "${dest}")"
-    curl -sSf -o "${dest}" "${url}"
+    curl -sSfL -o "${dest}" "${url}"
 }
 
 # ---------------------------------------------------------------------------
