@@ -57,7 +57,15 @@ install_plink() {
 
     echo "  [download] ${name} ..."
     curl -fSL -o "${TMP_DIR}/${name}.zip" "${url}"
-    unzip -o -j "${TMP_DIR}/${name}.zip" -d "${TMP_DIR}/${name}" > /dev/null
+    python3 -c "
+import zipfile, os, sys
+with zipfile.ZipFile(sys.argv[1]) as z:
+    os.makedirs(sys.argv[2], exist_ok=True)
+    for m in z.infolist():
+        if not m.is_dir():
+            m.filename = os.path.basename(m.filename)
+            z.extract(m, sys.argv[2])
+" "${TMP_DIR}/${name}.zip" "${TMP_DIR}/${name}"
     cp "${TMP_DIR}/${name}/${src_bin}" "${dest_bin}"
     chmod +x "${dest_bin}"
     echo "  [installed] ${dest_bin}"

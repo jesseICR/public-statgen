@@ -206,7 +206,12 @@ else
     mkdir -p "${QC_DIR}"
 
     # Unzip bim and copy bed/fam into QC directory
-    unzip -p "${DOWNLOADS_DIR}/sgdp_all.bim.zip" > "${QC_DIR}/sgdp_all.bim"
+    python3 -c "
+import zipfile, sys
+with zipfile.ZipFile(sys.argv[1]) as z:
+    names = [n for n in z.namelist() if not n.endswith('/')]
+    sys.stdout.buffer.write(z.read(names[0]))
+" "${DOWNLOADS_DIR}/sgdp_all.bim.zip" > "${QC_DIR}/sgdp_all.bim"
     cp -n "${DOWNLOADS_DIR}/sgdp_all.bed" "${QC_DIR}/"
     cp -n "${DOWNLOADS_DIR}/sgdp_all.fam" "${QC_DIR}/"
 

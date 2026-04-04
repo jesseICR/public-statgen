@@ -19,8 +19,7 @@ After that it runs unattended. The pipeline is idempotent — re-running skips a
 
 - **Python 3** (for SGDP liftover / QC; a venv is created automatically)
 - **curl** (for downloading data and tools)
-- **unzip** (for extracting PLINK archives and SGDP bim)
-- macOS (Intel or Apple Silicon) or Linux (x86_64)
+- macOS (Intel or Apple Silicon), Linux (x86_64), or Windows via WSL
 
 PLINK 1.9, PLINK 2.0, and ADMIXTURE are installed automatically by the pipeline.
 Python dependencies (`pandas`, `liftover`, `numpy`, `matplotlib`) are installed into a local venv.
