@@ -1,4 +1,4 @@
-# Public Statistical Genetics Pipeline — Global Ancestry Estimation from 1000 Genomes, HGDP, SGDP, and GIAB
+# Public Statistical Genetics Pipeline
 
 A fully reproducible bioinformatics pipeline for harmonizing, aligning, and performing rigorous quality control on the 1000 Genomes (KG), Human Genome Diversity Project (HGDP), Simons Genome Diversity Project (SGDP), and Genome in a Bottle (GIAB) Ashkenazi Jewish reference panels, followed by supervised ADMIXTURE ancestry estimation. The pipeline merges four major human genetic diversity datasets into a single reference panel of 4,324 samples, runs supervised ADMIXTURE with cross-validation, and produces continental ancestry fractions, structure plots, and estimated allele frequencies — all from a single `bash main.sh` command.
 
