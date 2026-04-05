@@ -195,6 +195,10 @@ The `literature_reference/` directory contains sample-level information extracte
 
 - **Sharma et al.** — *Genetic ancestry and population structure in the All of Us Research Program cohort.* bioRxiv (2024). [doi:10.1101/2024.12.21.629909](https://doi.org/10.1101/2024.12.21.629909)
 
+- **Narasimhan et al.** — *The formation of human populations in South and Central Asia.* Science (2019). [doi:10.1126/science.aat7487](https://doi.org/10.1126/science.aat7487)
+
+- **Reich et al.** — *Reconstructing Indian population history.* Nature (2009). [doi:10.1038/nature08365](https://doi.org/10.1038/nature08365)
+
 - **Marino-Ramirez et al.** — *Effects of genetic ancestry and socioeconomic deprivation on ethnic differences in serum creatinine.* Gene (2022). [doi:10.1016/j.gene.2022.146709](https://doi.org/10.1016/j.gene.2022.146709)
 
 - **Dominguez Mantes et al.** — *Neural ADMIXTURE for rapid genomic clustering.* Nature Computational Science (2023). [doi:10.1038/s43588-023-00482-7](https://doi.org/10.1038/s43588-023-00482-7)
@@ -236,31 +240,47 @@ The GIAB Ashkenazi parents appear in the European block and show a mixed profile
 
 ### Limitations of the South Asian Reference Panel
 
-The South Asian supervised component is trained on three 1000 Genomes populations: **GIH** (Gujarati Indian, Houston), **ITU** (Indian Telugu, UK), and **STU** (Sri Lankan Tamil, UK). These populations span part of the Ancestral North Indian (ANI) to Ancestral South Indian (ASI) genetic cline, with approximate ancestry compositions (from qpAdm models in Narasimhan et al. 2019 and related literature):
+The South Asian supervised component is trained on three 1000 Genomes populations: **GIH** (Gujarati Indian, Houston), **ITU** (Indian Telugu, UK), and **STU** (Sri Lankan Tamil, UK).
 
-| Group | AASI (ASI) | Steppe (Indo-European) | ANI (total) | SSA |
-|-------|-----------|----------------------|------------|-----|
-| GIH (Gujarati) | ~20–30% | ~10–18% | ~70–80% | ~0–2% |
-| ITU (Telugu) | ~35–45% | ~7–13% | ~55–65% | ~0–2% |
-| STU (Sri Lankan Tamil) | ~40–48% | ~5–12% | ~52–60% | ~0–2% |
+#### South Asian ancestry in the 3-source distal model
 
-[Sharma et al. (2025)](https://doi.org/10.1101/2024.12.21.629909) additionally included three HGDP Balochistan populations in their South Asian reference panel — **Balochi** (n=17), **Brahui** (n=20), and **Makrani** (n=12) — which sit at the extreme high-ANI end of the cline:
+The classic two-source model (Reich et al. 2009) described Indian genetic variation as a cline between Ancestral North Indian (ANI) and Ancestral South Indian (ASI). Ancient DNA has since revealed that ANI and ASI are not fundamental ancestral populations but are themselves admixed proximal sources. The current consensus model (Narasimhan et al. 2019 and subsequent ancient DNA studies) resolves South Asian ancestry into three distal sources:
 
-| Group | AASI (ASI) | Steppe (Indo-European) | ANI (total) | SSA |
-|-------|-----------|----------------------|------------|-----|
-| Balochi | ~5–10% | ~15–25% | ~85–95% | ~1–2% |
-| Brahui | ~5–10% | ~15–25% | ~85–95% | ~1–2% |
-| Makrani | ~5–10% | ~15–25% | ~70–85% | ~7% avg (higher in coastal subgroups) |
+- **Iranian farmer-related / Indus Periphery** — Neolithic ancestry from the Iranian plateau and the Indus Valley Civilization cline (~5400–3700 BCE). This is the single largest contributor to most South Asians and forms the shared core of both ANI and ASI.
+- **AASI (Ancient Ancestral South Indian)** — the indigenous South Asian hunter-gatherer component, deeply divergent and distantly related to Andamanese groups (Onge). Higher AASI pulls populations toward the ASI end of the cline (southern, Dravidian-speaking, tribal groups).
+- **Steppe pastoralist (Central Steppe MLBA)** — Bronze Age Indo-European-linked ancestry (~2000–1000 BCE). Higher Steppe pulls populations toward the ANI end of the cline (northern, Indo-European-speaking, higher-caste groups).
 
-This pipeline excludes the Balochistan populations from the South Asian reference to avoid anchoring the component to high-ANI / West Eurasian allele frequencies, which would exacerbate the cline truncation problem described below. Despite speaking a Dravidian language, Brahui are autosomally nearly identical to Balochi (Indo-Iranian speakers) — a case of language retention without corresponding genetic distinctiveness. Makrani carry additional Sub-Saharan African ancestry (~7% on average, substantially higher in coastal communities) from Indian Ocean trade-era admixture, which would introduce a confound into the South Asian training signal.
+The old proximal sources decompose approximately as: **ANI** ≈ 60–75% Iranian farmer-related + 15–30% Steppe + 5–15% AASI; **ASI** ≈ 60–75% AASI + 25–40% Iranian farmer-related + negligible Steppe. The Iranian farmer-related component is the dominant contributor to both, which is why ANI and ASI share substantial allele frequencies despite anchoring opposite ends of the modern Indian cline.
+
+#### Reference population compositions
+
+Using the 3-source distal qpAdm model (Narasimhan et al. 2019), the pipeline's reference populations have the following approximate compositions:
+
+| Group | Iranian farmer / Indus Periphery | AASI | Steppe (Indo-European) | SSA |
+|-------|--------------------------------|------|----------------------|-----|
+| GIH (Gujarati) | ~49% | ~36% | ~15% | ~0–2% |
+| ITU (Telugu) | ~50% | ~43% | ~7% | ~0–2% |
+| STU (Sri Lankan Tamil) | ~47% | ~45% | ~7% | ~0–2% |
+
+[Sharma et al. (2025)](https://doi.org/10.1101/2024.12.21.629909) additionally included three HGDP Balochistan populations in their South Asian reference panel — **Balochi** (n=17), **Brahui** (n=20), and **Makrani** (n=12) — which sit at the extreme low-AASI / high-Iranian-farmer end of the cline:
+
+| Group | Iranian farmer / Indus Periphery | AASI | Steppe (Indo-European) | SSA |
+|-------|--------------------------------|------|----------------------|-----|
+| Balochi | ~76% | ~6% | ~19% | ~1–2% |
+| Brahui | ~78% | ~4% | ~18% | ~1–2% |
+| Makrani | ~70–75% | ~5–10% | ~15–20% | ~7% avg (higher in coastal subgroups) |
+
+This pipeline excludes the Balochistan populations from the South Asian reference to avoid anchoring the component to allele frequencies dominated by Iranian farmer-related ancestry with minimal AASI, which would exacerbate the cline truncation problem described below. Despite speaking a Dravidian language, Brahui are autosomally nearly identical to Balochi (Indo-Iranian speakers) — a case of language retention without corresponding genetic distinctiveness. Makrani carry additional Sub-Saharan African ancestry (~7% on average, substantially higher in coastal communities) from Indian Ocean trade-era admixture, which would introduce a confound into the South Asian training signal.
+
+#### Remaining limitations
 
 Even with these exclusions, the remaining 324 GIH/ITU/STU samples — all drawn from southern and western Dravidian-speaking and Indo-European-speaking groups, two of three from diaspora communities — create several limitations:
 
 - **Geographic bias.** The reference panel has no representation from the northern tier of South Asia (e.g., Punjabi, Pashtun, Sindhi, Bengali populations), nor from Central Asian groups that form the eastern end of the West Eurasian cline. The "South Asian" component is therefore anchored to a geographically narrow slice of the subcontinent's genetic diversity.
-- **Cline truncation.** South Asian genetic variation is structured along a north–south and west–east ANI-to-ASI cline. By sampling only the middle-to-southern portion (AASI fractions of ~20–48%), the supervised labels train the model on a restricted allele frequency range. Populations at the ANI-heavy end of the cline (e.g., northwestern South Asians with AASI ~5–10%) will have their ANI-associated alleles partially absorbed by the European component, inflating European fractions and deflating South Asian fractions for these groups.
+- **Cline truncation.** South Asian genetic variation is structured along a gradient driven by the relative proportions of AASI, Iranian farmer-related, and Steppe ancestry. The reference populations sample only the middle-to-southern portion of this gradient (AASI ~36–45%, Steppe ~7–15%), while the excluded Balochistan populations represent the opposite extreme (AASI ~4–10%, Steppe ~18–19%). Populations at the low-AASI end of the cline (e.g., northwestern South Asians) will have their Iranian farmer-related and Steppe-associated alleles partially absorbed by the European component, inflating European fractions and deflating South Asian fractions for these groups.
 - **Diaspora sampling effects.** GIH, ITU, and STU were recruited from immigrant communities, which may not be representative of the source populations due to founder effects, selective migration, and community endogamy in the diaspora.
 
-These limitations reflect a fundamental constraint of supervised ancestry models: the populations used as references are themselves admixed composites of overlapping ancestral sources. "South Asian" does not correspond to a single ancestral population but to a point along a continuous gradient shaped by Bronze Age admixture between Iranian farmer-related, Steppe pastoralist (Indo-European), and Ancient Ancestral South Indian (AASI) hunter-gatherer sources. Genetic drift, divergence, founder effects, and ongoing gene flow create additional distance between groups that share common deep ancestry. A K=6 model imposes discrete boundaries on what is fundamentally a continuous, multidimensional landscape of human genetic variation — any choice of reference populations will anchor each component to a particular region of these overlapping clines rather than capturing the full extent of ancestral diversity within each continental group.
+These limitations reflect a fundamental constraint of supervised ancestry models: the populations used as references are themselves admixed composites of overlapping ancestral sources. "South Asian" does not correspond to a single ancestral population but to a region along continuous gradients shaped by the mixing of three deep ancestral sources — Iranian farmer-related peoples, AASI hunter-gatherers, and Steppe pastoralists — over thousands of years. The Iranian farmer-related component is the dominant contributor to nearly every South Asian group (47–78% in the populations above), yet it is shared with West Asian, Middle Eastern, and to some extent European populations, making clean separation at low K inherently difficult. Genetic drift, divergence, founder effects, and ongoing gene flow create additional distance between groups that share common deep ancestry. A K=6 model imposes discrete boundaries on what is fundamentally a continuous, multidimensional landscape of human genetic variation — any choice of reference populations will anchor each component to a particular region of these overlapping clines rather than capturing the full extent of ancestral diversity within each continental group.
 
 ### Output Data Files
 
