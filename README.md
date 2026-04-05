@@ -165,6 +165,8 @@ The `downloads/` directory can be deleted after QC (steps 3 + 5) to reclaim ~13 
 - **GIAB Ashkenazi Jewish trio** — hg38 benchmark VCFs from [NIST GIAB](https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/) (parents HG003 and HG004 only)
 - **Neural ADMIXTURE** — pretrained ancestry model from [Figshare](https://doi.org/10.6084/m9.figshare.19387538.v1)
 
+An interactive map of 1000 Genomes and HGDP population sampling locations is available at the [IGSR Population Browser](https://www.internationalgenome.org/data-portal/population).
+
 ## GIAB Integration
 
 The GIAB Ashkenazi Jewish parents (HG003 = father, HG004 = mother) are included as non-supervised samples for ancestry projection. They are not used in ADMIXTURE training — their ancestry fractions are estimated by the trained model.
@@ -203,6 +205,19 @@ The `literature_reference/` directory contains sample-level information extracte
 
 The results below were obtained using the pipeline defaults (K=6, MAF=0.01). The pipeline produces a supervised ADMIXTURE analysis with six continental ancestry components: **African**, **American**, **East Asian**, **European**, **Oceanian**, and **South Asian**. A copy of the output files is checked into [`outputs/admixture-global-6/`](outputs/admixture-global-6/) so results are visible directly from the repository.
 
+### Supervised Reference Population Selection
+
+The reference populations for the K=6 supervised model were informed by [Sharma et al. (2025)](https://doi.org/10.1101/2024.12.21.629909), who performed continental ancestry analysis for the All of Us Research Program using 34 populations (1,550 samples) from 1000 Genomes and HGDP across seven superpopulations — African, American, East Asian, European, South Asian, West Asian, and Oceanian. An interactive map of 1000 Genomes and HGDP population sampling locations is available at the [IGSR Population Browser](https://www.internationalgenome.org/data-portal/population).
+
+This pipeline adopts Sharma's six-component continental framework (collapsing their West Asian group, since a K=6 model cannot support a seventh component) and uses their population-to-superpopulation assignments as a starting point, with modifications:
+
+- Populations flagged as outliers or substantially admixed were excluded (Koenig et al. 2024; Martin et al. 2017).
+- Additional populations from SGDP and HGDP were added for coverage (e.g., Mixe, Quechua, Zapotec for the American component; Mbuti, Biaka for the African component; CEU, French, Sardinian for the European component).
+- Several Sharma populations were dropped: GWD and LWK from the African panel, KHV from the East Asian panel, and the Balochistan populations (Balochi, Brahui, Makrani) from the South Asian panel (see [Limitations of the South Asian Reference Panel](#limitations-of-the-south-asian-reference-panel)).
+- Sharma's West Asian populations (Bedouin, Druze, Palestinian) are included in the merged panel as unsupervised samples for projection but not as training references.
+
+The full population-to-reference mapping is defined in [`build_supervised.py`](build_supervised.py).
+
 ### Structure Plots
 
 #### Cross-Validation Holdout
@@ -221,11 +236,31 @@ The GIAB Ashkenazi parents appear in the European block and show a mixed profile
 
 ### Limitations of the South Asian Reference Panel
 
-The South Asian supervised component is trained on three 1000 Genomes populations: **GIH** (Gujarati Indian, Houston), **ITU** (Indian Telugu, UK), and **STU** (Sri Lankan Tamil, UK). These 324 samples are all drawn from the Indian subcontinent's southern and western Dravidian-speaking and Indo-European-speaking groups, and two of the three are diaspora samples collected in the US and UK. This creates several limitations:
+The South Asian supervised component is trained on three 1000 Genomes populations: **GIH** (Gujarati Indian, Houston), **ITU** (Indian Telugu, UK), and **STU** (Sri Lankan Tamil, UK). These populations span part of the Ancestral North Indian (ANI) to Ancestral South Indian (ASI) genetic cline, with approximate ancestry compositions (from qpAdm models in Narasimhan et al. 2019 and related literature):
 
-- **Geographic bias.** The reference panel has no representation from the northern tier of South Asia (e.g., Punjabi, Pashtun, Balochi, Sindhi, Bengali populations), nor from Central Asian groups that form the eastern end of the West Eurasian cline. The "South Asian" component is therefore anchored to a geographically narrow slice of the subcontinent's genetic diversity.
-- **Cline truncation.** South Asian genetic variation is structured along a north–south and west–east Ancestral North Indian (ANI) to Ancestral South Indian (ASI) cline. By sampling only the middle-to-southern portion of this cline, the supervised labels train the model on a restricted allele frequency range. Populations at the ANI-heavy end of the cline (e.g., northwestern South Asians) will have their ANI-associated alleles partially absorbed by the European component, inflating European fractions and deflating South Asian fractions for these groups.
+| Group | AASI (ASI) | Steppe (Indo-European) | ANI (total) | SSA |
+|-------|-----------|----------------------|------------|-----|
+| GIH (Gujarati) | ~20–30% | ~10–18% | ~70–80% | ~0–2% |
+| ITU (Telugu) | ~35–45% | ~7–13% | ~55–65% | ~0–2% |
+| STU (Sri Lankan Tamil) | ~40–48% | ~5–12% | ~52–60% | ~0–2% |
+
+[Sharma et al. (2025)](https://doi.org/10.1101/2024.12.21.629909) additionally included three HGDP Balochistan populations in their South Asian reference panel — **Balochi** (n=17), **Brahui** (n=20), and **Makrani** (n=12) — which sit at the extreme high-ANI end of the cline:
+
+| Group | AASI (ASI) | Steppe (Indo-European) | ANI (total) | SSA |
+|-------|-----------|----------------------|------------|-----|
+| Balochi | ~5–10% | ~15–25% | ~85–95% | ~1–2% |
+| Brahui | ~5–10% | ~15–25% | ~85–95% | ~1–2% |
+| Makrani | ~5–10% | ~15–25% | ~70–85% | ~7% avg (higher in coastal subgroups) |
+
+This pipeline excludes the Balochistan populations from the South Asian reference to avoid anchoring the component to high-ANI / West Eurasian allele frequencies, which would exacerbate the cline truncation problem described below. Despite speaking a Dravidian language, Brahui are autosomally nearly identical to Balochi (Indo-Iranian speakers) — a case of language retention without corresponding genetic distinctiveness. Makrani carry additional Sub-Saharan African ancestry (~7% on average, substantially higher in coastal communities) from Indian Ocean trade-era admixture, which would introduce a confound into the South Asian training signal.
+
+Even with these exclusions, the remaining 324 GIH/ITU/STU samples — all drawn from southern and western Dravidian-speaking and Indo-European-speaking groups, two of three from diaspora communities — create several limitations:
+
+- **Geographic bias.** The reference panel has no representation from the northern tier of South Asia (e.g., Punjabi, Pashtun, Sindhi, Bengali populations), nor from Central Asian groups that form the eastern end of the West Eurasian cline. The "South Asian" component is therefore anchored to a geographically narrow slice of the subcontinent's genetic diversity.
+- **Cline truncation.** South Asian genetic variation is structured along a north–south and west–east ANI-to-ASI cline. By sampling only the middle-to-southern portion (AASI fractions of ~20–48%), the supervised labels train the model on a restricted allele frequency range. Populations at the ANI-heavy end of the cline (e.g., northwestern South Asians with AASI ~5–10%) will have their ANI-associated alleles partially absorbed by the European component, inflating European fractions and deflating South Asian fractions for these groups.
 - **Diaspora sampling effects.** GIH, ITU, and STU were recruited from immigrant communities, which may not be representative of the source populations due to founder effects, selective migration, and community endogamy in the diaspora.
+
+These limitations reflect a fundamental constraint of supervised ancestry models: the populations used as references are themselves admixed composites of overlapping ancestral sources. "South Asian" does not correspond to a single ancestral population but to a point along a continuous gradient shaped by Bronze Age admixture between Iranian farmer-related, Steppe pastoralist (Indo-European), and Ancient Ancestral South Indian (AASI) hunter-gatherer sources. Genetic drift, divergence, founder effects, and ongoing gene flow create additional distance between groups that share common deep ancestry. A K=6 model imposes discrete boundaries on what is fundamentally a continuous, multidimensional landscape of human genetic variation — any choice of reference populations will anchor each component to a particular region of these overlapping clines rather than capturing the full extent of ancestral diversity within each continental group.
 
 ### Output Data Files
 
