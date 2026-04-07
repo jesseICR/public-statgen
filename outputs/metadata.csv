@@ -1,0 +1,4325 @@
+sample_id,population_id,superpopulation,dataset,country,neural_ancestry
+HG00096,GBR,European,kg,,European
+HG00097,GBR,European,kg,,European
+HG00099,GBR,European,kg,,European
+HG00100,GBR,European,kg,,European
+HG00101,GBR,European,kg,,European
+HG00102,GBR,European,kg,,European
+HG00103,GBR,European,kg,,European
+HG00105,GBR,European,kg,,European
+HG00106,GBR,European,kg,,European
+HG00107,GBR,European,kg,,European
+HG00108,GBR,European,kg,,European
+HG00109,GBR,European,kg,,European
+HG00110,GBR,European,kg,,European
+HG00111,GBR,European,kg,,European
+HG00112,GBR,European,kg,,European
+HG00113,GBR,European,kg,,European
+HG00114,GBR,European,kg,,European
+HG00115,GBR,European,kg,,European
+HG00116,GBR,European,kg,,European
+HG00117,GBR,European,kg,,European
+HG00118,GBR,European,kg,,European
+HG00119,GBR,European,kg,,European
+HG00120,GBR,European,kg,,European
+HG00121,GBR,European,kg,,European
+HG00122,GBR,European,kg,,European
+HG00123,GBR,European,kg,,European
+HG00125,GBR,European,kg,,European
+HG00126,GBR,European,kg,,European
+HG00127,GBR,European,kg,,European
+HG00128,GBR,European,kg,,European
+HG00129,GBR,European,kg,,European
+HG00130,GBR,European,kg,,European
+HG00131,GBR,European,kg,,European
+HG00132,GBR,European,kg,,European
+HG00133,GBR,European,kg,,European
+HG00136,GBR,European,kg,,European
+HG00137,GBR,European,kg,,European
+HG00138,GBR,European,kg,,European
+HG00139,GBR,European,kg,,European
+HG00140,GBR,European,kg,,European
+HG00141,GBR,European,kg,,European
+HG00142,GBR,European,kg,,European
+HG00143,GBR,European,kg,,European
+HG00145,GBR,European,kg,,European
+HG00146,GBR,European,kg,,European
+HG00148,GBR,European,kg,,European
+HG00149,GBR,European,kg,,European
+HG00150,GBR,European,kg,,European
+HG00151,GBR,European,kg,,European
+HG00154,GBR,European,kg,,European
+HG00155,GBR,European,kg,,European
+HG00157,GBR,European,kg,,European
+HG00158,GBR,European,kg,,European
+HG00159,GBR,European,kg,,European
+HG00160,GBR,European,kg,,European
+HG00171,FIN,European,kg,,European
+HG00173,FIN,European,kg,,European
+HG00174,FIN,European,kg,,European
+HG00176,FIN,European,kg,,European
+HG00177,FIN,European,kg,,European
+HG00178,FIN,European,kg,,European
+HG00179,FIN,European,kg,,European
+HG00180,FIN,European,kg,,European
+HG00181,FIN,European,kg,,European
+HG00182,FIN,European,kg,,European
+HG00183,FIN,European,kg,,European
+HG00185,FIN,European,kg,,European
+HG00186,FIN,European,kg,,European
+HG00187,FIN,European,kg,,European
+HG00188,FIN,European,kg,,European
+HG00189,FIN,European,kg,,European
+HG00190,FIN,European,kg,,European
+HG00231,GBR,European,kg,,European
+HG00232,GBR,European,kg,,European
+HG00233,GBR,European,kg,,European
+HG00234,GBR,European,kg,,European
+HG00235,GBR,European,kg,,European
+HG00236,GBR,European,kg,,European
+HG00237,GBR,European,kg,,European
+HG00238,GBR,European,kg,,European
+HG00239,GBR,European,kg,,European
+HG00240,GBR,European,kg,,European
+HG00242,GBR,European,kg,,European
+HG00243,GBR,European,kg,,European
+HG00244,GBR,European,kg,,European
+HG00245,GBR,European,kg,,European
+HG00246,GBR,European,kg,,European
+HG00250,GBR,European,kg,,European
+HG00251,GBR,European,kg,,European
+HG00252,GBR,European,kg,,European
+HG00253,GBR,European,kg,,European
+HG00254,GBR,European,kg,,European
+HG00255,GBR,European,kg,,European
+HG00256,GBR,European,kg,,European
+HG00257,GBR,European,kg,,European
+HG00258,GBR,European,kg,,European
+HG00259,GBR,European,kg,,European
+HG00260,GBR,European,kg,,European
+HG00261,GBR,European,kg,,European
+HG00262,GBR,European,kg,,European
+HG00263,GBR,European,kg,,European
+HG00264,GBR,European,kg,,European
+HG00265,GBR,European,kg,,European
+HG00266,FIN,European,kg,,European
+HG00267,FIN,European,kg,,European
+HG00268,FIN,European,kg,,European
+HG00269,FIN,European,kg,,European
+HG00271,FIN,European,kg,,European
+HG00272,FIN,European,kg,,European
+HG00273,FIN,European,kg,,European
+HG00274,FIN,European,kg,,European
+HG00275,FIN,European,kg,,European
+HG00276,FIN,European,kg,,European
+HG00277,FIN,European,kg,,European
+HG00278,FIN,European,kg,,European
+HG00280,FIN,European,kg,,European
+HG00281,FIN,European,kg,,European
+HG00282,FIN,European,kg,,European
+HG00284,FIN,European,kg,,European
+HG00285,FIN,European,kg,,European
+HG00288,FIN,European,kg,,European
+HG00290,FIN,European,kg,,European
+HG00304,FIN,European,kg,,European
+HG00306,FIN,European,kg,,European
+HG00308,FIN,European,kg,,European
+HG00309,FIN,European,kg,,European
+HG00310,FIN,European,kg,,European
+HG00311,FIN,European,kg,,European
+HG00313,FIN,European,kg,,European
+HG00315,FIN,European,kg,,European
+HG00318,FIN,European,kg,,European
+HG00319,FIN,European,kg,,European
+HG00320,FIN,European,kg,,European
+HG00321,FIN,European,kg,,European
+HG00323,FIN,European,kg,,European
+HG00324,FIN,European,kg,,European
+HG00325,FIN,European,kg,,European
+HG00326,FIN,European,kg,,European
+HG00327,FIN,European,kg,,European
+HG00328,FIN,European,kg,,European
+HG00329,FIN,European,kg,,European
+HG00330,FIN,European,kg,,European
+HG00331,FIN,European,kg,,European
+HG00332,FIN,European,kg,,European
+HG00334,FIN,European,kg,,European
+HG00335,FIN,European,kg,,European
+HG00336,FIN,European,kg,,European
+HG00337,FIN,European,kg,,European
+HG00338,FIN,European,kg,,European
+HG00339,FIN,European,kg,,European
+HG00341,FIN,European,kg,,European
+HG00342,FIN,European,kg,,European
+HG00343,FIN,European,kg,,European
+HG00344,FIN,European,kg,,European
+HG00345,FIN,European,kg,,European
+HG00346,FIN,European,kg,,European
+HG00349,FIN,European,kg,,European
+HG00350,FIN,European,kg,,European
+HG00351,FIN,European,kg,,European
+HG00353,FIN,European,kg,,European
+HG00355,FIN,European,kg,,European
+HG00356,FIN,European,kg,,European
+HG00357,FIN,European,kg,,European
+HG00358,FIN,European,kg,,European
+HG00360,FIN,European,kg,,European
+HG00361,FIN,European,kg,,European
+HG00362,FIN,European,kg,,European
+HG00364,FIN,European,kg,,European
+HG00365,FIN,European,kg,,European
+HG00366,FIN,European,kg,,European
+HG00367,FIN,European,kg,,European
+HG00368,FIN,European,kg,,European
+HG00369,FIN,European,kg,,European
+HG00371,FIN,European,kg,,European
+HG00372,FIN,European,kg,,European
+HG00373,FIN,European,kg,,European
+HG00375,FIN,European,kg,,European
+HG00376,FIN,European,kg,,European
+HG00378,FIN,European,kg,,European
+HG00379,FIN,European,kg,,European
+HG00380,FIN,European,kg,,European
+HG00381,FIN,European,kg,,European
+HG00382,FIN,European,kg,,European
+HG00383,FIN,European,kg,,European
+HG00384,FIN,European,kg,,European
+HG00403,CHS,East Asian,kg,,East Asian
+HG00404,CHS,East Asian,kg,,East Asian
+HG00405,CHS,East Asian,kg,,
+HG00406,CHS,East Asian,kg,,East Asian
+HG00407,CHS,East Asian,kg,,East Asian
+HG00408,CHS,East Asian,kg,,
+HG00409,CHS,East Asian,kg,,East Asian
+HG00410,CHS,East Asian,kg,,East Asian
+HG00418,CHS,East Asian,kg,,
+HG00419,CHS,East Asian,kg,,East Asian
+HG00420,CHS,East Asian,kg,,
+HG00421,CHS,East Asian,kg,,East Asian
+HG00422,CHS,East Asian,kg,,East Asian
+HG00423,CHS,East Asian,kg,,
+HG00427,CHS,East Asian,kg,,
+HG00428,CHS,East Asian,kg,,East Asian
+HG00429,CHS,East Asian,kg,,
+HG00436,CHS,East Asian,kg,,East Asian
+HG00437,CHS,East Asian,kg,,East Asian
+HG00438,CHS,East Asian,kg,,
+HG00442,CHS,East Asian,kg,,East Asian
+HG00443,CHS,East Asian,kg,,East Asian
+HG00444,CHS,East Asian,kg,,
+HG00445,CHS,East Asian,kg,,East Asian
+HG00446,CHS,East Asian,kg,,East Asian
+HG00447,CHS,East Asian,kg,,
+HG00448,CHS,East Asian,kg,,East Asian
+HG00449,CHS,East Asian,kg,,East Asian
+HG00450,CHS,East Asian,kg,,
+HG00451,CHS,East Asian,kg,,East Asian
+HG00452,CHS,East Asian,kg,,East Asian
+HG00453,CHS,East Asian,kg,,
+HG00457,CHS,East Asian,kg,,East Asian
+HG00458,CHS,East Asian,kg,,East Asian
+HG00459,CHS,East Asian,kg,,
+HG00463,CHS,East Asian,kg,,East Asian
+HG00464,CHS,East Asian,kg,,East Asian
+HG00465,CHS,East Asian,kg,,
+HG00472,CHS,East Asian,kg,,East Asian
+HG00473,CHS,East Asian,kg,,East Asian
+HG00474,CHS,East Asian,kg,,
+HG00475,CHS,East Asian,kg,,East Asian
+HG00476,CHS,East Asian,kg,,East Asian
+HG00477,CHS,East Asian,kg,,
+HG00478,CHS,East Asian,kg,,East Asian
+HG00479,CHS,East Asian,kg,,East Asian
+HG00480,CHS,East Asian,kg,,
+HG00500,CHS,East Asian,kg,,East Asian
+HG00501,CHS,East Asian,kg,,
+HG00502,CHS,East Asian,kg,,
+HG00512,CHS,East Asian,kg,,
+HG00513,CHS,East Asian,kg,,East Asian
+HG00514,CHS,East Asian,kg,,
+HG00524,CHS,East Asian,kg,,East Asian
+HG00525,CHS,East Asian,kg,,East Asian
+HG00526,CHS,East Asian,kg,,
+HG00530,CHS,East Asian,kg,,East Asian
+HG00531,CHS,East Asian,kg,,East Asian
+HG00532,CHS,East Asian,kg,,
+HG00533,CHS,East Asian,kg,,East Asian
+HG00534,CHS,East Asian,kg,,East Asian
+HG00535,CHS,East Asian,kg,,
+HG00536,CHS,East Asian,kg,,East Asian
+HG00537,CHS,East Asian,kg,,East Asian
+HG00538,CHS,East Asian,kg,,
+HG00542,CHS,East Asian,kg,,East Asian
+HG00543,CHS,East Asian,kg,,East Asian
+HG00544,CHS,East Asian,kg,,
+HG00551,PUR,American,kg,,
+HG00552,PUR,American,kg,,
+HG00553,PUR,American,kg,,
+HG00554,PUR,American,kg,,
+HG00555,PUR,American,kg,,
+HG00556,CHS,East Asian,kg,,East Asian
+HG00557,CHS,East Asian,kg,,East Asian
+HG00558,CHS,East Asian,kg,,
+HG00559,CHS,East Asian,kg,,East Asian
+HG00560,CHS,East Asian,kg,,East Asian
+HG00561,CHS,East Asian,kg,,
+HG00565,CHS,East Asian,kg,,East Asian
+HG00566,CHS,East Asian,kg,,East Asian
+HG00567,CHS,East Asian,kg,,
+HG00577,CHS,East Asian,kg,,
+HG00578,CHS,East Asian,kg,,
+HG00579,CHS,East Asian,kg,,
+HG00580,CHS,East Asian,kg,,East Asian
+HG00581,CHS,East Asian,kg,,East Asian
+HG00582,CHS,East Asian,kg,,
+HG00583,CHS,East Asian,kg,,East Asian
+HG00584,CHS,East Asian,kg,,East Asian
+HG00585,CHS,East Asian,kg,,
+HG00589,CHS,East Asian,kg,,East Asian
+HG00590,CHS,East Asian,kg,,East Asian
+HG00591,CHS,East Asian,kg,,
+HG00592,CHS,East Asian,kg,,East Asian
+HG00593,CHS,East Asian,kg,,East Asian
+HG00594,CHS,East Asian,kg,,
+HG00595,CHS,East Asian,kg,,East Asian
+HG00596,CHS,East Asian,kg,,East Asian
+HG00597,CHS,East Asian,kg,,
+HG00598,CHS,East Asian,kg,,East Asian
+HG00599,CHS,East Asian,kg,,East Asian
+HG00607,CHS,East Asian,kg,,East Asian
+HG00608,CHS,East Asian,kg,,East Asian
+HG00609,CHS,East Asian,kg,,
+HG00610,CHS,East Asian,kg,,East Asian
+HG00611,CHS,East Asian,kg,,East Asian
+HG00612,CHS,East Asian,kg,,
+HG00613,CHS,East Asian,kg,,East Asian
+HG00614,CHS,East Asian,kg,,East Asian
+HG00615,CHS,East Asian,kg,,
+HG00619,CHS,East Asian,kg,,East Asian
+HG00620,CHS,East Asian,kg,,East Asian
+HG00621,CHS,East Asian,kg,,
+HG00622,CHS,East Asian,kg,,East Asian
+HG00623,CHS,East Asian,kg,,East Asian
+HG00625,CHS,East Asian,kg,,East Asian
+HG00626,CHS,East Asian,kg,,East Asian
+HG00627,CHS,East Asian,kg,,
+HG00628,CHS,East Asian,kg,,East Asian
+HG00629,CHS,East Asian,kg,,East Asian
+HG00630,CHS,East Asian,kg,,
+HG00631,CHS,East Asian,kg,,East Asian
+HG00632,CHS,East Asian,kg,,East Asian
+HG00634,CHS,East Asian,kg,,East Asian
+HG00635,CHS,East Asian,kg,,
+HG00636,CHS,East Asian,kg,,
+HG00637,PUR,American,kg,,
+HG00638,PUR,American,kg,,
+HG00639,PUR,American,kg,,
+HG00640,PUR,American,kg,,
+HG00641,PUR,American,kg,,
+HG00642,PUR,American,kg,,
+HG00650,CHS,East Asian,kg,,East Asian
+HG00651,CHS,East Asian,kg,,East Asian
+HG00652,CHS,East Asian,kg,,
+HG00653,CHS,East Asian,kg,,East Asian
+HG00654,CHS,East Asian,kg,,East Asian
+HG00655,CHS,East Asian,kg,,
+HG00656,CHS,East Asian,kg,,East Asian
+HG00657,CHS,East Asian,kg,,East Asian
+HG00658,CHS,East Asian,kg,,
+HG00662,CHS,East Asian,kg,,East Asian
+HG00663,CHS,East Asian,kg,,East Asian
+HG00664,CHS,East Asian,kg,,
+HG00671,CHS,East Asian,kg,,East Asian
+HG00672,CHS,East Asian,kg,,East Asian
+HG00673,CHS,East Asian,kg,,
+HG00674,CHS,East Asian,kg,,East Asian
+HG00675,CHS,East Asian,kg,,East Asian
+HG00683,CHS,East Asian,kg,,East Asian
+HG00684,CHS,East Asian,kg,,East Asian
+HG00685,CHS,East Asian,kg,,
+HG00689,CHS,East Asian,kg,,East Asian
+HG00690,CHS,East Asian,kg,,East Asian
+HG00691,CHS,East Asian,kg,,
+HG00692,CHS,East Asian,kg,,East Asian
+HG00693,CHS,East Asian,kg,,East Asian
+HG00694,CHS,East Asian,kg,,
+HG00698,CHS,East Asian,kg,,East Asian
+HG00699,CHS,East Asian,kg,,East Asian
+HG00700,CHS,East Asian,kg,,
+HG00701,CHS,East Asian,kg,,East Asian
+HG00702,CHS,East Asian,kg,,
+HG00703,CHS,East Asian,kg,,
+HG00704,CHS,East Asian,kg,,East Asian
+HG00705,CHS,East Asian,kg,,East Asian
+HG00706,CHS,East Asian,kg,,
+HG00707,CHS,East Asian,kg,,East Asian
+HG00708,CHS,East Asian,kg,,East Asian
+HG00709,CHS,East Asian,kg,,
+HG00717,CHS,East Asian,kg,,East Asian
+HG00728,CHS,East Asian,kg,,East Asian
+HG00729,CHS,East Asian,kg,,East Asian
+HG00731,PUR,American,kg,,
+HG00732,PUR,American,kg,,
+HG00733,PUR,American,kg,,
+HG00734,PUR,American,kg,,
+HG00735,PUR,American,kg,,
+HG00736,PUR,American,kg,,
+HG00737,PUR,American,kg,,
+HG00738,PUR,American,kg,,
+HG00739,PUR,American,kg,,
+HG00740,PUR,American,kg,,
+HG00741,PUR,American,kg,,
+HG00742,PUR,American,kg,,
+HG00743,PUR,American,kg,,
+HG00759,CDX,East Asian,kg,,East Asian
+HG00766,CDX,East Asian,kg,,East Asian
+HG00844,CDX,East Asian,kg,,East Asian
+HG00851,CDX,East Asian,kg,,East Asian
+HG00864,CDX,East Asian,kg,,East Asian
+HG00867,CDX,East Asian,kg,,East Asian
+HG00879,CDX,East Asian,kg,,East Asian
+HG00881,CDX,East Asian,kg,,East Asian
+HG00956,CDX,East Asian,kg,,East Asian
+HG00978,CDX,East Asian,kg,,East Asian
+HG00982,CDX,East Asian,kg,,East Asian
+HG01028,CDX,East Asian,kg,,East Asian
+HG01029,CDX,East Asian,kg,,East Asian
+HG01031,CDX,East Asian,kg,,East Asian
+HG01046,CDX,East Asian,kg,,East Asian
+HG01047,PUR,American,kg,,
+HG01048,PUR,American,kg,,
+HG01049,PUR,American,kg,,
+HG01050,PUR,American,kg,,
+HG01051,PUR,American,kg,,
+HG01052,PUR,American,kg,,
+HG01053,PUR,American,kg,,
+HG01054,PUR,American,kg,,
+HG01055,PUR,American,kg,,
+HG01056,PUR,American,kg,,
+HG01058,PUR,American,kg,,
+HG01060,PUR,American,kg,,
+HG01061,PUR,American,kg,,
+HG01062,PUR,American,kg,,
+HG01063,PUR,American,kg,,
+HG01064,PUR,American,kg,,
+HG01066,PUR,American,kg,,
+HG01067,PUR,American,kg,,
+HG01068,PUR,American,kg,,
+HG01069,PUR,American,kg,,
+HG01070,PUR,American,kg,,
+HG01071,PUR,American,kg,,
+HG01072,PUR,American,kg,,
+HG01073,PUR,American,kg,,
+HG01074,PUR,American,kg,,
+HG01075,PUR,American,kg,,
+HG01077,PUR,American,kg,,
+HG01079,PUR,American,kg,,
+HG01080,PUR,American,kg,,
+HG01081,PUR,American,kg,,
+HG01082,PUR,American,kg,,
+HG01083,PUR,American,kg,,
+HG01084,PUR,American,kg,,
+HG01085,PUR,American,kg,,
+HG01086,PUR,American,kg,,
+HG01087,PUR,American,kg,,
+HG01088,PUR,American,kg,,
+HG01089,PUR,American,kg,,
+HG01092,PUR,American,kg,,
+HG01094,PUR,American,kg,,
+HG01095,PUR,American,kg,,
+HG01096,PUR,American,kg,,
+HG01097,PUR,American,kg,,
+HG01098,PUR,American,kg,,
+HG01099,PUR,American,kg,,
+HG01100,PUR,American,kg,,
+HG01101,PUR,American,kg,,
+HG01102,PUR,American,kg,,
+HG01103,PUR,American,kg,,
+HG01104,PUR,American,kg,,
+HG01105,PUR,American,kg,,
+HG01106,PUR,American,kg,,
+HG01107,PUR,American,kg,,
+HG01108,PUR,American,kg,,
+HG01109,PUR,American,kg,,
+HG01110,PUR,American,kg,,
+HG01111,PUR,American,kg,,
+HG01112,CLM,American,kg,,
+HG01113,CLM,American,kg,,
+HG01114,CLM,American,kg,,
+HG01119,CLM,American,kg,,
+HG01121,CLM,American,kg,,
+HG01122,CLM,American,kg,,
+HG01124,CLM,American,kg,,
+HG01125,CLM,American,kg,,
+HG01126,CLM,American,kg,,
+HG01130,CLM,American,kg,,
+HG01131,CLM,American,kg,,
+HG01133,CLM,American,kg,,
+HG01134,CLM,American,kg,,
+HG01135,CLM,American,kg,,
+HG01136,CLM,American,kg,,
+HG01137,CLM,American,kg,,
+HG01138,CLM,American,kg,,
+HG01139,CLM,American,kg,,
+HG01140,CLM,American,kg,,
+HG01141,CLM,American,kg,,
+HG01142,CLM,American,kg,,
+HG01148,CLM,American,kg,,
+HG01149,CLM,American,kg,,
+HG01150,CLM,American,kg,,
+HG01161,PUR,American,kg,,
+HG01162,PUR,American,kg,,
+HG01164,PUR,American,kg,,
+HG01167,PUR,American,kg,,
+HG01168,PUR,American,kg,,
+HG01169,PUR,American,kg,,
+HG01170,PUR,American,kg,,
+HG01171,PUR,American,kg,,
+HG01172,PUR,American,kg,,
+HG01173,PUR,American,kg,,
+HG01174,PUR,American,kg,,
+HG01175,PUR,American,kg,,
+HG01176,PUR,American,kg,,
+HG01177,PUR,American,kg,,
+HG01178,PUR,American,kg,,
+HG01182,PUR,American,kg,,
+HG01183,PUR,American,kg,,
+HG01184,PUR,American,kg,,
+HG01187,PUR,American,kg,,
+HG01188,PUR,American,kg,,
+HG01189,PUR,American,kg,,
+HG01190,PUR,American,kg,,
+HG01191,PUR,American,kg,,
+HG01192,PUR,American,kg,,
+HG01197,PUR,American,kg,,
+HG01198,PUR,American,kg,,
+HG01199,PUR,American,kg,,
+HG01200,PUR,American,kg,,
+HG01204,PUR,American,kg,,
+HG01205,PUR,American,kg,,
+HG01206,PUR,American,kg,,
+HG01241,PUR,American,kg,,
+HG01242,PUR,American,kg,,
+HG01243,PUR,American,kg,,
+HG01247,PUR,American,kg,,
+HG01248,PUR,American,kg,,
+HG01249,PUR,American,kg,,
+HG01250,CLM,American,kg,,
+HG01251,CLM,American,kg,,
+HG01252,CLM,American,kg,,
+HG01253,CLM,American,kg,,
+HG01254,CLM,American,kg,,
+HG01255,CLM,American,kg,,
+HG01256,CLM,American,kg,,
+HG01257,CLM,American,kg,,
+HG01258,CLM,American,kg,,
+HG01259,CLM,American,kg,,
+HG01260,CLM,American,kg,,
+HG01261,CLM,American,kg,,
+HG01269,CLM,American,kg,,
+HG01271,CLM,American,kg,,
+HG01272,CLM,American,kg,,
+HG01273,CLM,American,kg,,
+HG01274,CLM,American,kg,,
+HG01275,CLM,American,kg,,
+HG01276,CLM,American,kg,,
+HG01277,CLM,American,kg,,
+HG01278,CLM,American,kg,,
+HG01279,CLM,American,kg,,
+HG01280,CLM,American,kg,,
+HG01281,CLM,American,kg,,
+HG01284,CLM,American,kg,,
+HG01286,PUR,American,kg,,
+HG01302,PUR,American,kg,,
+HG01303,PUR,American,kg,,
+HG01305,PUR,American,kg,,
+HG01308,PUR,American,kg,,
+HG01311,PUR,American,kg,,
+HG01312,PUR,American,kg,,
+HG01323,PUR,American,kg,,
+HG01325,PUR,American,kg,,
+HG01326,PUR,American,kg,,
+HG01334,GBR,European,kg,,European
+HG01341,CLM,American,kg,,
+HG01342,CLM,American,kg,,
+HG01343,CLM,American,kg,,
+HG01344,CLM,American,kg,,
+HG01345,CLM,American,kg,,
+HG01346,CLM,American,kg,,
+HG01347,CLM,American,kg,,
+HG01348,CLM,American,kg,,
+HG01349,CLM,American,kg,,
+HG01350,CLM,American,kg,,
+HG01351,CLM,American,kg,,
+HG01352,CLM,American,kg,,
+HG01353,CLM,American,kg,,
+HG01354,CLM,American,kg,,
+HG01355,CLM,American,kg,,
+HG01356,CLM,American,kg,,
+HG01357,CLM,American,kg,,
+HG01358,CLM,American,kg,,
+HG01359,CLM,American,kg,,
+HG01360,CLM,American,kg,,
+HG01361,CLM,American,kg,,
+HG01362,CLM,American,kg,,
+HG01363,CLM,American,kg,,
+HG01365,CLM,American,kg,,
+HG01366,CLM,American,kg,,
+HG01367,CLM,American,kg,,
+HG01369,CLM,American,kg,,
+HG01372,CLM,American,kg,,
+HG01374,CLM,American,kg,,
+HG01375,CLM,American,kg,,
+HG01376,CLM,American,kg,,
+HG01377,CLM,American,kg,,
+HG01378,CLM,American,kg,,
+HG01379,CLM,American,kg,,
+HG01383,CLM,American,kg,,
+HG01384,CLM,American,kg,,
+HG01385,CLM,American,kg,,
+HG01389,CLM,American,kg,,
+HG01390,CLM,American,kg,,
+HG01391,CLM,American,kg,,
+HG01392,PUR,American,kg,,
+HG01393,PUR,American,kg,,
+HG01395,PUR,American,kg,,
+HG01396,PUR,American,kg,,
+HG01398,PUR,American,kg,,
+HG01402,PUR,American,kg,,
+HG01403,PUR,American,kg,,
+HG01405,PUR,American,kg,,
+HG01412,PUR,American,kg,,
+HG01413,PUR,American,kg,,
+HG01414,PUR,American,kg,,
+HG01431,CLM,American,kg,,
+HG01432,CLM,American,kg,,
+HG01433,CLM,American,kg,,
+HG01435,CLM,American,kg,,
+HG01437,CLM,American,kg,,
+HG01438,CLM,American,kg,,
+HG01439,CLM,American,kg,,
+HG01440,CLM,American,kg,,
+HG01441,CLM,American,kg,,
+HG01443,CLM,American,kg,,
+HG01444,CLM,American,kg,,
+HG01447,CLM,American,kg,,
+HG01455,CLM,American,kg,,
+HG01456,CLM,American,kg,,
+HG01457,CLM,American,kg,,
+HG01459,CLM,American,kg,,
+HG01461,CLM,American,kg,,
+HG01462,CLM,American,kg,,
+HG01463,CLM,American,kg,,
+HG01464,CLM,American,kg,,
+HG01465,CLM,American,kg,,
+HG01466,CLM,American,kg,,
+HG01468,CLM,American,kg,,
+HG01474,CLM,American,kg,,
+HG01479,CLM,American,kg,,
+HG01485,CLM,American,kg,,
+HG01486,CLM,American,kg,,
+HG01488,CLM,American,kg,,
+HG01489,CLM,American,kg,,
+HG01490,CLM,American,kg,,
+HG01491,CLM,American,kg,,
+HG01492,CLM,American,kg,,
+HG01493,CLM,American,kg,,
+HG01494,CLM,American,kg,,
+HG01495,CLM,American,kg,,
+HG01496,CLM,American,kg,,
+HG01497,CLM,American,kg,,
+HG01498,CLM,American,kg,,
+HG01499,CLM,American,kg,,
+HG01500,IBS,European,kg,,European
+HG01501,IBS,European,kg,,European
+HG01502,IBS,European,kg,,
+HG01503,IBS,European,kg,,European
+HG01504,IBS,European,kg,,European
+HG01505,IBS,European,kg,,
+HG01506,IBS,European,kg,,European
+HG01507,IBS,European,kg,,European
+HG01508,IBS,European,kg,,
+HG01509,IBS,European,kg,,European
+HG01510,IBS,European,kg,,European
+HG01511,IBS,European,kg,,
+HG01512,IBS,European,kg,,European
+HG01513,IBS,European,kg,,European
+HG01514,IBS,European,kg,,
+HG01515,IBS,European,kg,,European
+HG01516,IBS,European,kg,,European
+HG01517,IBS,European,kg,,
+HG01518,IBS,European,kg,,European
+HG01519,IBS,European,kg,,European
+HG01520,IBS,European,kg,,
+HG01521,IBS,European,kg,,European
+HG01522,IBS,European,kg,,European
+HG01523,IBS,European,kg,,
+HG01524,IBS,European,kg,,European
+HG01525,IBS,European,kg,,European
+HG01526,IBS,European,kg,,
+HG01527,IBS,European,kg,,European
+HG01528,IBS,European,kg,,European
+HG01529,IBS,European,kg,,
+HG01530,IBS,European,kg,,European
+HG01531,IBS,European,kg,,European
+HG01532,IBS,European,kg,,
+HG01536,IBS,European,kg,,European
+HG01537,IBS,European,kg,,European
+HG01538,IBS,European,kg,,
+HG01550,CLM,American,kg,,
+HG01551,CLM,American,kg,,
+HG01552,CLM,American,kg,,
+HG01556,CLM,American,kg,,
+HG01565,PEL,American,kg,,
+HG01566,PEL,American,kg,,
+HG01567,PEL,American,kg,,
+HG01571,PEL,American,kg,,
+HG01572,PEL,American,kg,,American
+HG01573,PEL,American,kg,,
+HG01577,PEL,American,kg,,
+HG01578,PEL,American,kg,,
+HG01579,PEL,American,kg,,
+HG01583,PJL,South Asian,kg,,South Asian
+HG01586,PJL,South Asian,kg,,South Asian
+HG01589,PJL,South Asian,kg,,South Asian
+HG01593,PJL,South Asian,kg,,South Asian
+HG01595,KHV,East Asian,kg,,East Asian
+HG01596,KHV,East Asian,kg,,East Asian
+HG01597,KHV,East Asian,kg,,East Asian
+HG01598,KHV,East Asian,kg,,East Asian
+HG01599,KHV,East Asian,kg,,East Asian
+HG01600,KHV,East Asian,kg,,East Asian
+HG01601,IBS,European,kg,,
+HG01602,IBS,European,kg,,European
+HG01603,IBS,European,kg,,European
+HG01604,IBS,European,kg,,
+HG01605,IBS,European,kg,,European
+HG01606,IBS,European,kg,,European
+HG01607,IBS,European,kg,,European
+HG01608,IBS,European,kg,,European
+HG01609,IBS,European,kg,,
+HG01610,IBS,European,kg,,European
+HG01611,IBS,European,kg,,
+HG01612,IBS,European,kg,,European
+HG01613,IBS,European,kg,,European
+HG01614,IBS,European,kg,,
+HG01615,IBS,European,kg,,European
+HG01616,IBS,European,kg,,
+HG01617,IBS,European,kg,,European
+HG01618,IBS,European,kg,,European
+HG01619,IBS,European,kg,,European
+HG01620,IBS,European,kg,,European
+HG01621,IBS,European,kg,,
+HG01622,IBS,European,kg,,
+HG01623,IBS,European,kg,,European
+HG01624,IBS,European,kg,,European
+HG01625,IBS,European,kg,,European
+HG01626,IBS,European,kg,,European
+HG01627,IBS,European,kg,,
+HG01628,IBS,European,kg,,European
+HG01629,IBS,European,kg,,
+HG01630,IBS,European,kg,,European
+HG01631,IBS,European,kg,,European
+HG01632,IBS,European,kg,,European
+HG01633,IBS,European,kg,,
+HG01667,IBS,European,kg,,
+HG01668,IBS,European,kg,,European
+HG01669,IBS,European,kg,,European
+HG01670,IBS,European,kg,,European
+HG01671,IBS,European,kg,,
+HG01672,IBS,European,kg,,European
+HG01673,IBS,European,kg,,European
+HG01674,IBS,European,kg,,
+HG01675,IBS,European,kg,,European
+HG01676,IBS,European,kg,,European
+HG01677,IBS,European,kg,,
+HG01678,IBS,European,kg,,European
+HG01679,IBS,European,kg,,European
+HG01680,IBS,European,kg,,European
+HG01681,IBS,European,kg,,
+HG01682,IBS,European,kg,,European
+HG01683,IBS,European,kg,,
+HG01684,IBS,European,kg,,European
+HG01685,IBS,European,kg,,European
+HG01686,IBS,European,kg,,European
+HG01687,IBS,European,kg,,
+HG01694,IBS,European,kg,,European
+HG01695,IBS,European,kg,,European
+HG01696,IBS,European,kg,,
+HG01697,IBS,European,kg,,European
+HG01698,IBS,European,kg,,
+HG01699,IBS,European,kg,,European
+HG01700,IBS,European,kg,,European
+HG01701,IBS,European,kg,,
+HG01702,IBS,European,kg,,European
+HG01703,IBS,European,kg,,
+HG01704,IBS,European,kg,,European
+HG01705,IBS,European,kg,,European
+HG01706,IBS,European,kg,,
+HG01707,IBS,European,kg,,European
+HG01708,IBS,European,kg,,European
+HG01709,IBS,European,kg,,European
+HG01710,IBS,European,kg,,European
+HG01711,IBS,European,kg,,
+HG01746,IBS,European,kg,,European
+HG01747,IBS,European,kg,,European
+HG01748,IBS,European,kg,,
+HG01755,IBS,European,kg,,
+HG01756,IBS,European,kg,,European
+HG01757,IBS,European,kg,,European
+HG01761,IBS,European,kg,,European
+HG01762,IBS,European,kg,,European
+HG01763,IBS,European,kg,,
+HG01765,IBS,European,kg,,European
+HG01766,IBS,European,kg,,European
+HG01767,IBS,European,kg,,European
+HG01768,IBS,European,kg,,European
+HG01770,IBS,European,kg,,European
+HG01771,IBS,European,kg,,European
+HG01772,IBS,European,kg,,
+HG01773,IBS,European,kg,,European
+HG01774,IBS,European,kg,,
+HG01775,IBS,European,kg,,European
+HG01776,IBS,European,kg,,European
+HG01777,IBS,European,kg,,European
+HG01778,IBS,European,kg,,
+HG01779,IBS,European,kg,,European
+HG01780,IBS,European,kg,,
+HG01781,IBS,European,kg,,European
+HG01782,IBS,European,kg,,
+HG01783,IBS,European,kg,,European
+HG01784,IBS,European,kg,,European
+HG01785,IBS,European,kg,,European
+HG01786,IBS,European,kg,,European
+HG01789,GBR,European,kg,,European
+HG01790,GBR,European,kg,,European
+HG01791,GBR,European,kg,,European
+HG01794,CDX,East Asian,kg,,East Asian
+HG01795,CDX,East Asian,kg,,East Asian
+HG01796,CDX,East Asian,kg,,East Asian
+HG01797,CDX,East Asian,kg,,East Asian
+HG01798,CDX,East Asian,kg,,East Asian
+HG01799,CDX,East Asian,kg,,East Asian
+HG01800,CDX,East Asian,kg,,East Asian
+HG01801,CDX,East Asian,kg,,East Asian
+HG01802,CDX,East Asian,kg,,East Asian
+HG01804,CDX,East Asian,kg,,East Asian
+HG01805,CDX,East Asian,kg,,East Asian
+HG01806,CDX,East Asian,kg,,East Asian
+HG01807,CDX,East Asian,kg,,East Asian
+HG01808,CDX,East Asian,kg,,East Asian
+HG01809,CDX,East Asian,kg,,East Asian
+HG01810,CDX,East Asian,kg,,East Asian
+HG01811,CDX,East Asian,kg,,East Asian
+HG01812,CDX,East Asian,kg,,East Asian
+HG01813,CDX,East Asian,kg,,East Asian
+HG01815,CDX,East Asian,kg,,East Asian
+HG01816,CDX,East Asian,kg,,East Asian
+HG01817,CDX,East Asian,kg,,East Asian
+HG01840,KHV,East Asian,kg,,East Asian
+HG01841,KHV,East Asian,kg,,East Asian
+HG01842,KHV,East Asian,kg,,East Asian
+HG01843,KHV,East Asian,kg,,East Asian
+HG01844,KHV,East Asian,kg,,East Asian
+HG01845,KHV,East Asian,kg,,East Asian
+HG01846,KHV,East Asian,kg,,East Asian
+HG01847,KHV,East Asian,kg,,East Asian
+HG01848,KHV,East Asian,kg,,East Asian
+HG01849,KHV,East Asian,kg,,East Asian
+HG01850,KHV,East Asian,kg,,East Asian
+HG01851,KHV,East Asian,kg,,East Asian
+HG01852,KHV,East Asian,kg,,East Asian
+HG01853,KHV,East Asian,kg,,East Asian
+HG01855,KHV,East Asian,kg,,East Asian
+HG01857,KHV,East Asian,kg,,East Asian
+HG01858,KHV,East Asian,kg,,East Asian
+HG01859,KHV,East Asian,kg,,East Asian
+HG01860,KHV,East Asian,kg,,East Asian
+HG01861,KHV,East Asian,kg,,East Asian
+HG01862,KHV,East Asian,kg,,East Asian
+HG01863,KHV,East Asian,kg,,East Asian
+HG01864,KHV,East Asian,kg,,East Asian
+HG01865,KHV,East Asian,kg,,East Asian
+HG01866,KHV,East Asian,kg,,East Asian
+HG01867,KHV,East Asian,kg,,East Asian
+HG01868,KHV,East Asian,kg,,East Asian
+HG01869,KHV,East Asian,kg,,East Asian
+HG01870,KHV,East Asian,kg,,East Asian
+HG01871,KHV,East Asian,kg,,East Asian
+HG01872,KHV,East Asian,kg,,East Asian
+HG01873,KHV,East Asian,kg,,East Asian
+HG01874,KHV,East Asian,kg,,East Asian
+HG01878,KHV,East Asian,kg,,East Asian
+HG01879,ACB,African,kg,,
+HG01880,ACB,African,kg,,
+HG01881,ACB,African,kg,,
+HG01882,ACB,African,kg,,
+HG01883,ACB,African,kg,,
+HG01884,ACB,African,kg,,
+HG01885,ACB,African,kg,,
+HG01886,ACB,African,kg,,
+HG01887,ACB,African,kg,,
+HG01888,ACB,African,kg,,
+HG01889,ACB,African,kg,,
+HG01890,ACB,African,kg,,
+HG01891,ACB,African,kg,,
+HG01892,PEL,American,kg,,
+HG01893,PEL,American,kg,,
+HG01894,ACB,African,kg,,
+HG01895,ACB,African,kg,,
+HG01896,ACB,African,kg,,
+HG01897,ACB,African,kg,,
+HG01898,PEL,American,kg,,
+HG01912,ACB,African,kg,,
+HG01914,ACB,African,kg,,
+HG01915,ACB,African,kg,,
+HG01916,ACB,African,kg,,
+HG01917,PEL,American,kg,,American
+HG01918,PEL,American,kg,,
+HG01919,PEL,American,kg,,
+HG01920,PEL,American,kg,,American
+HG01921,PEL,American,kg,,
+HG01922,PEL,American,kg,,
+HG01923,PEL,American,kg,,American
+HG01924,PEL,American,kg,,
+HG01925,PEL,American,kg,,
+HG01926,PEL,American,kg,,American
+HG01927,PEL,American,kg,,American
+HG01928,PEL,American,kg,,
+HG01932,PEL,American,kg,,
+HG01933,PEL,American,kg,,
+HG01934,PEL,American,kg,,
+HG01935,PEL,American,kg,,
+HG01936,PEL,American,kg,,
+HG01937,PEL,American,kg,,
+HG01938,PEL,American,kg,,American
+HG01939,PEL,American,kg,,
+HG01940,PEL,American,kg,,
+HG01941,PEL,American,kg,,
+HG01942,PEL,American,kg,,
+HG01943,PEL,American,kg,,
+HG01944,PEL,American,kg,,
+HG01945,PEL,American,kg,,
+HG01946,PEL,American,kg,,
+HG01947,PEL,American,kg,,
+HG01948,PEL,American,kg,,
+HG01949,PEL,American,kg,,
+HG01950,PEL,American,kg,,American
+HG01951,PEL,American,kg,,American
+HG01952,PEL,American,kg,,
+HG01953,PEL,American,kg,,American
+HG01954,PEL,American,kg,,American
+HG01955,PEL,American,kg,,
+HG01956,ACB,African,kg,,
+HG01958,ACB,African,kg,,
+HG01959,ACB,African,kg,,
+HG01960,ACB,African,kg,,
+HG01961,PEL,American,kg,,American
+HG01965,PEL,American,kg,,
+HG01967,PEL,American,kg,,
+HG01968,PEL,American,kg,,American
+HG01969,PEL,American,kg,,
+HG01970,PEL,American,kg,,
+HG01971,PEL,American,kg,,
+HG01972,PEL,American,kg,,
+HG01973,PEL,American,kg,,
+HG01974,PEL,American,kg,,American
+HG01975,PEL,American,kg,,
+HG01976,PEL,American,kg,,
+HG01977,PEL,American,kg,,
+HG01978,PEL,American,kg,,
+HG01979,PEL,American,kg,,
+HG01980,PEL,American,kg,,
+HG01981,PEL,American,kg,,
+HG01982,PEL,American,kg,,
+HG01983,PEL,American,kg,,
+HG01984,PEL,American,kg,,
+HG01985,ACB,African,kg,,
+HG01986,ACB,African,kg,,
+HG01987,ACB,African,kg,,
+HG01988,ACB,African,kg,,
+HG01989,ACB,African,kg,,
+HG01990,ACB,African,kg,,
+HG01991,PEL,American,kg,,
+HG01992,PEL,American,kg,,American
+HG01993,PEL,American,kg,,
+HG01997,PEL,American,kg,,American
+HG01998,PEL,American,kg,,
+HG02002,PEL,American,kg,,
+HG02003,PEL,American,kg,,
+HG02004,PEL,American,kg,,
+HG02006,PEL,American,kg,,
+HG02008,PEL,American,kg,,
+HG02009,ACB,African,kg,,
+HG02010,ACB,African,kg,,
+HG02011,ACB,African,kg,,
+HG02012,ACB,African,kg,,
+HG02013,ACB,African,kg,,
+HG02014,ACB,African,kg,,
+HG02015,KHV,East Asian,kg,,
+HG02016,KHV,East Asian,kg,,East Asian
+HG02017,KHV,East Asian,kg,,East Asian
+HG02018,KHV,East Asian,kg,,
+HG02019,KHV,East Asian,kg,,East Asian
+HG02020,KHV,East Asian,kg,,East Asian
+HG02023,KHV,East Asian,kg,,East Asian
+HG02024,KHV,East Asian,kg,,
+HG02025,KHV,East Asian,kg,,East Asian
+HG02026,KHV,East Asian,kg,,East Asian
+HG02027,KHV,East Asian,kg,,
+HG02028,KHV,East Asian,kg,,East Asian
+HG02029,KHV,East Asian,kg,,East Asian
+HG02030,KHV,East Asian,kg,,
+HG02031,KHV,East Asian,kg,,East Asian
+HG02032,KHV,East Asian,kg,,East Asian
+HG02035,KHV,East Asian,kg,,East Asian
+HG02040,KHV,East Asian,kg,,East Asian
+HG02047,KHV,East Asian,kg,,East Asian
+HG02048,KHV,East Asian,kg,,East Asian
+HG02049,KHV,East Asian,kg,,East Asian
+HG02050,KHV,East Asian,kg,,East Asian
+HG02051,ACB,African,kg,,
+HG02052,ACB,African,kg,,
+HG02053,ACB,African,kg,,
+HG02054,ACB,African,kg,,
+HG02055,ACB,African,kg,,
+HG02056,KHV,East Asian,kg,,
+HG02057,KHV,East Asian,kg,,East Asian
+HG02058,KHV,East Asian,kg,,East Asian
+HG02059,KHV,East Asian,kg,,
+HG02060,KHV,East Asian,kg,,East Asian
+HG02061,KHV,East Asian,kg,,East Asian
+HG02064,KHV,East Asian,kg,,East Asian
+HG02067,KHV,East Asian,kg,,East Asian
+HG02068,KHV,East Asian,kg,,
+HG02069,KHV,East Asian,kg,,East Asian
+HG02070,KHV,East Asian,kg,,East Asian
+HG02071,KHV,East Asian,kg,,
+HG02072,KHV,East Asian,kg,,East Asian
+HG02073,KHV,East Asian,kg,,East Asian
+HG02074,KHV,East Asian,kg,,
+HG02075,KHV,East Asian,kg,,East Asian
+HG02076,KHV,East Asian,kg,,East Asian
+HG02077,KHV,East Asian,kg,,
+HG02078,KHV,East Asian,kg,,East Asian
+HG02079,KHV,East Asian,kg,,East Asian
+HG02080,KHV,East Asian,kg,,
+HG02081,KHV,East Asian,kg,,East Asian
+HG02082,KHV,East Asian,kg,,East Asian
+HG02083,KHV,East Asian,kg,,
+HG02084,KHV,East Asian,kg,,East Asian
+HG02085,KHV,East Asian,kg,,East Asian
+HG02086,KHV,East Asian,kg,,East Asian
+HG02087,KHV,East Asian,kg,,East Asian
+HG02088,KHV,East Asian,kg,,East Asian
+HG02089,PEL,American,kg,,
+HG02090,PEL,American,kg,,
+HG02091,PEL,American,kg,,
+HG02095,ACB,African,kg,,
+HG02102,PEL,American,kg,,
+HG02104,PEL,American,kg,,American
+HG02105,PEL,American,kg,,American
+HG02106,PEL,American,kg,,
+HG02107,ACB,African,kg,,
+HG02108,ACB,African,kg,,
+HG02111,ACB,African,kg,,
+HG02113,KHV,East Asian,kg,,East Asian
+HG02116,KHV,East Asian,kg,,East Asian
+HG02120,KHV,East Asian,kg,,
+HG02121,KHV,East Asian,kg,,East Asian
+HG02122,KHV,East Asian,kg,,East Asian
+HG02126,KHV,East Asian,kg,,
+HG02127,KHV,East Asian,kg,,East Asian
+HG02128,KHV,East Asian,kg,,East Asian
+HG02129,KHV,East Asian,kg,,
+HG02130,KHV,East Asian,kg,,East Asian
+HG02131,KHV,East Asian,kg,,East Asian
+HG02132,KHV,East Asian,kg,,
+HG02133,KHV,East Asian,kg,,East Asian
+HG02134,KHV,East Asian,kg,,East Asian
+HG02135,KHV,East Asian,kg,,
+HG02136,KHV,East Asian,kg,,East Asian
+HG02137,KHV,East Asian,kg,,East Asian
+HG02138,KHV,East Asian,kg,,East Asian
+HG02139,KHV,East Asian,kg,,East Asian
+HG02140,KHV,East Asian,kg,,East Asian
+HG02141,KHV,East Asian,kg,,East Asian
+HG02142,KHV,East Asian,kg,,East Asian
+HG02143,ACB,African,kg,,
+HG02144,ACB,African,kg,,
+HG02145,ACB,African,kg,,
+HG02146,PEL,American,kg,,American
+HG02147,PEL,American,kg,,American
+HG02148,PEL,American,kg,,
+HG02150,PEL,American,kg,,American
+HG02151,CDX,East Asian,kg,,East Asian
+HG02152,CDX,East Asian,kg,,East Asian
+HG02153,CDX,East Asian,kg,,East Asian
+HG02154,CDX,East Asian,kg,,East Asian
+HG02155,CDX,East Asian,kg,,East Asian
+HG02156,CDX,East Asian,kg,,East Asian
+HG02164,CDX,East Asian,kg,,East Asian
+HG02165,CDX,East Asian,kg,,East Asian
+HG02166,CDX,East Asian,kg,,East Asian
+HG02178,CDX,East Asian,kg,,East Asian
+HG02179,CDX,East Asian,kg,,East Asian
+HG02180,CDX,East Asian,kg,,East Asian
+HG02181,CDX,East Asian,kg,,East Asian
+HG02182,CDX,East Asian,kg,,East Asian
+HG02184,CDX,East Asian,kg,,East Asian
+HG02185,CDX,East Asian,kg,,East Asian
+HG02186,CDX,East Asian,kg,,East Asian
+HG02187,CDX,East Asian,kg,,East Asian
+HG02188,CDX,East Asian,kg,,East Asian
+HG02190,CDX,East Asian,kg,,East Asian
+HG02215,GBR,European,kg,,European
+HG02219,IBS,European,kg,,European
+HG02220,IBS,European,kg,,European
+HG02221,IBS,European,kg,,European
+HG02222,IBS,European,kg,,
+HG02223,IBS,European,kg,,European
+HG02224,IBS,European,kg,,European
+HG02225,IBS,European,kg,,
+HG02229,IBS,European,kg,,
+HG02230,IBS,European,kg,,European
+HG02231,IBS,European,kg,,European
+HG02232,IBS,European,kg,,European
+HG02233,IBS,European,kg,,European
+HG02234,IBS,European,kg,,
+HG02235,IBS,European,kg,,European
+HG02236,IBS,European,kg,,European
+HG02237,IBS,European,kg,,
+HG02238,IBS,European,kg,,European
+HG02239,IBS,European,kg,,European
+HG02240,IBS,European,kg,,
+HG02250,CDX,East Asian,kg,,East Asian
+HG02252,PEL,American,kg,,
+HG02253,PEL,American,kg,,
+HG02255,ACB,African,kg,,
+HG02256,ACB,African,kg,,
+HG02257,ACB,African,kg,,
+HG02258,ACB,African,kg,,
+HG02259,PEL,American,kg,,American
+HG02260,PEL,American,kg,,
+HG02261,PEL,American,kg,,
+HG02262,PEL,American,kg,,
+HG02265,PEL,American,kg,,American
+HG02266,PEL,American,kg,,American
+HG02271,PEL,American,kg,,American
+HG02272,PEL,American,kg,,American
+HG02273,PEL,American,kg,,
+HG02274,PEL,American,kg,,
+HG02275,PEL,American,kg,,American
+HG02277,PEL,American,kg,,
+HG02278,PEL,American,kg,,American
+HG02279,PEL,American,kg,,
+HG02280,ACB,African,kg,,
+HG02281,ACB,African,kg,,
+HG02282,ACB,African,kg,,
+HG02283,ACB,African,kg,,
+HG02284,ACB,African,kg,,
+HG02285,PEL,American,kg,,
+HG02286,PEL,American,kg,,
+HG02287,PEL,American,kg,,
+HG02291,PEL,American,kg,,American
+HG02292,PEL,American,kg,,American
+HG02293,PEL,American,kg,,
+HG02298,PEL,American,kg,,
+HG02299,PEL,American,kg,,American
+HG02300,PEL,American,kg,,
+HG02301,PEL,American,kg,,
+HG02302,PEL,American,kg,,
+HG02303,PEL,American,kg,,
+HG02304,PEL,American,kg,,
+HG02307,ACB,African,kg,,
+HG02308,ACB,African,kg,,
+HG02309,ACB,African,kg,,
+HG02312,PEL,American,kg,,
+HG02314,ACB,African,kg,,
+HG02315,ACB,African,kg,,
+HG02316,ACB,African,kg,,
+HG02317,ACB,African,kg,,
+HG02318,ACB,African,kg,,
+HG02321,ACB,African,kg,,
+HG02322,ACB,African,kg,,
+HG02323,ACB,African,kg,,
+HG02325,ACB,African,kg,,
+HG02330,ACB,African,kg,,
+HG02332,ACB,African,kg,,
+HG02334,ACB,African,kg,,
+HG02337,ACB,African,kg,,
+HG02339,ACB,African,kg,,
+HG02343,ACB,African,kg,,
+HG02345,PEL,American,kg,,
+HG02348,PEL,American,kg,,
+HG02351,CDX,East Asian,kg,,East Asian
+HG02353,CDX,East Asian,kg,,East Asian
+HG02355,CDX,East Asian,kg,,East Asian
+HG02356,CDX,East Asian,kg,,East Asian
+HG02360,CDX,East Asian,kg,,East Asian
+HG02364,CDX,East Asian,kg,,East Asian
+HG02367,CDX,East Asian,kg,,East Asian
+HG02371,CDX,East Asian,kg,,East Asian
+HG02373,CDX,East Asian,kg,,East Asian
+HG02374,CDX,East Asian,kg,,East Asian
+HG02375,CDX,East Asian,kg,,East Asian
+HG02379,CDX,East Asian,kg,,East Asian
+HG02380,CDX,East Asian,kg,,East Asian
+HG02382,CDX,East Asian,kg,,East Asian
+HG02383,CDX,East Asian,kg,,East Asian
+HG02384,CDX,East Asian,kg,,East Asian
+HG02385,CDX,East Asian,kg,,East Asian
+HG02386,CDX,East Asian,kg,,East Asian
+HG02389,CDX,East Asian,kg,,East Asian
+HG02390,CDX,East Asian,kg,,East Asian
+HG02391,CDX,East Asian,kg,,East Asian
+HG02392,CDX,East Asian,kg,,East Asian
+HG02394,CDX,East Asian,kg,,East Asian
+HG02395,CDX,East Asian,kg,,East Asian
+HG02396,CDX,East Asian,kg,,East Asian
+HG02397,CDX,East Asian,kg,,East Asian
+HG02398,CDX,East Asian,kg,,East Asian
+HG02399,CDX,East Asian,kg,,East Asian
+HG02401,CDX,East Asian,kg,,East Asian
+HG02402,CDX,East Asian,kg,,East Asian
+HG02406,CDX,East Asian,kg,,East Asian
+HG02407,CDX,East Asian,kg,,East Asian
+HG02408,CDX,East Asian,kg,,East Asian
+HG02409,CDX,East Asian,kg,,East Asian
+HG02410,CDX,East Asian,kg,,East Asian
+HG02419,ACB,African,kg,,
+HG02420,ACB,African,kg,,
+HG02425,PEL,American,kg,,
+HG02427,ACB,African,kg,,
+HG02429,ACB,African,kg,,
+HG02433,ACB,African,kg,,
+HG02439,ACB,African,kg,,
+HG02442,ACB,African,kg,,
+HG02445,ACB,African,kg,,
+HG02449,ACB,African,kg,,
+HG02450,ACB,African,kg,,
+HG02451,ACB,African,kg,,
+HG02455,ACB,African,kg,,
+HG02461,GWD,African,kg,,African
+HG02462,GWD,African,kg,,African
+HG02463,GWD,African,kg,,
+HG02464,GWD,African,kg,,African
+HG02465,GWD,African,kg,,African
+HG02466,GWD,African,kg,,
+HG02470,ACB,African,kg,,
+HG02471,ACB,African,kg,,
+HG02476,ACB,African,kg,,
+HG02477,ACB,African,kg,,
+HG02479,ACB,African,kg,,
+HG02481,ACB,African,kg,,
+HG02484,ACB,African,kg,,
+HG02485,ACB,African,kg,,
+HG02489,ACB,African,kg,,
+HG02490,PJL,South Asian,kg,,South Asian
+HG02491,PJL,South Asian,kg,,South Asian
+HG02492,PJL,South Asian,kg,,
+HG02493,PJL,South Asian,kg,,South Asian
+HG02494,PJL,South Asian,kg,,South Asian
+HG02495,PJL,South Asian,kg,,
+HG02496,ACB,African,kg,,
+HG02497,ACB,African,kg,,
+HG02501,ACB,African,kg,,
+HG02502,ACB,African,kg,,
+HG02505,ACB,African,kg,,
+HG02508,ACB,African,kg,,
+HG02511,ACB,African,kg,,
+HG02512,KHV,East Asian,kg,,East Asian
+HG02513,KHV,East Asian,kg,,East Asian
+HG02514,KHV,East Asian,kg,,
+HG02521,KHV,East Asian,kg,,East Asian
+HG02522,KHV,East Asian,kg,,East Asian
+HG02523,KHV,East Asian,kg,,
+HG02524,KHV,East Asian,kg,,
+HG02525,KHV,East Asian,kg,,
+HG02526,KHV,East Asian,kg,,
+HG02536,ACB,African,kg,,
+HG02537,ACB,African,kg,,
+HG02541,ACB,African,kg,,
+HG02545,ACB,African,kg,,
+HG02546,ACB,African,kg,,
+HG02549,ACB,African,kg,,
+HG02554,ACB,African,kg,,
+HG02555,ACB,African,kg,,
+HG02557,ACB,African,kg,,
+HG02558,ACB,African,kg,,
+HG02561,GWD,African,kg,,African
+HG02562,GWD,African,kg,,African
+HG02563,GWD,African,kg,,
+HG02568,GWD,African,kg,,African
+HG02569,GWD,African,kg,,
+HG02570,GWD,African,kg,,African
+HG02571,GWD,African,kg,,African
+HG02572,GWD,African,kg,,
+HG02573,GWD,African,kg,,African
+HG02574,GWD,African,kg,,African
+HG02575,GWD,African,kg,,
+HG02577,ACB,African,kg,,
+HG02580,ACB,African,kg,,
+HG02582,GWD,African,kg,,African
+HG02583,GWD,African,kg,,African
+HG02584,GWD,African,kg,,
+HG02585,GWD,African,kg,,African
+HG02586,GWD,African,kg,,African
+HG02587,GWD,African,kg,,
+HG02588,GWD,African,kg,,African
+HG02589,GWD,African,kg,,African
+HG02590,GWD,African,kg,,
+HG02594,GWD,African,kg,,African
+HG02595,GWD,African,kg,,African
+HG02596,GWD,African,kg,,
+HG02597,PJL,South Asian,kg,,South Asian
+HG02600,PJL,South Asian,kg,,South Asian
+HG02601,PJL,South Asian,kg,,South Asian
+HG02602,PJL,South Asian,kg,,
+HG02603,PJL,South Asian,kg,,South Asian
+HG02604,PJL,South Asian,kg,,South Asian
+HG02605,PJL,South Asian,kg,,
+HG02610,GWD,African,kg,,African
+HG02611,GWD,African,kg,,African
+HG02612,GWD,African,kg,,
+HG02613,GWD,African,kg,,African
+HG02614,GWD,African,kg,,African
+HG02615,GWD,African,kg,,
+HG02620,GWD,African,kg,,African
+HG02621,GWD,African,kg,,African
+HG02622,GWD,African,kg,,
+HG02623,GWD,African,kg,,African
+HG02624,GWD,African,kg,,African
+HG02625,GWD,African,kg,,
+HG02628,GWD,African,kg,,African
+HG02629,GWD,African,kg,,African
+HG02630,GWD,African,kg,,
+HG02634,GWD,African,kg,,African
+HG02635,GWD,African,kg,,African
+HG02636,GWD,African,kg,,
+HG02642,GWD,African,kg,,African
+HG02643,GWD,African,kg,,African
+HG02644,GWD,African,kg,,
+HG02645,GWD,African,kg,,African
+HG02646,GWD,African,kg,,African
+HG02647,GWD,African,kg,,
+HG02648,PJL,South Asian,kg,,South Asian
+HG02649,PJL,South Asian,kg,,South Asian
+HG02650,PJL,South Asian,kg,,
+HG02651,PJL,South Asian,kg,,South Asian
+HG02652,PJL,South Asian,kg,,South Asian
+HG02653,PJL,South Asian,kg,,
+HG02654,PJL,South Asian,kg,,South Asian
+HG02655,PJL,South Asian,kg,,South Asian
+HG02656,PJL,South Asian,kg,,
+HG02657,PJL,South Asian,kg,,South Asian
+HG02658,PJL,South Asian,kg,,South Asian
+HG02659,PJL,South Asian,kg,,
+HG02660,PJL,South Asian,kg,,South Asian
+HG02661,PJL,South Asian,kg,,South Asian
+HG02662,PJL,South Asian,kg,,
+HG02666,GWD,African,kg,,African
+HG02667,GWD,African,kg,,African
+HG02668,GWD,African,kg,,
+HG02675,GWD,African,kg,,African
+HG02676,GWD,African,kg,,African
+HG02677,GWD,African,kg,,
+HG02678,GWD,African,kg,,African
+HG02679,GWD,African,kg,,African
+HG02680,GWD,African,kg,,
+HG02681,PJL,South Asian,kg,,South Asian
+HG02682,PJL,South Asian,kg,,South Asian
+HG02683,PJL,South Asian,kg,,
+HG02684,PJL,South Asian,kg,,South Asian
+HG02685,PJL,South Asian,kg,,South Asian
+HG02686,PJL,South Asian,kg,,
+HG02687,PJL,South Asian,kg,,South Asian
+HG02688,PJL,South Asian,kg,,South Asian
+HG02689,PJL,South Asian,kg,,
+HG02690,PJL,South Asian,kg,,South Asian
+HG02691,PJL,South Asian,kg,,South Asian
+HG02692,PJL,South Asian,kg,,
+HG02694,PJL,South Asian,kg,,South Asian
+HG02696,PJL,South Asian,kg,,South Asian
+HG02697,PJL,South Asian,kg,,South Asian
+HG02698,PJL,South Asian,kg,,
+HG02699,PJL,South Asian,kg,,South Asian
+HG02700,PJL,South Asian,kg,,South Asian
+HG02701,PJL,South Asian,kg,,
+HG02702,GWD,African,kg,,African
+HG02703,GWD,African,kg,,African
+HG02704,GWD,African,kg,,
+HG02715,GWD,African,kg,,African
+HG02716,GWD,African,kg,,African
+HG02717,GWD,African,kg,,
+HG02721,GWD,African,kg,,African
+HG02722,GWD,African,kg,,African
+HG02723,GWD,African,kg,,
+HG02724,PJL,South Asian,kg,,South Asian
+HG02725,PJL,South Asian,kg,,South Asian
+HG02726,PJL,South Asian,kg,,
+HG02727,PJL,South Asian,kg,,South Asian
+HG02728,PJL,South Asian,kg,,South Asian
+HG02729,PJL,South Asian,kg,,
+HG02731,PJL,South Asian,kg,,South Asian
+HG02733,PJL,South Asian,kg,,South Asian
+HG02734,PJL,South Asian,kg,,South Asian
+HG02735,PJL,South Asian,kg,,
+HG02736,PJL,South Asian,kg,,South Asian
+HG02737,PJL,South Asian,kg,,South Asian
+HG02738,PJL,South Asian,kg,,
+HG02756,GWD,African,kg,,African
+HG02757,GWD,African,kg,,African
+HG02759,GWD,African,kg,,African
+HG02760,GWD,African,kg,,African
+HG02761,GWD,African,kg,,
+HG02762,GWD,African,kg,,
+HG02763,GWD,African,kg,,African
+HG02764,GWD,African,kg,,
+HG02768,GWD,African,kg,,African
+HG02769,GWD,African,kg,,African
+HG02770,GWD,African,kg,,
+HG02771,GWD,African,kg,,African
+HG02772,GWD,African,kg,,African
+HG02773,GWD,African,kg,,
+HG02774,PJL,South Asian,kg,,South Asian
+HG02775,PJL,South Asian,kg,,South Asian
+HG02776,PJL,South Asian,kg,,
+HG02778,PJL,South Asian,kg,,South Asian
+HG02780,PJL,South Asian,kg,,South Asian
+HG02783,PJL,South Asian,kg,,South Asian
+HG02784,PJL,South Asian,kg,,South Asian
+HG02785,PJL,South Asian,kg,,
+HG02786,PJL,South Asian,kg,,South Asian
+HG02787,PJL,South Asian,kg,,South Asian
+HG02788,PJL,South Asian,kg,,
+HG02789,PJL,South Asian,kg,,South Asian
+HG02790,PJL,South Asian,kg,,South Asian
+HG02791,PJL,South Asian,kg,,
+HG02792,PJL,South Asian,kg,,South Asian
+HG02793,PJL,South Asian,kg,,South Asian
+HG02794,PJL,South Asian,kg,,
+HG02798,GWD,African,kg,,African
+HG02799,GWD,African,kg,,African
+HG02800,GWD,African,kg,,
+HG02804,GWD,African,kg,,African
+HG02805,GWD,African,kg,,African
+HG02806,GWD,African,kg,,
+HG02807,GWD,African,kg,,African
+HG02808,GWD,African,kg,,African
+HG02809,GWD,African,kg,,
+HG02810,GWD,African,kg,,African
+HG02811,GWD,African,kg,,African
+HG02812,GWD,African,kg,,
+HG02813,GWD,African,kg,,African
+HG02814,GWD,African,kg,,African
+HG02815,GWD,African,kg,,
+HG02816,GWD,African,kg,,African
+HG02817,GWD,African,kg,,African
+HG02818,GWD,African,kg,,
+HG02819,GWD,African,kg,,African
+HG02820,GWD,African,kg,,African
+HG02821,GWD,African,kg,,
+HG02836,GWD,African,kg,,African
+HG02837,GWD,African,kg,,African
+HG02838,GWD,African,kg,,
+HG02839,GWD,African,kg,,African
+HG02840,GWD,African,kg,,African
+HG02841,GWD,African,kg,,
+HG02851,GWD,African,kg,,African
+HG02852,GWD,African,kg,,African
+HG02853,GWD,African,kg,,
+HG02854,GWD,African,kg,,African
+HG02855,GWD,African,kg,,African
+HG02856,GWD,African,kg,,
+HG02860,GWD,African,kg,,African
+HG02861,GWD,African,kg,,African
+HG02862,GWD,African,kg,,
+HG02869,GWD,African,kg,,
+HG02870,GWD,African,kg,,African
+HG02871,GWD,African,kg,,
+HG02878,GWD,African,kg,,African
+HG02879,GWD,African,kg,,African
+HG02880,GWD,African,kg,,
+HG02881,GWD,African,kg,,African
+HG02882,GWD,African,kg,,African
+HG02883,GWD,African,kg,,
+HG02884,GWD,African,kg,,African
+HG02885,GWD,African,kg,,African
+HG02886,GWD,African,kg,,
+HG02887,GWD,African,kg,,African
+HG02888,GWD,African,kg,,African
+HG02889,GWD,African,kg,,
+HG02890,GWD,African,kg,,African
+HG02891,GWD,African,kg,,African
+HG02892,GWD,African,kg,,
+HG02895,GWD,African,kg,,African
+HG02896,GWD,African,kg,,African
+HG02897,GWD,African,kg,,
+HG02922,ESN,African,kg,,African
+HG02923,ESN,African,kg,,African
+HG02924,ESN,African,kg,,
+HG02938,ESN,African,kg,,African
+HG02941,ESN,African,kg,,African
+HG02943,ESN,African,kg,,African
+HG02944,ESN,African,kg,,African
+HG02945,ESN,African,kg,,
+HG02946,ESN,African,kg,,African
+HG02947,ESN,African,kg,,African
+HG02948,ESN,African,kg,,
+HG02952,ESN,African,kg,,African
+HG02953,ESN,African,kg,,African
+HG02954,ESN,African,kg,,
+HG02964,ESN,African,kg,,
+HG02965,ESN,African,kg,,
+HG02966,ESN,African,kg,,
+HG02968,ESN,African,kg,,African
+HG02970,ESN,African,kg,,African
+HG02971,ESN,African,kg,,African
+HG02972,ESN,African,kg,,
+HG02973,ESN,African,kg,,African
+HG02974,ESN,African,kg,,African
+HG02975,ESN,African,kg,,
+HG02976,ESN,African,kg,,African
+HG02977,ESN,African,kg,,African
+HG02978,ESN,African,kg,,
+HG02979,ESN,African,kg,,African
+HG02980,ESN,African,kg,,
+HG02981,ESN,African,kg,,African
+HG02982,GWD,African,kg,,African
+HG02983,GWD,African,kg,,African
+HG02984,GWD,African,kg,,
+HG03006,BEB,South Asian,kg,,South Asian
+HG03007,BEB,South Asian,kg,,South Asian
+HG03008,BEB,South Asian,kg,,
+HG03009,BEB,South Asian,kg,,South Asian
+HG03012,BEB,South Asian,kg,,South Asian
+HG03015,PJL,South Asian,kg,,South Asian
+HG03016,PJL,South Asian,kg,,South Asian
+HG03017,PJL,South Asian,kg,,
+HG03018,PJL,South Asian,kg,,South Asian
+HG03019,PJL,South Asian,kg,,South Asian
+HG03021,PJL,South Asian,kg,,South Asian
+HG03022,PJL,South Asian,kg,,South Asian
+HG03024,GWD,African,kg,,African
+HG03025,GWD,African,kg,,African
+HG03026,GWD,African,kg,,
+HG03027,GWD,African,kg,,African
+HG03028,GWD,African,kg,,African
+HG03029,GWD,African,kg,,
+HG03033,GWD,African,kg,,
+HG03034,GWD,African,kg,,
+HG03035,GWD,African,kg,,
+HG03039,GWD,African,kg,,African
+HG03040,GWD,African,kg,,African
+HG03041,GWD,African,kg,,
+HG03045,GWD,African,kg,,African
+HG03046,GWD,African,kg,,African
+HG03047,GWD,African,kg,,
+HG03048,GWD,African,kg,,African
+HG03049,GWD,African,kg,,African
+HG03050,GWD,African,kg,,
+HG03052,MSL,African,kg,,African
+HG03054,MSL,African,kg,,African
+HG03055,MSL,African,kg,,African
+HG03056,MSL,African,kg,,
+HG03057,MSL,African,kg,,African
+HG03058,MSL,African,kg,,African
+HG03060,MSL,African,kg,,African
+HG03061,MSL,African,kg,,African
+HG03063,MSL,African,kg,,African
+HG03064,MSL,African,kg,,African
+HG03065,MSL,African,kg,,
+HG03066,MSL,African,kg,,African
+HG03069,MSL,African,kg,,African
+HG03072,MSL,African,kg,,African
+HG03073,MSL,African,kg,,African
+HG03074,MSL,African,kg,,African
+HG03077,MSL,African,kg,,African
+HG03078,MSL,African,kg,,African
+HG03079,MSL,African,kg,,African
+HG03081,MSL,African,kg,,African
+HG03082,MSL,African,kg,,African
+HG03084,MSL,African,kg,,African
+HG03085,MSL,African,kg,,African
+HG03086,MSL,African,kg,,African
+HG03088,MSL,African,kg,,African
+HG03091,MSL,African,kg,,African
+HG03095,MSL,African,kg,,African
+HG03096,MSL,African,kg,,African
+HG03097,MSL,African,kg,,African
+HG03098,MSL,African,kg,,
+HG03099,ESN,African,kg,,African
+HG03100,ESN,African,kg,,African
+HG03101,ESN,African,kg,,
+HG03103,ESN,African,kg,,African
+HG03105,ESN,African,kg,,African
+HG03108,ESN,African,kg,,African
+HG03109,ESN,African,kg,,African
+HG03110,ESN,African,kg,,
+HG03111,ESN,African,kg,,African
+HG03112,ESN,African,kg,,African
+HG03113,ESN,African,kg,,
+HG03114,ESN,African,kg,,African
+HG03115,ESN,African,kg,,African
+HG03116,ESN,African,kg,,
+HG03117,ESN,African,kg,,African
+HG03118,ESN,African,kg,,African
+HG03119,ESN,African,kg,,
+HG03120,ESN,African,kg,,African
+HG03121,ESN,African,kg,,African
+HG03122,ESN,African,kg,,
+HG03123,ESN,African,kg,,African
+HG03124,ESN,African,kg,,African
+HG03125,ESN,African,kg,,
+HG03126,ESN,African,kg,,African
+HG03127,ESN,African,kg,,African
+HG03128,ESN,African,kg,,
+HG03129,ESN,African,kg,,African
+HG03130,ESN,African,kg,,African
+HG03131,ESN,African,kg,,
+HG03132,ESN,African,kg,,African
+HG03133,ESN,African,kg,,African
+HG03134,ESN,African,kg,,
+HG03135,ESN,African,kg,,African
+HG03136,ESN,African,kg,,African
+HG03137,ESN,African,kg,,
+HG03139,ESN,African,kg,,African
+HG03157,ESN,African,kg,,African
+HG03159,ESN,African,kg,,African
+HG03160,ESN,African,kg,,African
+HG03161,ESN,African,kg,,
+HG03162,ESN,African,kg,,African
+HG03163,ESN,African,kg,,African
+HG03164,ESN,African,kg,,
+HG03166,ESN,African,kg,,African
+HG03168,ESN,African,kg,,African
+HG03169,ESN,African,kg,,African
+HG03170,ESN,African,kg,,
+HG03172,ESN,African,kg,,African
+HG03175,ESN,African,kg,,African
+HG03189,ESN,African,kg,,African
+HG03190,ESN,African,kg,,African
+HG03191,ESN,African,kg,,
+HG03193,ESN,African,kg,,African
+HG03195,ESN,African,kg,,African
+HG03196,ESN,African,kg,,African
+HG03197,ESN,African,kg,,
+HG03198,ESN,African,kg,,African
+HG03199,ESN,African,kg,,African
+HG03200,ESN,African,kg,,
+HG03202,ESN,African,kg,,African
+HG03209,MSL,African,kg,,African
+HG03212,MSL,African,kg,,African
+HG03224,MSL,African,kg,,African
+HG03225,MSL,African,kg,,African
+HG03228,PJL,South Asian,kg,,South Asian
+HG03229,PJL,South Asian,kg,,South Asian
+HG03230,PJL,South Asian,kg,,
+HG03234,PJL,South Asian,kg,,South Asian
+HG03235,PJL,South Asian,kg,,South Asian
+HG03236,PJL,South Asian,kg,,
+HG03237,PJL,South Asian,kg,,South Asian
+HG03238,PJL,South Asian,kg,,South Asian
+HG03239,PJL,South Asian,kg,,
+HG03240,GWD,African,kg,,African
+HG03241,GWD,African,kg,,African
+HG03242,GWD,African,kg,,
+HG03246,GWD,African,kg,,African
+HG03247,GWD,African,kg,,African
+HG03248,GWD,African,kg,,
+HG03249,GWD,African,kg,,
+HG03250,GWD,African,kg,,
+HG03251,GWD,African,kg,,
+HG03258,GWD,African,kg,,African
+HG03259,GWD,African,kg,,African
+HG03260,GWD,African,kg,,
+HG03265,ESN,African,kg,,African
+HG03267,ESN,African,kg,,African
+HG03268,ESN,African,kg,,African
+HG03269,ESN,African,kg,,
+HG03270,ESN,African,kg,,African
+HG03271,ESN,African,kg,,African
+HG03272,ESN,African,kg,,
+HG03279,ESN,African,kg,,African
+HG03280,ESN,African,kg,,African
+HG03291,ESN,African,kg,,African
+HG03294,ESN,African,kg,,African
+HG03295,ESN,African,kg,,African
+HG03296,ESN,African,kg,,
+HG03297,ESN,African,kg,,African
+HG03298,ESN,African,kg,,African
+HG03299,ESN,African,kg,,
+HG03300,ESN,African,kg,,African
+HG03301,ESN,African,kg,,African
+HG03302,ESN,African,kg,,
+HG03303,ESN,African,kg,,African
+HG03304,ESN,African,kg,,African
+HG03305,ESN,African,kg,,
+HG03306,ESN,African,kg,,
+HG03307,ESN,African,kg,,
+HG03308,ESN,African,kg,,
+HG03309,ESN,African,kg,,
+HG03310,ESN,African,kg,,
+HG03311,ESN,African,kg,,African
+HG03312,ESN,African,kg,,
+HG03313,ESN,African,kg,,African
+HG03314,ESN,African,kg,,
+HG03342,ESN,African,kg,,African
+HG03343,ESN,African,kg,,African
+HG03344,ESN,African,kg,,
+HG03350,ESN,African,kg,,
+HG03351,ESN,African,kg,,African
+HG03352,ESN,African,kg,,African
+HG03354,ESN,African,kg,,African
+HG03363,ESN,African,kg,,African
+HG03366,ESN,African,kg,,African
+HG03367,ESN,African,kg,,African
+HG03368,ESN,African,kg,,
+HG03369,ESN,African,kg,,African
+HG03370,ESN,African,kg,,African
+HG03371,ESN,African,kg,,
+HG03372,ESN,African,kg,,African
+HG03373,ESN,African,kg,,
+HG03374,ESN,African,kg,,
+HG03376,MSL,African,kg,,African
+HG03378,MSL,African,kg,,African
+HG03380,MSL,African,kg,,African
+HG03382,MSL,African,kg,,African
+HG03385,MSL,African,kg,,African
+HG03388,MSL,African,kg,,African
+HG03391,MSL,African,kg,,African
+HG03394,MSL,African,kg,,African
+HG03397,MSL,African,kg,,African
+HG03401,MSL,African,kg,,African
+HG03410,MSL,African,kg,,African
+HG03419,MSL,African,kg,,African
+HG03428,MSL,African,kg,,African
+HG03432,MSL,African,kg,,African
+HG03433,MSL,African,kg,,African
+HG03436,MSL,African,kg,,African
+HG03437,MSL,African,kg,,African
+HG03438,MSL,African,kg,,
+HG03439,MSL,African,kg,,African
+HG03442,MSL,African,kg,,African
+HG03445,MSL,African,kg,,African
+HG03446,MSL,African,kg,,African
+HG03449,MSL,African,kg,,African
+HG03451,MSL,African,kg,,African
+HG03452,MSL,African,kg,,African
+HG03453,MSL,African,kg,,
+HG03454,MSL,African,kg,,
+HG03455,MSL,African,kg,,African
+HG03456,MSL,African,kg,,
+HG03457,MSL,African,kg,,African
+HG03458,MSL,African,kg,,African
+HG03460,MSL,African,kg,,African
+HG03461,MSL,African,kg,,African
+HG03464,MSL,African,kg,,African
+HG03469,MSL,African,kg,,African
+HG03470,MSL,African,kg,,African
+HG03472,MSL,African,kg,,African
+HG03473,MSL,African,kg,,African
+HG03476,MSL,African,kg,,African
+HG03478,MSL,African,kg,,African
+HG03479,MSL,African,kg,,African
+HG03480,MSL,African,kg,,
+HG03484,MSL,African,kg,,African
+HG03485,MSL,African,kg,,African
+HG03486,MSL,African,kg,,
+HG03487,PJL,South Asian,kg,,
+HG03488,PJL,South Asian,kg,,South Asian
+HG03489,PJL,South Asian,kg,,
+HG03490,PJL,South Asian,kg,,South Asian
+HG03491,PJL,South Asian,kg,,South Asian
+HG03492,PJL,South Asian,kg,,
+HG03499,ESN,African,kg,,African
+HG03511,ESN,African,kg,,African
+HG03514,ESN,African,kg,,African
+HG03515,ESN,African,kg,,African
+HG03516,ESN,African,kg,,
+HG03517,ESN,African,kg,,African
+HG03518,ESN,African,kg,,African
+HG03519,ESN,African,kg,,
+HG03520,ESN,African,kg,,African
+HG03521,ESN,African,kg,,African
+HG03522,ESN,African,kg,,
+HG03538,GWD,African,kg,,African
+HG03539,GWD,African,kg,,African
+HG03540,GWD,African,kg,,
+HG03547,MSL,African,kg,,African
+HG03548,MSL,African,kg,,African
+HG03556,MSL,African,kg,,African
+HG03557,MSL,African,kg,,African
+HG03558,MSL,African,kg,,African
+HG03559,MSL,African,kg,,African
+HG03563,MSL,African,kg,,African
+HG03565,MSL,African,kg,,African
+HG03567,MSL,African,kg,,African
+HG03571,MSL,African,kg,,African
+HG03572,MSL,African,kg,,African
+HG03574,MSL,African,kg,,
+HG03575,MSL,African,kg,,African
+HG03576,MSL,African,kg,,
+HG03577,MSL,African,kg,,African
+HG03578,MSL,African,kg,,African
+HG03579,MSL,African,kg,,
+HG03582,MSL,African,kg,,
+HG03583,MSL,African,kg,,African
+HG03584,MSL,African,kg,,
+HG03585,BEB,South Asian,kg,,South Asian
+HG03589,BEB,South Asian,kg,,South Asian
+HG03593,BEB,South Asian,kg,,South Asian
+HG03594,BEB,South Asian,kg,,South Asian
+HG03595,BEB,South Asian,kg,,South Asian
+HG03596,BEB,South Asian,kg,,
+HG03598,BEB,South Asian,kg,,South Asian
+HG03600,BEB,South Asian,kg,,South Asian
+HG03603,BEB,South Asian,kg,,South Asian
+HG03604,BEB,South Asian,kg,,South Asian
+HG03605,BEB,South Asian,kg,,
+HG03606,BEB,South Asian,kg,,
+HG03607,BEB,South Asian,kg,,South Asian
+HG03611,BEB,South Asian,kg,,South Asian
+HG03615,BEB,South Asian,kg,,South Asian
+HG03616,BEB,South Asian,kg,,South Asian
+HG03617,BEB,South Asian,kg,,
+HG03618,PJL,South Asian,kg,,
+HG03619,PJL,South Asian,kg,,South Asian
+HG03620,PJL,South Asian,kg,,
+HG03624,PJL,South Asian,kg,,South Asian
+HG03625,PJL,South Asian,kg,,South Asian
+HG03626,PJL,South Asian,kg,,
+HG03629,PJL,South Asian,kg,,South Asian
+HG03631,PJL,South Asian,kg,,South Asian
+HG03633,PJL,South Asian,kg,,
+HG03634,PJL,South Asian,kg,,South Asian
+HG03635,PJL,South Asian,kg,,
+HG03636,PJL,South Asian,kg,,South Asian
+HG03639,PJL,South Asian,kg,,
+HG03640,PJL,South Asian,kg,,South Asian
+HG03641,PJL,South Asian,kg,,
+HG03642,STU,South Asian,kg,,South Asian
+HG03643,STU,South Asian,kg,,South Asian
+HG03644,STU,South Asian,kg,,South Asian
+HG03645,STU,South Asian,kg,,South Asian
+HG03646,STU,South Asian,kg,,South Asian
+HG03649,PJL,South Asian,kg,,South Asian
+HG03650,PJL,South Asian,kg,,
+HG03651,PJL,South Asian,kg,,
+HG03652,PJL,South Asian,kg,,South Asian
+HG03653,PJL,South Asian,kg,,South Asian
+HG03654,PJL,South Asian,kg,,
+HG03660,PJL,South Asian,kg,,South Asian
+HG03663,PJL,South Asian,kg,,South Asian
+HG03667,PJL,South Asian,kg,,South Asian
+HG03668,PJL,South Asian,kg,,South Asian
+HG03669,PJL,South Asian,kg,,
+HG03672,STU,South Asian,kg,,South Asian
+HG03673,STU,South Asian,kg,,South Asian
+HG03679,STU,South Asian,kg,,South Asian
+HG03680,STU,South Asian,kg,,South Asian
+HG03681,STU,South Asian,kg,,South Asian
+HG03682,STU,South Asian,kg,,
+HG03683,STU,South Asian,kg,,
+HG03684,STU,South Asian,kg,,South Asian
+HG03685,STU,South Asian,kg,,South Asian
+HG03686,STU,South Asian,kg,,South Asian
+HG03687,STU,South Asian,kg,,South Asian
+HG03688,STU,South Asian,kg,,
+HG03689,STU,South Asian,kg,,South Asian
+HG03690,STU,South Asian,kg,,South Asian
+HG03691,STU,South Asian,kg,,South Asian
+HG03692,STU,South Asian,kg,,South Asian
+HG03693,STU,South Asian,kg,,South Asian
+HG03694,STU,South Asian,kg,,South Asian
+HG03695,STU,South Asian,kg,,South Asian
+HG03696,STU,South Asian,kg,,South Asian
+HG03697,STU,South Asian,kg,,South Asian
+HG03698,STU,South Asian,kg,,South Asian
+HG03699,PJL,South Asian,kg,,
+HG03700,PJL,South Asian,kg,,
+HG03701,PJL,South Asian,kg,,
+HG03702,PJL,South Asian,kg,,South Asian
+HG03703,PJL,South Asian,kg,,South Asian
+HG03704,PJL,South Asian,kg,,
+HG03705,PJL,South Asian,kg,,South Asian
+HG03706,PJL,South Asian,kg,,South Asian
+HG03707,PJL,South Asian,kg,,
+HG03708,PJL,South Asian,kg,,South Asian
+HG03709,PJL,South Asian,kg,,South Asian
+HG03710,PJL,South Asian,kg,,
+HG03711,STU,South Asian,kg,,South Asian
+HG03713,ITU,South Asian,kg,,South Asian
+HG03714,ITU,South Asian,kg,,South Asian
+HG03716,ITU,South Asian,kg,,South Asian
+HG03717,ITU,South Asian,kg,,South Asian
+HG03718,ITU,South Asian,kg,,South Asian
+HG03719,ITU,South Asian,kg,,
+HG03720,ITU,South Asian,kg,,South Asian
+HG03721,ITU,South Asian,kg,,
+HG03722,ITU,South Asian,kg,,South Asian
+HG03725,ITU,South Asian,kg,,
+HG03727,ITU,South Asian,kg,,South Asian
+HG03729,ITU,South Asian,kg,,South Asian
+HG03730,ITU,South Asian,kg,,South Asian
+HG03731,ITU,South Asian,kg,,South Asian
+HG03732,ITU,South Asian,kg,,
+HG03733,STU,South Asian,kg,,South Asian
+HG03736,STU,South Asian,kg,,South Asian
+HG03738,STU,South Asian,kg,,South Asian
+HG03740,STU,South Asian,kg,,South Asian
+HG03741,STU,South Asian,kg,,South Asian
+HG03742,ITU,South Asian,kg,,South Asian
+HG03743,STU,South Asian,kg,,South Asian
+HG03744,STU,South Asian,kg,,South Asian
+HG03745,STU,South Asian,kg,,South Asian
+HG03746,STU,South Asian,kg,,South Asian
+HG03750,STU,South Asian,kg,,South Asian
+HG03752,STU,South Asian,kg,,South Asian
+HG03753,STU,South Asian,kg,,South Asian
+HG03754,STU,South Asian,kg,,South Asian
+HG03755,STU,South Asian,kg,,South Asian
+HG03756,STU,South Asian,kg,,South Asian
+HG03757,STU,South Asian,kg,,South Asian
+HG03760,STU,South Asian,kg,,South Asian
+HG03761,PJL,South Asian,kg,,
+HG03762,PJL,South Asian,kg,,South Asian
+HG03763,PJL,South Asian,kg,,
+HG03765,PJL,South Asian,kg,,South Asian
+HG03767,PJL,South Asian,kg,,South Asian
+HG03770,ITU,South Asian,kg,,South Asian
+HG03771,ITU,South Asian,kg,,South Asian
+HG03772,ITU,South Asian,kg,,South Asian
+HG03773,ITU,South Asian,kg,,South Asian
+HG03774,ITU,South Asian,kg,,South Asian
+HG03775,ITU,South Asian,kg,,South Asian
+HG03777,ITU,South Asian,kg,,South Asian
+HG03778,ITU,South Asian,kg,,South Asian
+HG03779,ITU,South Asian,kg,,South Asian
+HG03780,ITU,South Asian,kg,,South Asian
+HG03781,ITU,South Asian,kg,,South Asian
+HG03782,ITU,South Asian,kg,,South Asian
+HG03784,ITU,South Asian,kg,,South Asian
+HG03785,ITU,South Asian,kg,,South Asian
+HG03786,ITU,South Asian,kg,,South Asian
+HG03787,ITU,South Asian,kg,,South Asian
+HG03788,ITU,South Asian,kg,,South Asian
+HG03789,ITU,South Asian,kg,,South Asian
+HG03790,ITU,South Asian,kg,,South Asian
+HG03792,ITU,South Asian,kg,,South Asian
+HG03793,BEB,South Asian,kg,,South Asian
+HG03794,BEB,South Asian,kg,,
+HG03795,BEB,South Asian,kg,,
+HG03796,BEB,South Asian,kg,,South Asian
+HG03797,BEB,South Asian,kg,,
+HG03798,BEB,South Asian,kg,,
+HG03799,BEB,South Asian,kg,,
+HG03800,BEB,South Asian,kg,,South Asian
+HG03801,BEB,South Asian,kg,,
+HG03802,BEB,South Asian,kg,,South Asian
+HG03803,BEB,South Asian,kg,,South Asian
+HG03804,BEB,South Asian,kg,,
+HG03805,BEB,South Asian,kg,,South Asian
+HG03806,BEB,South Asian,kg,,
+HG03807,BEB,South Asian,kg,,
+HG03808,BEB,South Asian,kg,,South Asian
+HG03809,BEB,South Asian,kg,,South Asian
+HG03812,BEB,South Asian,kg,,South Asian
+HG03814,BEB,South Asian,kg,,South Asian
+HG03815,BEB,South Asian,kg,,South Asian
+HG03816,BEB,South Asian,kg,,
+HG03817,BEB,South Asian,kg,,South Asian
+HG03821,BEB,South Asian,kg,,South Asian
+HG03823,BEB,South Asian,kg,,South Asian
+HG03824,BEB,South Asian,kg,,South Asian
+HG03825,BEB,South Asian,kg,,
+HG03826,BEB,South Asian,kg,,South Asian
+HG03829,BEB,South Asian,kg,,South Asian
+HG03830,BEB,South Asian,kg,,South Asian
+HG03831,BEB,South Asian,kg,,
+HG03832,BEB,South Asian,kg,,South Asian
+HG03833,BEB,South Asian,kg,,South Asian
+HG03834,BEB,South Asian,kg,,
+HG03836,STU,South Asian,kg,,South Asian
+HG03837,STU,South Asian,kg,,South Asian
+HG03838,STU,South Asian,kg,,South Asian
+HG03844,STU,South Asian,kg,,South Asian
+HG03846,STU,South Asian,kg,,South Asian
+HG03848,STU,South Asian,kg,,South Asian
+HG03849,STU,South Asian,kg,,South Asian
+HG03850,STU,South Asian,kg,,South Asian
+HG03851,STU,South Asian,kg,,South Asian
+HG03854,STU,South Asian,kg,,South Asian
+HG03856,STU,South Asian,kg,,South Asian
+HG03857,STU,South Asian,kg,,South Asian
+HG03858,STU,South Asian,kg,,South Asian
+HG03861,ITU,South Asian,kg,,South Asian
+HG03862,ITU,South Asian,kg,,South Asian
+HG03863,ITU,South Asian,kg,,South Asian
+HG03864,ITU,South Asian,kg,,South Asian
+HG03866,ITU,South Asian,kg,,South Asian
+HG03867,ITU,South Asian,kg,,South Asian
+HG03868,ITU,South Asian,kg,,South Asian
+HG03869,ITU,South Asian,kg,,South Asian
+HG03870,ITU,South Asian,kg,,South Asian
+HG03871,ITU,South Asian,kg,,South Asian
+HG03872,ITU,South Asian,kg,,South Asian
+HG03873,ITU,South Asian,kg,,South Asian
+HG03874,ITU,South Asian,kg,,South Asian
+HG03875,ITU,South Asian,kg,,South Asian
+HG03882,ITU,South Asian,kg,,South Asian
+HG03884,STU,South Asian,kg,,South Asian
+HG03885,STU,South Asian,kg,,South Asian
+HG03886,STU,South Asian,kg,,South Asian
+HG03887,STU,South Asian,kg,,South Asian
+HG03888,STU,South Asian,kg,,South Asian
+HG03890,STU,South Asian,kg,,South Asian
+HG03894,STU,South Asian,kg,,South Asian
+HG03895,STU,South Asian,kg,,South Asian
+HG03896,STU,South Asian,kg,,South Asian
+HG03897,STU,South Asian,kg,,South Asian
+HG03898,STU,South Asian,kg,,South Asian
+HG03899,STU,South Asian,kg,,South Asian
+HG03900,STU,South Asian,kg,,South Asian
+HG03902,BEB,South Asian,kg,,South Asian
+HG03904,BEB,South Asian,kg,,
+HG03905,BEB,South Asian,kg,,South Asian
+HG03906,BEB,South Asian,kg,,
+HG03907,BEB,South Asian,kg,,South Asian
+HG03908,BEB,South Asian,kg,,South Asian
+HG03909,BEB,South Asian,kg,,
+HG03910,BEB,South Asian,kg,,South Asian
+HG03911,BEB,South Asian,kg,,South Asian
+HG03913,BEB,South Asian,kg,,South Asian
+HG03914,BEB,South Asian,kg,,South Asian
+HG03915,BEB,South Asian,kg,,
+HG03916,BEB,South Asian,kg,,South Asian
+HG03917,BEB,South Asian,kg,,South Asian
+HG03919,BEB,South Asian,kg,,South Asian
+HG03920,BEB,South Asian,kg,,South Asian
+HG03922,BEB,South Asian,kg,,South Asian
+HG03925,BEB,South Asian,kg,,South Asian
+HG03926,BEB,South Asian,kg,,South Asian
+HG03927,BEB,South Asian,kg,,
+HG03928,BEB,South Asian,kg,,South Asian
+HG03929,BEB,South Asian,kg,,
+HG03930,BEB,South Asian,kg,,
+HG03931,BEB,South Asian,kg,,South Asian
+HG03934,BEB,South Asian,kg,,South Asian
+HG03937,BEB,South Asian,kg,,South Asian
+HG03940,BEB,South Asian,kg,,South Asian
+HG03941,BEB,South Asian,kg,,South Asian
+HG03942,BEB,South Asian,kg,,
+HG03943,STU,South Asian,kg,,South Asian
+HG03944,STU,South Asian,kg,,South Asian
+HG03945,STU,South Asian,kg,,South Asian
+HG03947,STU,South Asian,kg,,South Asian
+HG03949,STU,South Asian,kg,,South Asian
+HG03950,STU,South Asian,kg,,South Asian
+HG03951,STU,South Asian,kg,,South Asian
+HG03953,STU,South Asian,kg,,South Asian
+HG03955,STU,South Asian,kg,,South Asian
+HG03960,ITU,South Asian,kg,,South Asian
+HG03963,ITU,South Asian,kg,,South Asian
+HG03965,ITU,South Asian,kg,,South Asian
+HG03967,ITU,South Asian,kg,,South Asian
+HG03968,ITU,South Asian,kg,,South Asian
+HG03969,ITU,South Asian,kg,,South Asian
+HG03971,ITU,South Asian,kg,,South Asian
+HG03973,ITU,South Asian,kg,,South Asian
+HG03974,ITU,South Asian,kg,,South Asian
+HG03976,ITU,South Asian,kg,,South Asian
+HG03977,ITU,South Asian,kg,,South Asian
+HG03978,ITU,South Asian,kg,,South Asian
+HG03985,STU,South Asian,kg,,South Asian
+HG03986,STU,South Asian,kg,,South Asian
+HG03989,STU,South Asian,kg,,South Asian
+HG03990,STU,South Asian,kg,,South Asian
+HG03991,STU,South Asian,kg,,South Asian
+HG03992,STU,South Asian,kg,,
+HG03995,STU,South Asian,kg,,South Asian
+HG03998,STU,South Asian,kg,,South Asian
+HG03999,STU,South Asian,kg,,South Asian
+HG04001,ITU,South Asian,kg,,South Asian
+HG04002,ITU,South Asian,kg,,South Asian
+HG04003,STU,South Asian,kg,,South Asian
+HG04006,STU,South Asian,kg,,South Asian
+HG04014,ITU,South Asian,kg,,South Asian
+HG04015,ITU,South Asian,kg,,South Asian
+HG04017,ITU,South Asian,kg,,South Asian
+HG04018,ITU,South Asian,kg,,South Asian
+HG04019,ITU,South Asian,kg,,South Asian
+HG04020,ITU,South Asian,kg,,South Asian
+HG04022,ITU,South Asian,kg,,South Asian
+HG04023,ITU,South Asian,kg,,South Asian
+HG04025,ITU,South Asian,kg,,South Asian
+HG04026,ITU,South Asian,kg,,South Asian
+HG04029,STU,South Asian,kg,,South Asian
+HG04033,STU,South Asian,kg,,South Asian
+HG04035,STU,South Asian,kg,,South Asian
+HG04036,STU,South Asian,kg,,
+HG04038,STU,South Asian,kg,,South Asian
+HG04039,STU,South Asian,kg,,South Asian
+HG04042,STU,South Asian,kg,,South Asian
+HG04047,STU,South Asian,kg,,South Asian
+HG04054,ITU,South Asian,kg,,South Asian
+HG04056,ITU,South Asian,kg,,South Asian
+HG04059,ITU,South Asian,kg,,South Asian
+HG04060,ITU,South Asian,kg,,South Asian
+HG04061,ITU,South Asian,kg,,South Asian
+HG04062,ITU,South Asian,kg,,South Asian
+HG04063,ITU,South Asian,kg,,South Asian
+HG04070,ITU,South Asian,kg,,South Asian
+HG04075,STU,South Asian,kg,,South Asian
+HG04076,ITU,South Asian,kg,,South Asian
+HG04080,ITU,South Asian,kg,,South Asian
+HG04090,ITU,South Asian,kg,,South Asian
+HG04093,ITU,South Asian,kg,,South Asian
+HG04094,ITU,South Asian,kg,,South Asian
+HG04096,ITU,South Asian,kg,,South Asian
+HG04098,ITU,South Asian,kg,,South Asian
+HG04099,STU,South Asian,kg,,South Asian
+HG04100,STU,South Asian,kg,,South Asian
+HG04106,STU,South Asian,kg,,South Asian
+HG04107,STU,South Asian,kg,,South Asian
+HG04115,STU,South Asian,kg,,
+HG04118,ITU,South Asian,kg,,South Asian
+HG04122,STU,South Asian,kg,,
+HG04127,STU,South Asian,kg,,
+HG04131,BEB,South Asian,kg,,South Asian
+HG04132,BEB,South Asian,kg,,
+HG04133,BEB,South Asian,kg,,
+HG04134,BEB,South Asian,kg,,South Asian
+HG04135,BEB,South Asian,kg,,
+HG04136,BEB,South Asian,kg,,
+HG04140,BEB,South Asian,kg,,South Asian
+HG04141,BEB,South Asian,kg,,South Asian
+HG04142,BEB,South Asian,kg,,
+HG04144,BEB,South Asian,kg,,South Asian
+HG04146,BEB,South Asian,kg,,South Asian
+HG04147,BEB,South Asian,kg,,
+HG04148,BEB,South Asian,kg,,
+HG04149,BEB,South Asian,kg,,
+HG04150,BEB,South Asian,kg,,
+HG04151,BEB,South Asian,kg,,
+HG04152,BEB,South Asian,kg,,South Asian
+HG04153,BEB,South Asian,kg,,South Asian
+HG04155,BEB,South Asian,kg,,South Asian
+HG04156,BEB,South Asian,kg,,South Asian
+HG04157,BEB,South Asian,kg,,
+HG04158,BEB,South Asian,kg,,South Asian
+HG04159,BEB,South Asian,kg,,South Asian
+HG04160,BEB,South Asian,kg,,
+HG04161,BEB,South Asian,kg,,South Asian
+HG04162,BEB,South Asian,kg,,South Asian
+HG04164,BEB,South Asian,kg,,South Asian
+HG04171,BEB,South Asian,kg,,South Asian
+HG04173,BEB,South Asian,kg,,South Asian
+HG04174,BEB,South Asian,kg,,
+HG04175,BEB,South Asian,kg,,
+HG04176,BEB,South Asian,kg,,South Asian
+HG04177,BEB,South Asian,kg,,South Asian
+HG04180,BEB,South Asian,kg,,South Asian
+HG04182,BEB,South Asian,kg,,South Asian
+HG04183,BEB,South Asian,kg,,South Asian
+HG04184,BEB,South Asian,kg,,
+HG04185,BEB,South Asian,kg,,South Asian
+HG04186,BEB,South Asian,kg,,South Asian
+HG04187,BEB,South Asian,kg,,
+HG04188,BEB,South Asian,kg,,South Asian
+HG04189,BEB,South Asian,kg,,South Asian
+HG04191,BEB,South Asian,kg,,
+HG04192,BEB,South Asian,kg,,
+HG04193,BEB,South Asian,kg,,
+HG04194,BEB,South Asian,kg,,South Asian
+HG04195,BEB,South Asian,kg,,South Asian
+HG04198,ITU,South Asian,kg,,South Asian
+HG04199,STU,South Asian,kg,,
+HG04200,ITU,South Asian,kg,,South Asian
+HG04202,ITU,South Asian,kg,,South Asian
+HG04204,STU,South Asian,kg,,
+HG04206,ITU,South Asian,kg,,South Asian
+HG04209,ITU,South Asian,kg,,South Asian
+HG04210,STU,South Asian,kg,,South Asian
+HG04211,ITU,South Asian,kg,,South Asian
+HG04212,ITU,South Asian,kg,,South Asian
+HG04214,ITU,South Asian,kg,,South Asian
+HG04215,STU,South Asian,kg,,
+HG04216,ITU,South Asian,kg,,South Asian
+HG04217,ITU,South Asian,kg,,
+HG04219,ITU,South Asian,kg,,South Asian
+HG04222,ITU,South Asian,kg,,South Asian
+HG04225,ITU,South Asian,kg,,South Asian
+HG04227,STU,South Asian,kg,,South Asian
+HG04228,STU,South Asian,kg,,
+HG04229,STU,South Asian,kg,,South Asian
+HG04235,ITU,South Asian,kg,,South Asian
+HG04238,ITU,South Asian,kg,,South Asian
+HG04239,ITU,South Asian,kg,,South Asian
+NA06984,CEU,European,kg,,
+NA06985,CEU,European,kg,,
+NA06986,CEU,European,kg,,
+NA06989,CEU,European,kg,,
+NA06991,CEU,European,kg,,
+NA06993,CEU,European,kg,,
+NA06994,CEU,European,kg,,
+NA06995,CEU,European,kg,,
+NA06997,CEU,European,kg,,
+NA07000,CEU,European,kg,,
+NA07014,CEU,European,kg,,
+NA07019,CEU,European,kg,,
+NA07022,CEU,European,kg,,
+NA07029,CEU,European,kg,,
+NA07031,CEU,European,kg,,
+NA07034,CEU,European,kg,,
+NA07037,CEU,European,kg,,
+NA07045,CEU,European,kg,,
+NA07048,CEU,European,kg,,
+NA07051,CEU,European,kg,,
+NA07055,CEU,European,kg,,
+NA07056,CEU,European,kg,,
+NA07345,CEU,European,kg,,
+NA07346,CEU,European,kg,,
+NA07347,CEU,European,kg,,
+NA07348,CEU,European,kg,,
+NA07349,CEU,European,kg,,
+NA07357,CEU,European,kg,,
+NA07435,CEU,European,kg,,
+NA10830,CEU,European,kg,,
+NA10831,CEU,European,kg,,
+NA10835,CEU,European,kg,,
+NA10836,CEU,European,kg,,
+NA10837,CEU,European,kg,,
+NA10838,CEU,European,kg,,
+NA10839,CEU,European,kg,,
+NA10840,CEU,European,kg,,
+NA10842,CEU,European,kg,,
+NA10843,CEU,European,kg,,
+NA10845,CEU,European,kg,,
+NA10846,CEU,European,kg,,
+NA10847,CEU,European,kg,,
+NA10851,CEU,European,kg,,
+NA10852,CEU,European,kg,,
+NA10854,CEU,European,kg,,
+NA10855,CEU,European,kg,,
+NA10856,CEU,European,kg,,
+NA10857,CEU,European,kg,,
+NA10859,CEU,European,kg,,
+NA10860,CEU,European,kg,,
+NA10861,CEU,European,kg,,
+NA10863,CEU,European,kg,,
+NA10864,CEU,European,kg,,
+NA10865,CEU,European,kg,,
+NA11829,CEU,European,kg,,
+NA11830,CEU,European,kg,,
+NA11831,CEU,European,kg,,
+NA11832,CEU,European,kg,,
+NA11839,CEU,European,kg,,
+NA11840,CEU,European,kg,,
+NA11843,CEU,European,kg,,
+NA11881,CEU,European,kg,,
+NA11882,CEU,European,kg,,
+NA11891,CEU,European,kg,,
+NA11892,CEU,European,kg,,
+NA11893,CEU,European,kg,,
+NA11894,CEU,European,kg,,
+NA11917,CEU,European,kg,,
+NA11918,CEU,European,kg,,
+NA11919,CEU,European,kg,,
+NA11920,CEU,European,kg,,
+NA11930,CEU,European,kg,,
+NA11931,CEU,European,kg,,
+NA11932,CEU,European,kg,,
+NA11933,CEU,European,kg,,
+NA11992,CEU,European,kg,,
+NA11993,CEU,European,kg,,
+NA11994,CEU,European,kg,,
+NA11995,CEU,European,kg,,
+NA12003,CEU,European,kg,,
+NA12004,CEU,European,kg,,
+NA12005,CEU,European,kg,,
+NA12006,CEU,European,kg,,
+NA12043,CEU,European,kg,,
+NA12044,CEU,European,kg,,
+NA12045,CEU,European,kg,,
+NA12046,CEU,European,kg,,
+NA12056,CEU,European,kg,,
+NA12057,CEU,European,kg,,
+NA12058,CEU,European,kg,,
+NA12144,CEU,European,kg,,
+NA12145,CEU,European,kg,,
+NA12146,CEU,European,kg,,
+NA12154,CEU,European,kg,,
+NA12155,CEU,European,kg,,
+NA12156,CEU,European,kg,,
+NA12234,CEU,European,kg,,
+NA12236,CEU,European,kg,,
+NA12239,CEU,European,kg,,
+NA12248,CEU,European,kg,,
+NA12249,CEU,European,kg,,
+NA12264,CEU,European,kg,,
+NA12272,CEU,European,kg,,
+NA12273,CEU,European,kg,,
+NA12274,CEU,European,kg,,
+NA12275,CEU,European,kg,,
+NA12282,CEU,European,kg,,
+NA12283,CEU,European,kg,,
+NA12286,CEU,European,kg,,
+NA12287,CEU,European,kg,,
+NA12329,CEU,European,kg,,
+NA12335,CEU,European,kg,,
+NA12336,CEU,European,kg,,
+NA12340,CEU,European,kg,,
+NA12341,CEU,European,kg,,
+NA12342,CEU,European,kg,,
+NA12343,CEU,European,kg,,
+NA12344,CEU,European,kg,,
+NA12347,CEU,European,kg,,
+NA12348,CEU,European,kg,,
+NA12376,CEU,European,kg,,
+NA12383,CEU,European,kg,,
+NA12386,CEU,European,kg,,
+NA12399,CEU,European,kg,,
+NA12400,CEU,European,kg,,
+NA12413,CEU,European,kg,,
+NA12414,CEU,European,kg,,
+NA12485,CEU,European,kg,,
+NA12489,CEU,European,kg,,
+NA12546,CEU,European,kg,,
+NA12707,CEU,European,kg,,
+NA12716,CEU,European,kg,,
+NA12717,CEU,European,kg,,
+NA12718,CEU,European,kg,,
+NA12739,CEU,European,kg,,
+NA12740,CEU,European,kg,,
+NA12748,CEU,European,kg,,
+NA12749,CEU,European,kg,,
+NA12750,CEU,European,kg,,
+NA12751,CEU,European,kg,,
+NA12752,CEU,European,kg,,
+NA12753,CEU,European,kg,,
+NA12760,CEU,European,kg,,
+NA12761,CEU,European,kg,,
+NA12762,CEU,European,kg,,
+NA12763,CEU,European,kg,,
+NA12766,CEU,European,kg,,
+NA12767,CEU,European,kg,,
+NA12775,CEU,European,kg,,
+NA12776,CEU,European,kg,,
+NA12777,CEU,European,kg,,
+NA12778,CEU,European,kg,,
+NA12801,CEU,European,kg,,
+NA12802,CEU,European,kg,,
+NA12812,CEU,European,kg,,
+NA12813,CEU,European,kg,,
+NA12814,CEU,European,kg,,
+NA12815,CEU,European,kg,,
+NA12817,CEU,European,kg,,
+NA12818,CEU,European,kg,,
+NA12827,CEU,European,kg,,
+NA12828,CEU,European,kg,,
+NA12829,CEU,European,kg,,
+NA12830,CEU,European,kg,,
+NA12832,CEU,European,kg,,
+NA12842,CEU,European,kg,,
+NA12843,CEU,European,kg,,
+NA12864,CEU,European,kg,,
+NA12865,CEU,European,kg,,
+NA12872,CEU,European,kg,,
+NA12873,CEU,European,kg,,
+NA12874,CEU,European,kg,,
+NA12875,CEU,European,kg,,
+NA12877,CEU,European,kg,,
+NA12878,CEU,European,kg,,
+NA12889,CEU,European,kg,,
+NA12890,CEU,European,kg,,
+NA12891,CEU,European,kg,,
+NA12892,CEU,European,kg,,
+NA18484,YRI,African,kg,,
+NA18485,YRI,African,kg,,
+NA18486,YRI,African,kg,,African
+NA18487,YRI,African,kg,,
+NA18488,YRI,African,kg,,African
+NA18489,YRI,African,kg,,African
+NA18497,YRI,African,kg,,
+NA18498,YRI,African,kg,,African
+NA18499,YRI,African,kg,,African
+NA18500,YRI,African,kg,,
+NA18501,YRI,African,kg,,African
+NA18502,YRI,African,kg,,African
+NA18503,YRI,African,kg,,
+NA18504,YRI,African,kg,,African
+NA18505,YRI,African,kg,,African
+NA18506,YRI,African,kg,,
+NA18507,YRI,African,kg,,African
+NA18508,YRI,African,kg,,African
+NA18510,YRI,African,kg,,African
+NA18511,YRI,African,kg,,African
+NA18515,YRI,African,kg,,
+NA18516,YRI,African,kg,,African
+NA18517,YRI,African,kg,,African
+NA18518,YRI,African,kg,,
+NA18519,YRI,African,kg,,African
+NA18520,YRI,African,kg,,African
+NA18521,YRI,African,kg,,
+NA18522,YRI,African,kg,,African
+NA18523,YRI,African,kg,,African
+NA18525,CHB,East Asian,kg,,East Asian
+NA18526,CHB,East Asian,kg,,East Asian
+NA18528,CHB,East Asian,kg,,East Asian
+NA18530,CHB,East Asian,kg,,East Asian
+NA18531,CHB,East Asian,kg,,East Asian
+NA18532,CHB,East Asian,kg,,East Asian
+NA18533,CHB,East Asian,kg,,East Asian
+NA18534,CHB,East Asian,kg,,East Asian
+NA18535,CHB,East Asian,kg,,East Asian
+NA18536,CHB,East Asian,kg,,East Asian
+NA18537,CHB,East Asian,kg,,East Asian
+NA18538,CHB,East Asian,kg,,East Asian
+NA18539,CHB,East Asian,kg,,East Asian
+NA18541,CHB,East Asian,kg,,East Asian
+NA18542,CHB,East Asian,kg,,East Asian
+NA18543,CHB,East Asian,kg,,East Asian
+NA18544,CHB,East Asian,kg,,East Asian
+NA18545,CHB,East Asian,kg,,East Asian
+NA18546,CHB,East Asian,kg,,East Asian
+NA18547,CHB,East Asian,kg,,East Asian
+NA18548,CHB,East Asian,kg,,East Asian
+NA18549,CHB,East Asian,kg,,East Asian
+NA18550,CHB,East Asian,kg,,East Asian
+NA18552,CHB,East Asian,kg,,East Asian
+NA18553,CHB,East Asian,kg,,East Asian
+NA18555,CHB,East Asian,kg,,East Asian
+NA18557,CHB,East Asian,kg,,East Asian
+NA18558,CHB,East Asian,kg,,East Asian
+NA18559,CHB,East Asian,kg,,East Asian
+NA18560,CHB,East Asian,kg,,East Asian
+NA18561,CHB,East Asian,kg,,East Asian
+NA18562,CHB,East Asian,kg,,East Asian
+NA18563,CHB,East Asian,kg,,East Asian
+NA18564,CHB,East Asian,kg,,East Asian
+NA18565,CHB,East Asian,kg,,East Asian
+NA18566,CHB,East Asian,kg,,East Asian
+NA18567,CHB,East Asian,kg,,East Asian
+NA18570,CHB,East Asian,kg,,East Asian
+NA18571,CHB,East Asian,kg,,East Asian
+NA18572,CHB,East Asian,kg,,East Asian
+NA18573,CHB,East Asian,kg,,East Asian
+NA18574,CHB,East Asian,kg,,East Asian
+NA18577,CHB,East Asian,kg,,East Asian
+NA18579,CHB,East Asian,kg,,East Asian
+NA18582,CHB,East Asian,kg,,East Asian
+NA18591,CHB,East Asian,kg,,East Asian
+NA18592,CHB,East Asian,kg,,East Asian
+NA18593,CHB,East Asian,kg,,East Asian
+NA18595,CHB,East Asian,kg,,East Asian
+NA18596,CHB,East Asian,kg,,East Asian
+NA18597,CHB,East Asian,kg,,East Asian
+NA18599,CHB,East Asian,kg,,East Asian
+NA18602,CHB,East Asian,kg,,East Asian
+NA18603,CHB,East Asian,kg,,East Asian
+NA18605,CHB,East Asian,kg,,East Asian
+NA18606,CHB,East Asian,kg,,East Asian
+NA18608,CHB,East Asian,kg,,East Asian
+NA18609,CHB,East Asian,kg,,East Asian
+NA18610,CHB,East Asian,kg,,East Asian
+NA18611,CHB,East Asian,kg,,East Asian
+NA18612,CHB,East Asian,kg,,East Asian
+NA18613,CHB,East Asian,kg,,East Asian
+NA18614,CHB,East Asian,kg,,East Asian
+NA18615,CHB,East Asian,kg,,East Asian
+NA18616,CHB,East Asian,kg,,East Asian
+NA18617,CHB,East Asian,kg,,East Asian
+NA18618,CHB,East Asian,kg,,East Asian
+NA18619,CHB,East Asian,kg,,East Asian
+NA18620,CHB,East Asian,kg,,East Asian
+NA18621,CHB,East Asian,kg,,East Asian
+NA18622,CHB,East Asian,kg,,East Asian
+NA18623,CHB,East Asian,kg,,East Asian
+NA18624,CHB,East Asian,kg,,East Asian
+NA18625,CHB,East Asian,kg,,East Asian
+NA18626,CHB,East Asian,kg,,East Asian
+NA18627,CHB,East Asian,kg,,East Asian
+NA18628,CHB,East Asian,kg,,East Asian
+NA18629,CHB,East Asian,kg,,East Asian
+NA18630,CHB,East Asian,kg,,East Asian
+NA18631,CHB,East Asian,kg,,East Asian
+NA18632,CHB,East Asian,kg,,East Asian
+NA18633,CHB,East Asian,kg,,East Asian
+NA18634,CHB,East Asian,kg,,East Asian
+NA18635,CHB,East Asian,kg,,East Asian
+NA18636,CHB,East Asian,kg,,East Asian
+NA18637,CHB,East Asian,kg,,East Asian
+NA18638,CHB,East Asian,kg,,East Asian
+NA18639,CHB,East Asian,kg,,East Asian
+NA18640,CHB,East Asian,kg,,East Asian
+NA18641,CHB,East Asian,kg,,East Asian
+NA18642,CHB,East Asian,kg,,East Asian
+NA18643,CHB,East Asian,kg,,East Asian
+NA18644,CHB,East Asian,kg,,East Asian
+NA18645,CHB,East Asian,kg,,East Asian
+NA18646,CHB,East Asian,kg,,East Asian
+NA18647,CHB,East Asian,kg,,East Asian
+NA18648,CHB,East Asian,kg,,East Asian
+NA18740,CHB,East Asian,kg,,East Asian
+NA18745,CHB,East Asian,kg,,East Asian
+NA18747,CHB,East Asian,kg,,East Asian
+NA18748,CHB,East Asian,kg,,East Asian
+NA18749,CHB,East Asian,kg,,East Asian
+NA18757,CHB,East Asian,kg,,East Asian
+NA18852,YRI,African,kg,,
+NA18853,YRI,African,kg,,African
+NA18854,YRI,African,kg,,
+NA18855,YRI,African,kg,,
+NA18856,YRI,African,kg,,African
+NA18857,YRI,African,kg,,
+NA18858,YRI,African,kg,,African
+NA18859,YRI,African,kg,,
+NA18860,YRI,African,kg,,
+NA18861,YRI,African,kg,,African
+NA18862,YRI,African,kg,,
+NA18863,YRI,African,kg,,
+NA18864,YRI,African,kg,,African
+NA18865,YRI,African,kg,,African
+NA18867,YRI,African,kg,,African
+NA18868,YRI,African,kg,,African
+NA18869,YRI,African,kg,,
+NA18870,YRI,African,kg,,African
+NA18871,YRI,African,kg,,African
+NA18872,YRI,African,kg,,
+NA18873,YRI,African,kg,,African
+NA18874,YRI,African,kg,,African
+NA18875,YRI,African,kg,,
+NA18876,YRI,African,kg,,African
+NA18877,YRI,African,kg,,African
+NA18878,YRI,African,kg,,African
+NA18879,YRI,African,kg,,African
+NA18881,YRI,African,kg,,African
+NA18906,YRI,African,kg,,
+NA18907,YRI,African,kg,,African
+NA18908,YRI,African,kg,,African
+NA18909,YRI,African,kg,,African
+NA18910,YRI,African,kg,,African
+NA18911,YRI,African,kg,,
+NA18912,YRI,African,kg,,African
+NA18913,YRI,African,kg,,
+NA18914,YRI,African,kg,,
+NA18915,YRI,African,kg,,African
+NA18916,YRI,African,kg,,African
+NA18917,YRI,African,kg,,African
+NA18923,YRI,African,kg,,African
+NA18924,YRI,African,kg,,African
+NA18925,YRI,African,kg,,
+NA18930,YRI,African,kg,,
+NA18933,YRI,African,kg,,African
+NA18934,YRI,African,kg,,African
+NA18935,YRI,African,kg,,
+NA18939,JPT,East Asian,kg,,East Asian
+NA18940,JPT,East Asian,kg,,East Asian
+NA18941,JPT,East Asian,kg,,East Asian
+NA18942,JPT,East Asian,kg,,East Asian
+NA18943,JPT,East Asian,kg,,East Asian
+NA18944,JPT,East Asian,kg,,East Asian
+NA18945,JPT,East Asian,kg,,East Asian
+NA18946,JPT,East Asian,kg,,East Asian
+NA18947,JPT,East Asian,kg,,East Asian
+NA18948,JPT,East Asian,kg,,East Asian
+NA18949,JPT,East Asian,kg,,East Asian
+NA18950,JPT,East Asian,kg,,East Asian
+NA18951,JPT,East Asian,kg,,East Asian
+NA18952,JPT,East Asian,kg,,East Asian
+NA18953,JPT,East Asian,kg,,East Asian
+NA18954,JPT,East Asian,kg,,East Asian
+NA18956,JPT,East Asian,kg,,East Asian
+NA18957,JPT,East Asian,kg,,East Asian
+NA18959,JPT,East Asian,kg,,East Asian
+NA18960,JPT,East Asian,kg,,East Asian
+NA18961,JPT,East Asian,kg,,East Asian
+NA18962,JPT,East Asian,kg,,East Asian
+NA18963,JPT,East Asian,kg,,East Asian
+NA18964,JPT,East Asian,kg,,East Asian
+NA18965,JPT,East Asian,kg,,East Asian
+NA18966,JPT,East Asian,kg,,East Asian
+NA18967,JPT,East Asian,kg,,East Asian
+NA18968,JPT,East Asian,kg,,East Asian
+NA18969,JPT,East Asian,kg,,East Asian
+NA18970,JPT,East Asian,kg,,East Asian
+NA18971,JPT,East Asian,kg,,East Asian
+NA18972,JPT,East Asian,kg,,East Asian
+NA18973,JPT,East Asian,kg,,East Asian
+NA18974,JPT,East Asian,kg,,East Asian
+NA18975,JPT,East Asian,kg,,East Asian
+NA18976,JPT,East Asian,kg,,East Asian
+NA18977,JPT,East Asian,kg,,East Asian
+NA18978,JPT,East Asian,kg,,East Asian
+NA18979,JPT,East Asian,kg,,East Asian
+NA18980,JPT,East Asian,kg,,East Asian
+NA18981,JPT,East Asian,kg,,East Asian
+NA18982,JPT,East Asian,kg,,East Asian
+NA18983,JPT,East Asian,kg,,East Asian
+NA18984,JPT,East Asian,kg,,East Asian
+NA18985,JPT,East Asian,kg,,East Asian
+NA18986,JPT,East Asian,kg,,East Asian
+NA18987,JPT,East Asian,kg,,East Asian
+NA18988,JPT,East Asian,kg,,East Asian
+NA18989,JPT,East Asian,kg,,East Asian
+NA18990,JPT,East Asian,kg,,East Asian
+NA18991,JPT,East Asian,kg,,East Asian
+NA18992,JPT,East Asian,kg,,East Asian
+NA18993,JPT,East Asian,kg,,East Asian
+NA18994,JPT,East Asian,kg,,East Asian
+NA18995,JPT,East Asian,kg,,East Asian
+NA18997,JPT,East Asian,kg,,East Asian
+NA18998,JPT,East Asian,kg,,East Asian
+NA18999,JPT,East Asian,kg,,East Asian
+NA19000,JPT,East Asian,kg,,East Asian
+NA19001,JPT,East Asian,kg,,East Asian
+NA19002,JPT,East Asian,kg,,East Asian
+NA19003,JPT,East Asian,kg,,East Asian
+NA19004,JPT,East Asian,kg,,East Asian
+NA19005,JPT,East Asian,kg,,East Asian
+NA19006,JPT,East Asian,kg,,East Asian
+NA19007,JPT,East Asian,kg,,East Asian
+NA19009,JPT,East Asian,kg,,East Asian
+NA19010,JPT,East Asian,kg,,East Asian
+NA19011,JPT,East Asian,kg,,East Asian
+NA19012,JPT,East Asian,kg,,East Asian
+NA19017,LWK,African,kg,,African
+NA19019,LWK,African,kg,,African
+NA19020,LWK,African,kg,,African
+NA19023,LWK,African,kg,,African
+NA19024,LWK,African,kg,,African
+NA19025,LWK,African,kg,,African
+NA19026,LWK,African,kg,,African
+NA19027,LWK,African,kg,,African
+NA19028,LWK,African,kg,,African
+NA19030,LWK,African,kg,,African
+NA19031,LWK,African,kg,,African
+NA19035,LWK,African,kg,,African
+NA19036,LWK,African,kg,,African
+NA19037,LWK,African,kg,,African
+NA19038,LWK,African,kg,,African
+NA19041,LWK,African,kg,,African
+NA19042,LWK,African,kg,,African
+NA19043,LWK,African,kg,,African
+NA19054,JPT,East Asian,kg,,East Asian
+NA19055,JPT,East Asian,kg,,East Asian
+NA19056,JPT,East Asian,kg,,East Asian
+NA19057,JPT,East Asian,kg,,East Asian
+NA19058,JPT,East Asian,kg,,East Asian
+NA19059,JPT,East Asian,kg,,East Asian
+NA19060,JPT,East Asian,kg,,East Asian
+NA19062,JPT,East Asian,kg,,East Asian
+NA19063,JPT,East Asian,kg,,East Asian
+NA19064,JPT,East Asian,kg,,East Asian
+NA19065,JPT,East Asian,kg,,East Asian
+NA19066,JPT,East Asian,kg,,East Asian
+NA19067,JPT,East Asian,kg,,East Asian
+NA19068,JPT,East Asian,kg,,East Asian
+NA19070,JPT,East Asian,kg,,East Asian
+NA19072,JPT,East Asian,kg,,East Asian
+NA19074,JPT,East Asian,kg,,East Asian
+NA19075,JPT,East Asian,kg,,East Asian
+NA19076,JPT,East Asian,kg,,East Asian
+NA19077,JPT,East Asian,kg,,East Asian
+NA19078,JPT,East Asian,kg,,East Asian
+NA19079,JPT,East Asian,kg,,East Asian
+NA19080,JPT,East Asian,kg,,East Asian
+NA19081,JPT,East Asian,kg,,East Asian
+NA19082,JPT,East Asian,kg,,East Asian
+NA19083,JPT,East Asian,kg,,East Asian
+NA19084,JPT,East Asian,kg,,East Asian
+NA19085,JPT,East Asian,kg,,East Asian
+NA19086,JPT,East Asian,kg,,East Asian
+NA19087,JPT,East Asian,kg,,East Asian
+NA19088,JPT,East Asian,kg,,East Asian
+NA19089,JPT,East Asian,kg,,East Asian
+NA19090,JPT,East Asian,kg,,East Asian
+NA19091,JPT,East Asian,kg,,East Asian
+NA19092,YRI,African,kg,,African
+NA19093,YRI,African,kg,,African
+NA19094,YRI,African,kg,,
+NA19095,YRI,African,kg,,African
+NA19096,YRI,African,kg,,African
+NA19097,YRI,African,kg,,
+NA19098,YRI,African,kg,,African
+NA19099,YRI,African,kg,,African
+NA19100,YRI,African,kg,,
+NA19101,YRI,African,kg,,
+NA19102,YRI,African,kg,,African
+NA19103,YRI,African,kg,,
+NA19107,YRI,African,kg,,African
+NA19108,YRI,African,kg,,African
+NA19109,YRI,African,kg,,
+NA19113,YRI,African,kg,,African
+NA19114,YRI,African,kg,,African
+NA19115,YRI,African,kg,,
+NA19116,YRI,African,kg,,African
+NA19117,YRI,African,kg,,African
+NA19118,YRI,African,kg,,African
+NA19119,YRI,African,kg,,African
+NA19120,YRI,African,kg,,
+NA19121,YRI,African,kg,,African
+NA19122,YRI,African,kg,,
+NA19123,YRI,African,kg,,
+NA19127,YRI,African,kg,,
+NA19128,YRI,African,kg,,
+NA19129,YRI,African,kg,,African
+NA19130,YRI,African,kg,,African
+NA19131,YRI,African,kg,,African
+NA19132,YRI,African,kg,,
+NA19137,YRI,African,kg,,African
+NA19138,YRI,African,kg,,African
+NA19139,YRI,African,kg,,
+NA19140,YRI,African,kg,,
+NA19141,YRI,African,kg,,African
+NA19142,YRI,African,kg,,
+NA19143,YRI,African,kg,,African
+NA19144,YRI,African,kg,,African
+NA19145,YRI,African,kg,,
+NA19146,YRI,African,kg,,African
+NA19147,YRI,African,kg,,African
+NA19148,YRI,African,kg,,
+NA19149,YRI,African,kg,,African
+NA19150,YRI,African,kg,,
+NA19151,YRI,African,kg,,
+NA19152,YRI,African,kg,,African
+NA19153,YRI,African,kg,,African
+NA19154,YRI,African,kg,,
+NA19159,YRI,African,kg,,African
+NA19160,YRI,African,kg,,African
+NA19161,YRI,African,kg,,
+NA19171,YRI,African,kg,,African
+NA19172,YRI,African,kg,,African
+NA19173,YRI,African,kg,,
+NA19174,YRI,African,kg,,
+NA19175,YRI,African,kg,,African
+NA19176,YRI,African,kg,,
+NA19177,YRI,African,kg,,
+NA19184,YRI,African,kg,,African
+NA19185,YRI,African,kg,,African
+NA19186,YRI,African,kg,,
+NA19189,YRI,African,kg,,African
+NA19190,YRI,African,kg,,African
+NA19191,YRI,African,kg,,
+NA19197,YRI,African,kg,,African
+NA19198,YRI,African,kg,,African
+NA19199,YRI,African,kg,,
+NA19200,YRI,African,kg,,African
+NA19201,YRI,African,kg,,African
+NA19202,YRI,African,kg,,
+NA19203,YRI,African,kg,,
+NA19204,YRI,African,kg,,African
+NA19205,YRI,African,kg,,
+NA19206,YRI,African,kg,,African
+NA19207,YRI,African,kg,,African
+NA19208,YRI,African,kg,,
+NA19209,YRI,African,kg,,African
+NA19210,YRI,African,kg,,African
+NA19211,YRI,African,kg,,
+NA19213,YRI,African,kg,,African
+NA19214,YRI,African,kg,,African
+NA19215,YRI,African,kg,,
+NA19221,YRI,African,kg,,
+NA19222,YRI,African,kg,,African
+NA19223,YRI,African,kg,,African
+NA19224,YRI,African,kg,,
+NA19225,YRI,African,kg,,African
+NA19226,YRI,African,kg,,
+NA19235,YRI,African,kg,,African
+NA19236,YRI,African,kg,,African
+NA19237,YRI,African,kg,,
+NA19238,YRI,African,kg,,African
+NA19239,YRI,African,kg,,African
+NA19240,YRI,African,kg,,
+NA19247,YRI,African,kg,,African
+NA19248,YRI,African,kg,,African
+NA19249,YRI,African,kg,,
+NA19256,YRI,African,kg,,African
+NA19257,YRI,African,kg,,African
+NA19258,YRI,African,kg,,
+NA19307,LWK,African,kg,,African
+NA19308,LWK,African,kg,,African
+NA19309,LWK,African,kg,,African
+NA19310,LWK,African,kg,,African
+NA19312,LWK,African,kg,,African
+NA19314,LWK,African,kg,,African
+NA19315,LWK,African,kg,,African
+NA19316,LWK,African,kg,,African
+NA19317,LWK,African,kg,,African
+NA19318,LWK,African,kg,,African
+NA19319,LWK,African,kg,,African
+NA19320,LWK,African,kg,,African
+NA19321,LWK,African,kg,,African
+NA19323,LWK,African,kg,,African
+NA19324,LWK,African,kg,,African
+NA19327,LWK,African,kg,,African
+NA19328,LWK,African,kg,,African
+NA19331,LWK,African,kg,,African
+NA19332,LWK,African,kg,,African
+NA19334,LWK,African,kg,,African
+NA19338,LWK,African,kg,,African
+NA19346,LWK,African,kg,,African
+NA19347,LWK,African,kg,,African
+NA19350,LWK,African,kg,,African
+NA19351,LWK,African,kg,,African
+NA19355,LWK,African,kg,,African
+NA19360,LWK,African,kg,,African
+NA19372,LWK,African,kg,,African
+NA19374,LWK,African,kg,,African
+NA19375,LWK,African,kg,,African
+NA19376,LWK,African,kg,,African
+NA19377,LWK,African,kg,,African
+NA19378,LWK,African,kg,,African
+NA19379,LWK,African,kg,,African
+NA19380,LWK,African,kg,,African
+NA19383,LWK,African,kg,,African
+NA19384,LWK,African,kg,,African
+NA19385,LWK,African,kg,,African
+NA19390,LWK,African,kg,,African
+NA19391,LWK,African,kg,,African
+NA19393,LWK,African,kg,,African
+NA19394,LWK,African,kg,,African
+NA19395,LWK,African,kg,,African
+NA19397,LWK,African,kg,,African
+NA19399,LWK,African,kg,,African
+NA19401,LWK,African,kg,,African
+NA19403,LWK,African,kg,,African
+NA19404,LWK,African,kg,,African
+NA19428,LWK,African,kg,,African
+NA19429,LWK,African,kg,,African
+NA19430,LWK,African,kg,,African
+NA19431,LWK,African,kg,,African
+NA19434,LWK,African,kg,,African
+NA19435,LWK,African,kg,,African
+NA19436,LWK,African,kg,,African
+NA19437,LWK,African,kg,,African
+NA19438,LWK,African,kg,,African
+NA19439,LWK,African,kg,,African
+NA19440,LWK,African,kg,,African
+NA19443,LWK,African,kg,,African
+NA19445,LWK,African,kg,,African
+NA19446,LWK,African,kg,,African
+NA19448,LWK,African,kg,,African
+NA19449,LWK,African,kg,,African
+NA19451,LWK,African,kg,,African
+NA19452,LWK,African,kg,,African
+NA19454,LWK,African,kg,,African
+NA19455,LWK,African,kg,,African
+NA19456,LWK,African,kg,,African
+NA19457,LWK,African,kg,,African
+NA19461,LWK,African,kg,,African
+NA19462,LWK,African,kg,,African
+NA19463,LWK,African,kg,,African
+NA19466,LWK,African,kg,,African
+NA19467,LWK,African,kg,,African
+NA19468,LWK,African,kg,,African
+NA19471,LWK,African,kg,,African
+NA19472,LWK,African,kg,,African
+NA19473,LWK,African,kg,,African
+NA19474,LWK,African,kg,,African
+NA19475,LWK,African,kg,,African
+NA19625,ASW,African,kg,,
+NA19648,MXL,American,kg,,
+NA19649,MXL,American,kg,,
+NA19650,MXL,American,kg,,
+NA19651,MXL,American,kg,,
+NA19652,MXL,American,kg,,
+NA19653,MXL,American,kg,,
+NA19654,MXL,American,kg,,
+NA19655,MXL,American,kg,,
+NA19656,MXL,American,kg,,
+NA19657,MXL,American,kg,,
+NA19658,MXL,American,kg,,
+NA19659,MXL,American,kg,,
+NA19660,MXL,American,kg,,
+NA19661,MXL,American,kg,,
+NA19662,MXL,American,kg,,
+NA19663,MXL,American,kg,,
+NA19664,MXL,American,kg,,
+NA19665,MXL,American,kg,,
+NA19669,MXL,American,kg,,
+NA19670,MXL,American,kg,,
+NA19671,MXL,American,kg,,
+NA19675,MXL,American,kg,,
+NA19676,MXL,American,kg,,
+NA19677,MXL,American,kg,,
+NA19678,MXL,American,kg,,
+NA19679,MXL,American,kg,,
+NA19680,MXL,American,kg,,
+NA19681,MXL,American,kg,,
+NA19682,MXL,American,kg,,
+NA19683,MXL,American,kg,,
+NA19684,MXL,American,kg,,
+NA19685,MXL,American,kg,,
+NA19686,MXL,American,kg,,
+NA19700,ASW,African,kg,,
+NA19701,ASW,African,kg,,
+NA19702,ASW,African,kg,,
+NA19703,ASW,African,kg,,
+NA19704,ASW,African,kg,,
+NA19705,ASW,African,kg,,
+NA19707,ASW,African,kg,,
+NA19711,ASW,African,kg,,
+NA19712,ASW,African,kg,,
+NA19713,ASW,African,kg,,
+NA19716,MXL,American,kg,,
+NA19717,MXL,American,kg,,
+NA19718,MXL,American,kg,,
+NA19719,MXL,American,kg,,
+NA19720,MXL,American,kg,,
+NA19721,MXL,American,kg,,
+NA19722,MXL,American,kg,,
+NA19723,MXL,American,kg,,
+NA19724,MXL,American,kg,,
+NA19725,MXL,American,kg,,
+NA19726,MXL,American,kg,,
+NA19727,MXL,American,kg,,
+NA19728,MXL,American,kg,,American
+NA19729,MXL,American,kg,,American
+NA19730,MXL,American,kg,,
+NA19731,MXL,American,kg,,American
+NA19732,MXL,American,kg,,American
+NA19733,MXL,American,kg,,
+NA19734,MXL,American,kg,,
+NA19735,MXL,American,kg,,
+NA19740,MXL,American,kg,,
+NA19741,MXL,American,kg,,
+NA19746,MXL,American,kg,,
+NA19747,MXL,American,kg,,
+NA19748,MXL,American,kg,,
+NA19749,MXL,American,kg,,
+NA19750,MXL,American,kg,,
+NA19751,MXL,American,kg,,
+NA19752,MXL,American,kg,,
+NA19755,MXL,American,kg,,
+NA19756,MXL,American,kg,,
+NA19757,MXL,American,kg,,
+NA19758,MXL,American,kg,,
+NA19759,MXL,American,kg,,
+NA19760,MXL,American,kg,,
+NA19761,MXL,American,kg,,
+NA19762,MXL,American,kg,,
+NA19763,MXL,American,kg,,
+NA19764,MXL,American,kg,,
+NA19770,MXL,American,kg,,
+NA19771,MXL,American,kg,,
+NA19772,MXL,American,kg,,
+NA19773,MXL,American,kg,,
+NA19774,MXL,American,kg,,
+NA19775,MXL,American,kg,,
+NA19776,MXL,American,kg,,
+NA19777,MXL,American,kg,,
+NA19778,MXL,American,kg,,
+NA19779,MXL,American,kg,,
+NA19780,MXL,American,kg,,
+NA19781,MXL,American,kg,,
+NA19782,MXL,American,kg,,
+NA19783,MXL,American,kg,,
+NA19784,MXL,American,kg,,
+NA19785,MXL,American,kg,,
+NA19786,MXL,American,kg,,
+NA19787,MXL,American,kg,,
+NA19788,MXL,American,kg,,
+NA19789,MXL,American,kg,,
+NA19790,MXL,American,kg,,
+NA19792,MXL,American,kg,,
+NA19794,MXL,American,kg,,
+NA19795,MXL,American,kg,,
+NA19796,MXL,American,kg,,
+NA19818,ASW,African,kg,,
+NA19819,ASW,African,kg,,
+NA19828,ASW,African,kg,,
+NA19834,ASW,African,kg,,
+NA19835,ASW,African,kg,,
+NA19836,ASW,African,kg,,
+NA19900,ASW,African,kg,,
+NA19901,ASW,African,kg,,
+NA19902,ASW,African,kg,,
+NA19904,ASW,African,kg,,
+NA19908,ASW,African,kg,,
+NA19909,ASW,African,kg,,
+NA19913,ASW,African,kg,,
+NA19914,ASW,African,kg,,
+NA19916,ASW,African,kg,,
+NA19917,ASW,African,kg,,
+NA19918,ASW,African,kg,,
+NA19919,ASW,African,kg,,
+NA19920,ASW,African,kg,,
+NA19921,ASW,African,kg,,
+NA19922,ASW,African,kg,,
+NA19923,ASW,African,kg,,
+NA19924,ASW,African,kg,,
+NA19982,ASW,African,kg,,
+NA19983,ASW,African,kg,,
+NA19984,ASW,African,kg,,
+NA20126,ASW,African,kg,,
+NA20127,ASW,African,kg,,
+NA20128,ASW,African,kg,,
+NA20129,ASW,African,kg,,
+NA20274,ASW,African,kg,,
+NA20276,ASW,African,kg,,
+NA20278,ASW,African,kg,,
+NA20279,ASW,African,kg,,
+NA20281,ASW,African,kg,,
+NA20282,ASW,African,kg,,
+NA20287,ASW,African,kg,,
+NA20289,ASW,African,kg,,
+NA20291,ASW,African,kg,,
+NA20294,ASW,African,kg,,
+NA20296,ASW,African,kg,,
+NA20298,ASW,African,kg,,
+NA20299,ASW,African,kg,,
+NA20314,ASW,African,kg,,
+NA20317,ASW,African,kg,,
+NA20318,ASW,African,kg,,
+NA20320,ASW,African,kg,,
+NA20321,ASW,African,kg,,
+NA20332,ASW,African,kg,,
+NA20334,ASW,African,kg,,
+NA20339,ASW,African,kg,,
+NA20340,ASW,African,kg,,
+NA20342,ASW,African,kg,,
+NA20346,ASW,African,kg,,
+NA20348,ASW,African,kg,,
+NA20351,ASW,African,kg,,
+NA20355,ASW,African,kg,,
+NA20356,ASW,African,kg,,
+NA20357,ASW,African,kg,,
+NA20358,ASW,African,kg,,
+NA20359,ASW,African,kg,,
+NA20362,ASW,African,kg,,
+NA20412,ASW,African,kg,,
+NA20502,TSI,European,kg,,European
+NA20503,TSI,European,kg,,European
+NA20504,TSI,European,kg,,European
+NA20505,TSI,European,kg,,European
+NA20506,TSI,European,kg,,European
+NA20507,TSI,European,kg,,European
+NA20508,TSI,European,kg,,European
+NA20509,TSI,European,kg,,European
+NA20510,TSI,European,kg,,European
+NA20511,TSI,European,kg,,European
+NA20512,TSI,European,kg,,European
+NA20513,TSI,European,kg,,European
+NA20514,TSI,European,kg,,European
+NA20515,TSI,European,kg,,European
+NA20516,TSI,European,kg,,European
+NA20517,TSI,European,kg,,European
+NA20518,TSI,European,kg,,European
+NA20519,TSI,European,kg,,European
+NA20520,TSI,European,kg,,European
+NA20521,TSI,European,kg,,European
+NA20522,TSI,European,kg,,European
+NA20524,TSI,European,kg,,European
+NA20525,TSI,European,kg,,European
+NA20527,TSI,European,kg,,European
+NA20528,TSI,European,kg,,European
+NA20529,TSI,European,kg,,European
+NA20530,TSI,European,kg,,European
+NA20531,TSI,European,kg,,European
+NA20532,TSI,European,kg,,European
+NA20533,TSI,European,kg,,European
+NA20534,TSI,European,kg,,European
+NA20535,TSI,European,kg,,European
+NA20536,TSI,European,kg,,European
+NA20538,TSI,European,kg,,European
+NA20539,TSI,European,kg,,European
+NA20540,TSI,European,kg,,European
+NA20541,TSI,European,kg,,European
+NA20542,TSI,European,kg,,European
+NA20543,TSI,European,kg,,European
+NA20544,TSI,European,kg,,European
+NA20581,TSI,European,kg,,European
+NA20582,TSI,European,kg,,European
+NA20585,TSI,European,kg,,European
+NA20586,TSI,European,kg,,European
+NA20587,TSI,European,kg,,European
+NA20588,TSI,European,kg,,European
+NA20589,TSI,European,kg,,European
+NA20752,TSI,European,kg,,European
+NA20753,TSI,European,kg,,European
+NA20754,TSI,European,kg,,European
+NA20755,TSI,European,kg,,European
+NA20756,TSI,European,kg,,European
+NA20757,TSI,European,kg,,European
+NA20758,TSI,European,kg,,European
+NA20759,TSI,European,kg,,European
+NA20760,TSI,European,kg,,European
+NA20761,TSI,European,kg,,European
+NA20762,TSI,European,kg,,European
+NA20763,TSI,European,kg,,European
+NA20764,TSI,European,kg,,European
+NA20765,TSI,European,kg,,European
+NA20766,TSI,European,kg,,European
+NA20767,TSI,European,kg,,European
+NA20768,TSI,European,kg,,European
+NA20769,TSI,European,kg,,European
+NA20770,TSI,European,kg,,European
+NA20771,TSI,European,kg,,European
+NA20772,TSI,European,kg,,European
+NA20773,TSI,European,kg,,European
+NA20774,TSI,European,kg,,European
+NA20775,TSI,European,kg,,European
+NA20778,TSI,European,kg,,European
+NA20783,TSI,European,kg,,European
+NA20785,TSI,European,kg,,European
+NA20786,TSI,European,kg,,European
+NA20787,TSI,European,kg,,European
+NA20790,TSI,European,kg,,European
+NA20792,TSI,European,kg,,European
+NA20795,TSI,European,kg,,European
+NA20796,TSI,European,kg,,European
+NA20797,TSI,European,kg,,European
+NA20798,TSI,European,kg,,European
+NA20799,TSI,European,kg,,European
+NA20800,TSI,European,kg,,European
+NA20801,TSI,European,kg,,European
+NA20802,TSI,European,kg,,European
+NA20803,TSI,European,kg,,European
+NA20804,TSI,European,kg,,European
+NA20805,TSI,European,kg,,European
+NA20806,TSI,European,kg,,European
+NA20807,TSI,European,kg,,European
+NA20808,TSI,European,kg,,European
+NA20809,TSI,European,kg,,European
+NA20810,TSI,European,kg,,European
+NA20811,TSI,European,kg,,European
+NA20812,TSI,European,kg,,European
+NA20813,TSI,European,kg,,European
+NA20814,TSI,European,kg,,European
+NA20815,TSI,European,kg,,European
+NA20818,TSI,European,kg,,European
+NA20819,TSI,European,kg,,European
+NA20821,TSI,European,kg,,European
+NA20822,TSI,European,kg,,European
+NA20826,TSI,European,kg,,European
+NA20827,TSI,European,kg,,European
+NA20828,TSI,European,kg,,European
+NA20832,TSI,European,kg,,European
+NA20845,GIH,South Asian,kg,,South Asian
+NA20846,GIH,South Asian,kg,,South Asian
+NA20847,GIH,South Asian,kg,,South Asian
+NA20849,GIH,South Asian,kg,,South Asian
+NA20850,GIH,South Asian,kg,,South Asian
+NA20851,GIH,South Asian,kg,,South Asian
+NA20852,GIH,South Asian,kg,,South Asian
+NA20853,GIH,South Asian,kg,,South Asian
+NA20854,GIH,South Asian,kg,,South Asian
+NA20856,GIH,South Asian,kg,,South Asian
+NA20858,GIH,South Asian,kg,,South Asian
+NA20859,GIH,South Asian,kg,,South Asian
+NA20861,GIH,South Asian,kg,,South Asian
+NA20862,GIH,South Asian,kg,,South Asian
+NA20863,GIH,South Asian,kg,,South Asian
+NA20864,GIH,South Asian,kg,,South Asian
+NA20866,GIH,South Asian,kg,,South Asian
+NA20867,GIH,South Asian,kg,,South Asian
+NA20868,GIH,South Asian,kg,,South Asian
+NA20869,GIH,South Asian,kg,,South Asian
+NA20870,GIH,South Asian,kg,,South Asian
+NA20872,GIH,South Asian,kg,,South Asian
+NA20874,GIH,South Asian,kg,,South Asian
+NA20875,GIH,South Asian,kg,,South Asian
+NA20876,GIH,South Asian,kg,,South Asian
+NA20877,GIH,South Asian,kg,,South Asian
+NA20878,GIH,South Asian,kg,,South Asian
+NA20881,GIH,South Asian,kg,,South Asian
+NA20882,GIH,South Asian,kg,,South Asian
+NA20884,GIH,South Asian,kg,,South Asian
+NA20885,GIH,South Asian,kg,,South Asian
+NA20886,GIH,South Asian,kg,,South Asian
+NA20887,GIH,South Asian,kg,,South Asian
+NA20888,GIH,South Asian,kg,,South Asian
+NA20889,GIH,South Asian,kg,,South Asian
+NA20890,GIH,South Asian,kg,,South Asian
+NA20891,GIH,South Asian,kg,,South Asian
+NA20892,GIH,South Asian,kg,,South Asian
+NA20894,GIH,South Asian,kg,,South Asian
+NA20895,GIH,South Asian,kg,,South Asian
+NA20896,GIH,South Asian,kg,,South Asian
+NA20897,GIH,South Asian,kg,,South Asian
+NA20899,GIH,South Asian,kg,,South Asian
+NA20900,GIH,South Asian,kg,,South Asian
+NA20901,GIH,South Asian,kg,,South Asian
+NA20902,GIH,South Asian,kg,,South Asian
+NA20903,GIH,South Asian,kg,,South Asian
+NA20904,GIH,South Asian,kg,,South Asian
+NA20905,GIH,South Asian,kg,,South Asian
+NA20906,GIH,South Asian,kg,,South Asian
+NA20908,GIH,South Asian,kg,,South Asian
+NA20910,GIH,South Asian,kg,,South Asian
+NA20911,GIH,South Asian,kg,,South Asian
+NA21086,GIH,South Asian,kg,,South Asian
+NA21087,GIH,South Asian,kg,,South Asian
+NA21088,GIH,South Asian,kg,,South Asian
+NA21089,GIH,South Asian,kg,,South Asian
+NA21090,GIH,South Asian,kg,,South Asian
+NA21091,GIH,South Asian,kg,,South Asian
+NA21092,GIH,South Asian,kg,,South Asian
+NA21093,GIH,South Asian,kg,,South Asian
+NA21094,GIH,South Asian,kg,,South Asian
+NA21095,GIH,South Asian,kg,,South Asian
+NA21097,GIH,South Asian,kg,,South Asian
+NA21098,GIH,South Asian,kg,,South Asian
+NA21099,GIH,South Asian,kg,,South Asian
+NA21100,GIH,South Asian,kg,,South Asian
+NA21101,GIH,South Asian,kg,,South Asian
+NA21102,GIH,South Asian,kg,,South Asian
+NA21103,GIH,South Asian,kg,,South Asian
+NA21104,GIH,South Asian,kg,,South Asian
+NA21105,GIH,South Asian,kg,,South Asian
+NA21106,GIH,South Asian,kg,,South Asian
+NA21107,GIH,South Asian,kg,,South Asian
+NA21108,GIH,South Asian,kg,,South Asian
+NA21109,GIH,South Asian,kg,,South Asian
+NA21110,GIH,South Asian,kg,,South Asian
+NA21111,GIH,South Asian,kg,,South Asian
+NA21112,GIH,South Asian,kg,,South Asian
+NA21113,GIH,South Asian,kg,,South Asian
+NA21114,GIH,South Asian,kg,,South Asian
+NA21115,GIH,South Asian,kg,,South Asian
+NA21116,GIH,South Asian,kg,,South Asian
+NA21117,GIH,South Asian,kg,,South Asian
+NA21118,GIH,South Asian,kg,,South Asian
+NA21119,GIH,South Asian,kg,,South Asian
+NA21120,GIH,South Asian,kg,,South Asian
+NA21122,GIH,South Asian,kg,,South Asian
+NA21123,GIH,South Asian,kg,,South Asian
+NA21124,GIH,South Asian,kg,,South Asian
+NA21125,GIH,South Asian,kg,,South Asian
+NA21126,GIH,South Asian,kg,,South Asian
+NA21127,GIH,South Asian,kg,,South Asian
+NA21128,GIH,South Asian,kg,,South Asian
+NA21129,GIH,South Asian,kg,,South Asian
+NA21130,GIH,South Asian,kg,,South Asian
+NA21133,GIH,South Asian,kg,,South Asian
+NA21135,GIH,South Asian,kg,,South Asian
+NA21137,GIH,South Asian,kg,,South Asian
+NA21141,GIH,South Asian,kg,,South Asian
+NA21142,GIH,South Asian,kg,,South Asian
+NA21143,GIH,South Asian,kg,,South Asian
+NA21144,GIH,South Asian,kg,,South Asian
+HGDP00001,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00003,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00005,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00007,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00009,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00011,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00013,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00015,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00017,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00019,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00021,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00023,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00025,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00027,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00029,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00031,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00033,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00035,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00037,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00039,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00041,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00043,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00045,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00047,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00049,Brahui,Central South Asian,hgdp,,South Asian
+HGDP00052,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00054,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00056,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00057,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00058,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00060,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00062,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00064,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00066,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00068,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00070,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00072,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00074,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00076,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00078,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00080,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00082,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00086,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00088,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00090,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00092,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00094,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00096,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00098,Balochi,Central South Asian,hgdp,,South Asian
+HGDP00099,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00100,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00102,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00103,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00104,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00105,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00106,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00108,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00109,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00110,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00115,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00118,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00120,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00121,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00122,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00124,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00125,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00127,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00129,Hazara,Central South Asian,hgdp,,South Asian
+HGDP00130,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00131,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00133,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00134,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00135,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00136,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00137,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00139,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00140,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00141,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00143,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00144,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00145,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00146,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00148,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00149,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00150,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00151,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00153,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00154,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00155,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00157,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00158,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00160,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00161,Makrani,Central South Asian,hgdp,,South Asian
+HGDP00163,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00165,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00167,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00169,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00171,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00173,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00175,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00177,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00179,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00181,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00183,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00185,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00187,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00189,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00191,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00192,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00195,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00197,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00199,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00201,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00205,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00206,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00208,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00210,Sindhi,Central South Asian,hgdp,,South Asian
+HGDP00213,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00214,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00216,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00218,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00222,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00224,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00226,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00228,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00230,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00232,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00234,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00237,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00239,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00241,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00243,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00244,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00247,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00248,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00251,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00254,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00258,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00259,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00262,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00264,Pathan,Central South Asian,hgdp,,South Asian
+HGDP00274,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00277,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00279,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00281,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00285,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00286,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00288,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00290,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00298,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00302,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00304,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00307,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00309,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00311,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00313,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00315,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00319,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00323,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00326,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00328,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00330,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00333,Kalash,Central South Asian,hgdp,,South Asian
+HGDP00338,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00341,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00346,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00351,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00356,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00359,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00364,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00371,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00372,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00376,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00382,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00388,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00392,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00397,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00402,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00407,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00412,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00417,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00423,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00428,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00433,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00438,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00444,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00445,Burusho,Central South Asian,hgdp,,South Asian
+HGDP00449,Mbuti,African,hgdp,,African
+HGDP00450,Mbuti,African,hgdp,,African
+HGDP00452,Biaka,African,hgdp,,African
+HGDP00453,Biaka,African,hgdp,,African
+HGDP00454,Biaka,African,hgdp,,African
+HGDP00455,Biaka,African,hgdp,,African
+HGDP00456,Mbuti,African,hgdp,,African
+HGDP00457,Biaka,African,hgdp,,African
+HGDP00458,Biaka,African,hgdp,,African
+HGDP00459,Biaka,African,hgdp,,African
+HGDP00460,Biaka,African,hgdp,,African
+HGDP00461,Biaka,African,hgdp,,African
+HGDP00462,Mbuti,African,hgdp,,African
+HGDP00463,Mbuti,African,hgdp,,African
+HGDP00464,Biaka,African,hgdp,,African
+HGDP00466,Biaka,African,hgdp,,African
+HGDP00467,Mbuti,African,hgdp,,African
+HGDP00469,Biaka,African,hgdp,,African
+HGDP00470,Biaka,African,hgdp,,African
+HGDP00471,Mbuti,African,hgdp,,African
+HGDP00472,Biaka,African,hgdp,,African
+HGDP00473,Biaka,African,hgdp,,African
+HGDP00474,Mbuti,African,hgdp,,African
+HGDP00475,Biaka,African,hgdp,,African
+HGDP00476,Mbuti,African,hgdp,,African
+HGDP00478,Mbuti,African,hgdp,,African
+HGDP00479,Biaka,African,hgdp,,African
+HGDP00491,Bougainville,Oceanian,hgdp,,Oceanian
+HGDP00511,French,European,hgdp,,European
+HGDP00512,French,European,hgdp,,European
+HGDP00513,French,European,hgdp,,European
+HGDP00514,French,European,hgdp,,European
+HGDP00515,French,European,hgdp,,European
+HGDP00516,French,European,hgdp,,European
+HGDP00517,French,European,hgdp,,European
+HGDP00518,French,European,hgdp,,European
+HGDP00519,French,European,hgdp,,European
+HGDP00520,French,European,hgdp,,European
+HGDP00521,French,European,hgdp,,European
+HGDP00522,French,European,hgdp,,European
+HGDP00523,French,European,hgdp,,European
+HGDP00524,French,European,hgdp,,European
+HGDP00525,French,European,hgdp,,European
+HGDP00526,French,European,hgdp,,European
+HGDP00527,French,European,hgdp,,European
+HGDP00528,French,European,hgdp,,European
+HGDP00529,French,European,hgdp,,European
+HGDP00530,French,European,hgdp,,European
+HGDP00531,French,European,hgdp,,European
+HGDP00533,French,European,hgdp,,European
+HGDP00534,French,European,hgdp,,European
+HGDP00535,French,European,hgdp,,European
+HGDP00536,French,European,hgdp,,European
+HGDP00537,French,European,hgdp,,European
+HGDP00538,French,European,hgdp,,European
+HGDP00539,French,European,hgdp,,European
+HGDP00540,PapuanSepik,Oceanian,hgdp,,Oceanian
+HGDP00541,PapuanSepik,Oceanian,hgdp,,Oceanian
+HGDP00542,PapuanSepik,Oceanian,hgdp,,Oceanian
+HGDP00543,PapuanSepik,Oceanian,hgdp,,Oceanian
+HGDP00544,PapuanSepik,Oceanian,hgdp,,Oceanian
+HGDP00545,PapuanSepik,Oceanian,hgdp,,Oceanian
+HGDP00546,PapuanSepik,Oceanian,hgdp,,Oceanian
+HGDP00547,PapuanSepik,Oceanian,hgdp,,Oceanian
+HGDP00548,PapuanHighlands,Oceanian,hgdp,,Oceanian
+HGDP00549,PapuanHighlands,Oceanian,hgdp,,Oceanian
+HGDP00550,PapuanHighlands,Oceanian,hgdp,,Oceanian
+HGDP00551,PapuanHighlands,Oceanian,hgdp,,Oceanian
+HGDP00552,PapuanHighlands,Oceanian,hgdp,,Oceanian
+HGDP00553,PapuanHighlands,Oceanian,hgdp,,Oceanian
+HGDP00554,PapuanHighlands,Oceanian,hgdp,,Oceanian
+HGDP00555,PapuanHighlands,Oceanian,hgdp,,Oceanian
+HGDP00556,PapuanHighlands,Oceanian,hgdp,,Oceanian
+HGDP00557,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00558,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00559,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00560,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00561,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00562,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00563,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00564,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00565,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00566,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00567,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00568,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00569,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00571,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00572,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00573,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00574,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00575,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00576,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00577,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00578,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00579,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00580,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00581,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00582,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00583,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00584,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00586,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00587,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00588,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00590,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00591,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00594,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00595,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00597,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00598,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00599,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00600,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00601,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00602,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00604,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00606,Druze,Middle Eastern,hgdp,,West Asian
+HGDP00607,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00608,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00609,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00610,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00611,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00612,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00613,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00614,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00615,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00616,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00618,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00619,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00620,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00621,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00622,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00623,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00624,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00625,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00626,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00627,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00628,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00629,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00630,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00631,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00632,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00634,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00635,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00636,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00637,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00638,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00639,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00640,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00641,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00642,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00643,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00644,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00645,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00646,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00647,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00648,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00649,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00650,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00651,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00653,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00654,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00655,Bougainville,Oceanian,hgdp,,Oceanian
+HGDP00656,Bougainville,Oceanian,hgdp,,Oceanian
+HGDP00660,Bougainville,Oceanian,hgdp,,Oceanian
+HGDP00661,Bougainville,Oceanian,hgdp,,Oceanian
+HGDP00662,Bougainville,Oceanian,hgdp,,Oceanian
+HGDP00663,Bougainville,Oceanian,hgdp,,Oceanian
+HGDP00664,Bougainville,Oceanian,hgdp,,Oceanian
+HGDP00665,Sardinian,European,hgdp,,European
+HGDP00666,Sardinian,European,hgdp,,European
+HGDP00667,Sardinian,European,hgdp,,European
+HGDP00668,Sardinian,European,hgdp,,European
+HGDP00669,Sardinian,European,hgdp,,European
+HGDP00670,Sardinian,European,hgdp,,European
+HGDP00671,Sardinian,European,hgdp,,European
+HGDP00672,Sardinian,European,hgdp,,European
+HGDP00673,Sardinian,European,hgdp,,European
+HGDP00674,Sardinian,European,hgdp,,European
+HGDP00675,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00676,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00677,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00678,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00679,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00680,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00682,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00683,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00684,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00685,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00686,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00687,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00688,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00689,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00690,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00691,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00692,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00693,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00694,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00696,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00697,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00698,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00699,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00700,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00701,Bedouin,Middle Eastern,hgdp,,West Asian
+HGDP00702,Colombian,American,hgdp,,American
+HGDP00703,Colombian,American,hgdp,,
+HGDP00704,Colombian,American,hgdp,,American
+HGDP00706,Colombian,American,hgdp,,American
+HGDP00708,Colombian,American,hgdp,,American
+HGDP00710,Colombian,American,hgdp,,American
+HGDP00711,Cambodian,East Asian,hgdp,,East Asian
+HGDP00712,Cambodian,East Asian,hgdp,,East Asian
+HGDP00713,Cambodian,East Asian,hgdp,,East Asian
+HGDP00714,Cambodian,East Asian,hgdp,,East Asian
+HGDP00715,Cambodian,East Asian,hgdp,,East Asian
+HGDP00716,Cambodian,East Asian,hgdp,,East Asian
+HGDP00717,Cambodian,East Asian,hgdp,,East Asian
+HGDP00719,Cambodian,East Asian,hgdp,,East Asian
+HGDP00721,Cambodian,East Asian,hgdp,,East Asian
+HGDP00722,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00723,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00724,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00725,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00726,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00727,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00729,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00730,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00731,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00732,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00733,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00734,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00735,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00736,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00737,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00738,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00739,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00740,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00741,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00744,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00745,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00746,Palestinian,Middle Eastern,hgdp,,West Asian
+HGDP00747,Japanese,East Asian,hgdp,,East Asian
+HGDP00748,Japanese,East Asian,hgdp,,East Asian
+HGDP00749,Japanese,East Asian,hgdp,,East Asian
+HGDP00750,Japanese,East Asian,hgdp,,East Asian
+HGDP00751,Japanese,East Asian,hgdp,,East Asian
+HGDP00752,Japanese,East Asian,hgdp,,East Asian
+HGDP00753,Japanese,East Asian,hgdp,,East Asian
+HGDP00754,Japanese,East Asian,hgdp,,East Asian
+HGDP00755,Japanese,East Asian,hgdp,,East Asian
+HGDP00756,Japanese,East Asian,hgdp,,East Asian
+HGDP00757,Japanese,East Asian,hgdp,,East Asian
+HGDP00758,Japanese,East Asian,hgdp,,East Asian
+HGDP00759,Japanese,East Asian,hgdp,,East Asian
+HGDP00760,Japanese,East Asian,hgdp,,East Asian
+HGDP00761,Japanese,East Asian,hgdp,,East Asian
+HGDP00762,Japanese,East Asian,hgdp,,East Asian
+HGDP00764,Japanese,East Asian,hgdp,,East Asian
+HGDP00765,Japanese,East Asian,hgdp,,East Asian
+HGDP00766,Japanese,East Asian,hgdp,,East Asian
+HGDP00767,Japanese,East Asian,hgdp,,East Asian
+HGDP00769,Japanese,East Asian,hgdp,,East Asian
+HGDP00771,Japanese,East Asian,hgdp,,East Asian
+HGDP00772,Japanese,East Asian,hgdp,,East Asian
+HGDP00773,Japanese,East Asian,hgdp,,East Asian
+HGDP00774,Han,East Asian,hgdp,,East Asian
+HGDP00775,Han,East Asian,hgdp,,East Asian
+HGDP00776,Han,East Asian,hgdp,,East Asian
+HGDP00777,Han,East Asian,hgdp,,East Asian
+HGDP00778,Han,East Asian,hgdp,,East Asian
+HGDP00779,Han,East Asian,hgdp,,East Asian
+HGDP00780,Han,East Asian,hgdp,,East Asian
+HGDP00781,Han,East Asian,hgdp,,East Asian
+HGDP00782,Han,East Asian,hgdp,,East Asian
+HGDP00783,Han,East Asian,hgdp,,East Asian
+HGDP00784,Han,East Asian,hgdp,,East Asian
+HGDP00785,Han,East Asian,hgdp,,East Asian
+HGDP00786,Han,East Asian,hgdp,,East Asian
+HGDP00787,Bougainville,Oceanian,hgdp,,Oceanian
+HGDP00788,Bougainville,Oceanian,hgdp,,Oceanian
+HGDP00790,Japanese,East Asian,hgdp,,East Asian
+HGDP00791,Japanese,East Asian,hgdp,,East Asian
+HGDP00794,Orcadian,European,hgdp,,European
+HGDP00795,Orcadian,European,hgdp,,European
+HGDP00796,Orcadian,European,hgdp,,European
+HGDP00797,Orcadian,European,hgdp,,European
+HGDP00798,Orcadian,European,hgdp,,European
+HGDP00799,Orcadian,European,hgdp,,European
+HGDP00800,Orcadian,European,hgdp,,European
+HGDP00802,Orcadian,European,hgdp,,European
+HGDP00803,Orcadian,European,hgdp,,European
+HGDP00804,Orcadian,European,hgdp,,European
+HGDP00805,Orcadian,European,hgdp,,European
+HGDP00806,Orcadian,European,hgdp,,European
+HGDP00807,Orcadian,European,hgdp,,European
+HGDP00808,Orcadian,European,hgdp,,European
+HGDP00810,Orcadian,European,hgdp,,European
+HGDP00811,Han,East Asian,hgdp,,East Asian
+HGDP00812,Han,East Asian,hgdp,,East Asian
+HGDP00813,Han,East Asian,hgdp,,East Asian
+HGDP00814,Han,East Asian,hgdp,,East Asian
+HGDP00815,Han,East Asian,hgdp,,East Asian
+HGDP00817,Han,East Asian,hgdp,,East Asian
+HGDP00818,Han,East Asian,hgdp,,East Asian
+HGDP00819,Han,East Asian,hgdp,,East Asian
+HGDP00820,Han,East Asian,hgdp,,East Asian
+HGDP00821,Han,East Asian,hgdp,,East Asian
+HGDP00822,Han,East Asian,hgdp,,East Asian
+HGDP00828,Japanese,East Asian,hgdp,,East Asian
+HGDP00832,Surui,American,hgdp,,American
+HGDP00837,Surui,American,hgdp,,American
+HGDP00838,Surui,American,hgdp,,American
+HGDP00843,Surui,American,hgdp,,American
+HGDP00845,Surui,American,hgdp,,American
+HGDP00846,Surui,American,hgdp,,American
+HGDP00849,Surui,American,hgdp,,American
+HGDP00852,Surui,American,hgdp,,American
+HGDP00854,Maya,American,hgdp,,
+HGDP00855,Maya,American,hgdp,,American
+HGDP00856,Maya,American,hgdp,,American
+HGDP00857,Maya,American,hgdp,,American
+HGDP00858,Maya,American,hgdp,,
+HGDP00859,Maya,American,hgdp,,
+HGDP00860,Maya,American,hgdp,,
+HGDP00861,Maya,American,hgdp,,
+HGDP00862,Maya,American,hgdp,,
+HGDP00863,Maya,American,hgdp,,
+HGDP00864,Maya,American,hgdp,,American
+HGDP00865,Maya,American,hgdp,,American
+HGDP00868,Maya,American,hgdp,,
+HGDP00869,Maya,American,hgdp,,
+HGDP00870,Maya,American,hgdp,,
+HGDP00871,Maya,American,hgdp,,
+HGDP00872,Maya,American,hgdp,,American
+HGDP00873,Maya,American,hgdp,,American
+HGDP00875,Maya,American,hgdp,,
+HGDP00876,Maya,American,hgdp,,
+HGDP00877,Maya,American,hgdp,,
+HGDP00879,Russian,European,hgdp,,European
+HGDP00880,Russian,European,hgdp,,European
+HGDP00881,Russian,European,hgdp,,European
+HGDP00882,Russian,European,hgdp,,European
+HGDP00883,Russian,European,hgdp,,European
+HGDP00884,Russian,European,hgdp,,European
+HGDP00885,Russian,European,hgdp,,European
+HGDP00886,Russian,European,hgdp,,European
+HGDP00887,Russian,European,hgdp,,European
+HGDP00888,Russian,European,hgdp,,European
+HGDP00889,Russian,European,hgdp,,European
+HGDP00890,Russian,European,hgdp,,European
+HGDP00891,Russian,European,hgdp,,European
+HGDP00892,Russian,European,hgdp,,European
+HGDP00893,Russian,European,hgdp,,European
+HGDP00894,Russian,European,hgdp,,European
+HGDP00895,Russian,European,hgdp,,European
+HGDP00896,Russian,European,hgdp,,European
+HGDP00897,Russian,European,hgdp,,European
+HGDP00898,Russian,European,hgdp,,European
+HGDP00899,Russian,European,hgdp,,European
+HGDP00900,Russian,European,hgdp,,European
+HGDP00901,Russian,European,hgdp,,European
+HGDP00902,Russian,European,hgdp,,European
+HGDP00903,Russian,European,hgdp,,European
+HGDP00904,Mandenka,African,hgdp,,African
+HGDP00905,Mandenka,African,hgdp,,African
+HGDP00906,Mandenka,African,hgdp,,African
+HGDP00907,Mandenka,African,hgdp,,African
+HGDP00908,Mandenka,African,hgdp,,African
+HGDP00909,Mandenka,African,hgdp,,African
+HGDP00910,Mandenka,African,hgdp,,African
+HGDP00911,Mandenka,African,hgdp,,African
+HGDP00912,Mandenka,African,hgdp,,African
+HGDP00913,Mandenka,African,hgdp,,African
+HGDP00914,Mandenka,African,hgdp,,African
+HGDP00915,Mandenka,African,hgdp,,African
+HGDP00917,Mandenka,African,hgdp,,African
+HGDP00918,Mandenka,African,hgdp,,African
+HGDP00920,Yoruba,African,hgdp,,African
+HGDP00924,Yoruba,African,hgdp,,African
+HGDP00925,Yoruba,African,hgdp,,African
+HGDP00926,Yoruba,African,hgdp,,African
+HGDP00927,Yoruba,African,hgdp,,African
+HGDP00928,Yoruba,African,hgdp,,African
+HGDP00929,Yoruba,African,hgdp,,African
+HGDP00930,Yoruba,African,hgdp,,African
+HGDP00931,Yoruba,African,hgdp,,African
+HGDP00932,Yoruba,African,hgdp,,African
+HGDP00933,Yoruba,African,hgdp,,African
+HGDP00934,Yoruba,African,hgdp,,African
+HGDP00935,Yoruba,African,hgdp,,African
+HGDP00936,Yoruba,African,hgdp,,African
+HGDP00937,Yoruba,African,hgdp,,African
+HGDP00938,Yoruba,African,hgdp,,African
+HGDP00939,Yoruba,African,hgdp,,African
+HGDP00940,Yoruba,African,hgdp,,African
+HGDP00941,Yoruba,African,hgdp,,African
+HGDP00942,Yoruba,African,hgdp,,African
+HGDP00943,Yoruba,African,hgdp,,African
+HGDP00944,Yoruba,African,hgdp,,African
+HGDP00945,Yakut,East Asian,hgdp,,East Asian
+HGDP00946,Yakut,East Asian,hgdp,,East Asian
+HGDP00947,Yakut,East Asian,hgdp,,East Asian
+HGDP00948,Yakut,East Asian,hgdp,,East Asian
+HGDP00949,Yakut,East Asian,hgdp,,East Asian
+HGDP00950,Yakut,East Asian,hgdp,,East Asian
+HGDP00951,Yakut,East Asian,hgdp,,East Asian
+HGDP00952,Yakut,East Asian,hgdp,,East Asian
+HGDP00953,Yakut,East Asian,hgdp,,East Asian
+HGDP00954,Yakut,East Asian,hgdp,,East Asian
+HGDP00955,Yakut,East Asian,hgdp,,East Asian
+HGDP00956,Yakut,East Asian,hgdp,,East Asian
+HGDP00957,Yakut,East Asian,hgdp,,East Asian
+HGDP00958,Yakut,East Asian,hgdp,,East Asian
+HGDP00959,Yakut,East Asian,hgdp,,East Asian
+HGDP00960,Yakut,East Asian,hgdp,,East Asian
+HGDP00961,Yakut,East Asian,hgdp,,East Asian
+HGDP00962,Yakut,East Asian,hgdp,,East Asian
+HGDP00963,Yakut,East Asian,hgdp,,East Asian
+HGDP00964,Yakut,East Asian,hgdp,,East Asian
+HGDP00965,Yakut,East Asian,hgdp,,East Asian
+HGDP00966,Yakut,East Asian,hgdp,,East Asian
+HGDP00967,Yakut,East Asian,hgdp,,East Asian
+HGDP00968,Yakut,East Asian,hgdp,,East Asian
+HGDP00969,Yakut,East Asian,hgdp,,East Asian
+HGDP00970,Colombian,American,hgdp,,American
+HGDP00971,Han,East Asian,hgdp,,East Asian
+HGDP00972,Han,East Asian,hgdp,,East Asian
+HGDP00973,Han,East Asian,hgdp,,East Asian
+HGDP00974,Han,East Asian,hgdp,,East Asian
+HGDP00975,Han,East Asian,hgdp,,East Asian
+HGDP00976,Han,East Asian,hgdp,,East Asian
+HGDP00977,Han,East Asian,hgdp,,East Asian
+HGDP00982,Mbuti,African,hgdp,,African
+HGDP00984,Mbuti,African,hgdp,,African
+HGDP00985,Biaka,African,hgdp,,African
+HGDP00986,Biaka,African,hgdp,,African
+HGDP00987,San,African,hgdp,,African
+HGDP00991,San,African,hgdp,,African
+HGDP00992,San,African,hgdp,,African
+HGDP00993,BantuSouthAfrica,African,hgdp,,African
+HGDP00994,BantuSouthAfrica,African,hgdp,,African
+HGDP00995,Karitiana,American,hgdp,,American
+HGDP00998,Karitiana,American,hgdp,,American
+HGDP00999,Karitiana,American,hgdp,,American
+HGDP01001,Karitiana,American,hgdp,,American
+HGDP01009,Karitiana,American,hgdp,,American
+HGDP01010,Karitiana,American,hgdp,,American
+HGDP01012,Karitiana,American,hgdp,,American
+HGDP01013,Karitiana,American,hgdp,,American
+HGDP01014,Karitiana,American,hgdp,,American
+HGDP01015,Karitiana,American,hgdp,,American
+HGDP01018,Karitiana,American,hgdp,,American
+HGDP01019,Karitiana,American,hgdp,,American
+HGDP01021,Han,East Asian,hgdp,,East Asian
+HGDP01023,Han,East Asian,hgdp,,East Asian
+HGDP01027,Bougainville,Oceanian,hgdp,,Oceanian
+HGDP01028,BantuSouthAfrica,African,hgdp,,African
+HGDP01029,San,African,hgdp,,African
+HGDP01030,BantuSouthAfrica,African,hgdp,,African
+HGDP01031,BantuSouthAfrica,African,hgdp,,African
+HGDP01032,San,African,hgdp,,African
+HGDP01033,BantuSouthAfrica,African,hgdp,,African
+HGDP01034,BantuSouthAfrica,African,hgdp,,African
+HGDP01035,BantuSouthAfrica,African,hgdp,,African
+HGDP01036,San,African,hgdp,,African
+HGDP01037,Pima,American,hgdp,,American
+HGDP01041,Pima,American,hgdp,,American
+HGDP01043,Pima,American,hgdp,,American
+HGDP01044,Pima,American,hgdp,,American
+HGDP01047,Pima,American,hgdp,,American
+HGDP01050,Pima,American,hgdp,,American
+HGDP01053,Pima,American,hgdp,,American
+HGDP01055,Pima,American,hgdp,,
+HGDP01056,Pima,American,hgdp,,American
+HGDP01057,Pima,American,hgdp,,American
+HGDP01058,Pima,American,hgdp,,American
+HGDP01059,Pima,American,hgdp,,American
+HGDP01060,Pima,American,hgdp,,American
+HGDP01062,Sardinian,European,hgdp,,European
+HGDP01063,Sardinian,European,hgdp,,European
+HGDP01064,Sardinian,European,hgdp,,European
+HGDP01065,Sardinian,European,hgdp,,European
+HGDP01066,Sardinian,European,hgdp,,European
+HGDP01067,Sardinian,European,hgdp,,European
+HGDP01068,Sardinian,European,hgdp,,European
+HGDP01069,Sardinian,European,hgdp,,European
+HGDP01070,Sardinian,European,hgdp,,European
+HGDP01071,Sardinian,European,hgdp,,European
+HGDP01072,Sardinian,European,hgdp,,European
+HGDP01073,Sardinian,European,hgdp,,European
+HGDP01074,Sardinian,European,hgdp,,European
+HGDP01075,Sardinian,European,hgdp,,European
+HGDP01076,Sardinian,European,hgdp,,European
+HGDP01077,Sardinian,European,hgdp,,European
+HGDP01078,Sardinian,European,hgdp,,European
+HGDP01079,Sardinian,European,hgdp,,European
+HGDP01081,Mbuti,African,hgdp,,African
+HGDP01086,Biaka,African,hgdp,,African
+HGDP01090,Biaka,African,hgdp,,African
+HGDP01094,Biaka,African,hgdp,,African
+HGDP01095,Tujia,East Asian,hgdp,,East Asian
+HGDP01096,Tujia,East Asian,hgdp,,East Asian
+HGDP01098,Tujia,East Asian,hgdp,,East Asian
+HGDP01099,Tujia,East Asian,hgdp,,East Asian
+HGDP01100,Tujia,East Asian,hgdp,,East Asian
+HGDP01101,Tujia,East Asian,hgdp,,East Asian
+HGDP01102,Tujia,East Asian,hgdp,,East Asian
+HGDP01103,Tujia,East Asian,hgdp,,East Asian
+HGDP01104,Tujia,East Asian,hgdp,,East Asian
+HGDP01149,BergamoItalian,European,hgdp,,European
+HGDP01151,BergamoItalian,European,hgdp,,European
+HGDP01152,BergamoItalian,European,hgdp,,European
+HGDP01153,BergamoItalian,European,hgdp,,European
+HGDP01155,BergamoItalian,European,hgdp,,European
+HGDP01156,BergamoItalian,European,hgdp,,European
+HGDP01157,BergamoItalian,European,hgdp,,European
+HGDP01161,Tuscan,European,hgdp,,European
+HGDP01162,Tuscan,European,hgdp,,European
+HGDP01163,Tuscan,European,hgdp,,European
+HGDP01164,Tuscan,European,hgdp,,European
+HGDP01166,Tuscan,European,hgdp,,European
+HGDP01167,Tuscan,European,hgdp,,European
+HGDP01168,Tuscan,European,hgdp,,European
+HGDP01169,Tuscan,European,hgdp,,European
+HGDP01171,BergamoItalian,European,hgdp,,European
+HGDP01172,BergamoItalian,European,hgdp,,European
+HGDP01173,BergamoItalian,European,hgdp,,European
+HGDP01174,BergamoItalian,European,hgdp,,European
+HGDP01177,BergamoItalian,European,hgdp,,European
+HGDP01179,Yi,East Asian,hgdp,,East Asian
+HGDP01180,Yi,East Asian,hgdp,,East Asian
+HGDP01181,Yi,East Asian,hgdp,,East Asian
+HGDP01182,Yi,East Asian,hgdp,,East Asian
+HGDP01183,Yi,East Asian,hgdp,,East Asian
+HGDP01184,Yi,East Asian,hgdp,,East Asian
+HGDP01185,Yi,East Asian,hgdp,,East Asian
+HGDP01186,Yi,East Asian,hgdp,,East Asian
+HGDP01187,Yi,East Asian,hgdp,,East Asian
+HGDP01188,Yi,East Asian,hgdp,,East Asian
+HGDP01189,Miao,East Asian,hgdp,,East Asian
+HGDP01190,Miao,East Asian,hgdp,,East Asian
+HGDP01191,Miao,East Asian,hgdp,,East Asian
+HGDP01192,Miao,East Asian,hgdp,,East Asian
+HGDP01193,Miao,East Asian,hgdp,,East Asian
+HGDP01194,Miao,East Asian,hgdp,,East Asian
+HGDP01195,Miao,East Asian,hgdp,,East Asian
+HGDP01196,Miao,East Asian,hgdp,,East Asian
+HGDP01197,Miao,East Asian,hgdp,,East Asian
+HGDP01198,Miao,East Asian,hgdp,,East Asian
+HGDP01199,Mandenka,African,hgdp,,African
+HGDP01200,Mandenka,African,hgdp,,African
+HGDP01201,Mandenka,African,hgdp,,African
+HGDP01202,Mandenka,African,hgdp,,African
+HGDP01203,Oroqen,East Asian,hgdp,,East Asian
+HGDP01204,Oroqen,East Asian,hgdp,,East Asian
+HGDP01205,Oroqen,East Asian,hgdp,,East Asian
+HGDP01206,Oroqen,East Asian,hgdp,,East Asian
+HGDP01207,Oroqen,East Asian,hgdp,,East Asian
+HGDP01208,Oroqen,East Asian,hgdp,,East Asian
+HGDP01209,Oroqen,East Asian,hgdp,,East Asian
+HGDP01211,Oroqen,East Asian,hgdp,,East Asian
+HGDP01212,Oroqen,East Asian,hgdp,,East Asian
+HGDP01213,Daur,East Asian,hgdp,,East Asian
+HGDP01214,Daur,East Asian,hgdp,,East Asian
+HGDP01215,Daur,East Asian,hgdp,,East Asian
+HGDP01216,Daur,East Asian,hgdp,,East Asian
+HGDP01217,Daur,East Asian,hgdp,,East Asian
+HGDP01218,Daur,East Asian,hgdp,,East Asian
+HGDP01220,Daur,East Asian,hgdp,,East Asian
+HGDP01221,Daur,East Asian,hgdp,,East Asian
+HGDP01222,Daur,East Asian,hgdp,,East Asian
+HGDP01223,Mongolian,East Asian,hgdp,,East Asian
+HGDP01224,Mongolian,East Asian,hgdp,,East Asian
+HGDP01225,Mongolian,East Asian,hgdp,,East Asian
+HGDP01227,Mongolian,East Asian,hgdp,,East Asian
+HGDP01228,Mongolian,East Asian,hgdp,,East Asian
+HGDP01229,Mongolian,East Asian,hgdp,,East Asian
+HGDP01230,Mongolian,East Asian,hgdp,,East Asian
+HGDP01231,Mongolian,East Asian,hgdp,,East Asian
+HGDP01232,Mongolian,East Asian,hgdp,,East Asian
+HGDP01233,Hezhen,East Asian,hgdp,,East Asian
+HGDP01234,Hezhen,East Asian,hgdp,,East Asian
+HGDP01236,Hezhen,East Asian,hgdp,,East Asian
+HGDP01237,Hezhen,East Asian,hgdp,,East Asian
+HGDP01238,Hezhen,East Asian,hgdp,,East Asian
+HGDP01239,Hezhen,East Asian,hgdp,,East Asian
+HGDP01240,Hezhen,East Asian,hgdp,,East Asian
+HGDP01241,Hezhen,East Asian,hgdp,,East Asian
+HGDP01242,Hezhen,East Asian,hgdp,,East Asian
+HGDP01243,Xibo,East Asian,hgdp,,East Asian
+HGDP01244,Xibo,East Asian,hgdp,,East Asian
+HGDP01245,Xibo,East Asian,hgdp,,East Asian
+HGDP01246,Xibo,East Asian,hgdp,,East Asian
+HGDP01247,Xibo,East Asian,hgdp,,East Asian
+HGDP01248,Xibo,East Asian,hgdp,,East Asian
+HGDP01249,Xibo,East Asian,hgdp,,East Asian
+HGDP01250,Xibo,East Asian,hgdp,,East Asian
+HGDP01251,Xibo,East Asian,hgdp,,East Asian
+HGDP01253,Mozabite,Middle Eastern,hgdp,,African
+HGDP01254,Mozabite,Middle Eastern,hgdp,,African
+HGDP01255,Mozabite,Middle Eastern,hgdp,,African
+HGDP01256,Mozabite,Middle Eastern,hgdp,,African
+HGDP01257,Mozabite,Middle Eastern,hgdp,,African
+HGDP01258,Mozabite,Middle Eastern,hgdp,,African
+HGDP01259,Mozabite,Middle Eastern,hgdp,,African
+HGDP01260,Mozabite,Middle Eastern,hgdp,,African
+HGDP01261,Mozabite,Middle Eastern,hgdp,,African
+HGDP01262,Mozabite,Middle Eastern,hgdp,,African
+HGDP01263,Mozabite,Middle Eastern,hgdp,,African
+HGDP01264,Mozabite,Middle Eastern,hgdp,,African
+HGDP01265,Mozabite,Middle Eastern,hgdp,,African
+HGDP01266,Mozabite,Middle Eastern,hgdp,,African
+HGDP01267,Mozabite,Middle Eastern,hgdp,,African
+HGDP01268,Mozabite,Middle Eastern,hgdp,,African
+HGDP01269,Mozabite,Middle Eastern,hgdp,,African
+HGDP01270,Mozabite,Middle Eastern,hgdp,,African
+HGDP01271,Mozabite,Middle Eastern,hgdp,,African
+HGDP01272,Mozabite,Middle Eastern,hgdp,,African
+HGDP01274,Mozabite,Middle Eastern,hgdp,,African
+HGDP01275,Mozabite,Middle Eastern,hgdp,,African
+HGDP01276,Mozabite,Middle Eastern,hgdp,,African
+HGDP01277,Mozabite,Middle Eastern,hgdp,,African
+HGDP01279,Mozabite,Middle Eastern,hgdp,,African
+HGDP01280,Mozabite,Middle Eastern,hgdp,,African
+HGDP01282,Mozabite,Middle Eastern,hgdp,,African
+HGDP01283,Mandenka,African,hgdp,,African
+HGDP01284,Mandenka,African,hgdp,,African
+HGDP01285,Mandenka,African,hgdp,,African
+HGDP01286,Mandenka,African,hgdp,,African
+HGDP01287,NorthernHan,East Asian,hgdp,,East Asian
+HGDP01288,NorthernHan,East Asian,hgdp,,East Asian
+HGDP01289,NorthernHan,East Asian,hgdp,,East Asian
+HGDP01290,NorthernHan,East Asian,hgdp,,East Asian
+HGDP01291,NorthernHan,East Asian,hgdp,,East Asian
+HGDP01292,NorthernHan,East Asian,hgdp,,East Asian
+HGDP01293,NorthernHan,East Asian,hgdp,,East Asian
+HGDP01294,NorthernHan,East Asian,hgdp,,East Asian
+HGDP01295,NorthernHan,East Asian,hgdp,,East Asian
+HGDP01296,NorthernHan,East Asian,hgdp,,East Asian
+HGDP01297,Uygur,Central South Asian,hgdp,,East Asian
+HGDP01298,Uygur,Central South Asian,hgdp,,East Asian
+HGDP01299,Uygur,Central South Asian,hgdp,,East Asian
+HGDP01300,Uygur,Central South Asian,hgdp,,East Asian
+HGDP01301,Uygur,Central South Asian,hgdp,,East Asian
+HGDP01302,Uygur,Central South Asian,hgdp,,East Asian
+HGDP01303,Uygur,Central South Asian,hgdp,,East Asian
+HGDP01304,Uygur,Central South Asian,hgdp,,East Asian
+HGDP01305,Uygur,Central South Asian,hgdp,,East Asian
+HGDP01306,Uygur,Central South Asian,hgdp,,East Asian
+HGDP01307,Dai,East Asian,hgdp,,East Asian
+HGDP01308,Dai,East Asian,hgdp,,East Asian
+HGDP01309,Dai,East Asian,hgdp,,East Asian
+HGDP01310,Dai,East Asian,hgdp,,East Asian
+HGDP01311,Dai,East Asian,hgdp,,East Asian
+HGDP01312,Dai,East Asian,hgdp,,East Asian
+HGDP01313,Dai,East Asian,hgdp,,East Asian
+HGDP01314,Dai,East Asian,hgdp,,East Asian
+HGDP01315,Dai,East Asian,hgdp,,East Asian
+HGDP01317,Lahu,East Asian,hgdp,,East Asian
+HGDP01318,Lahu,East Asian,hgdp,,East Asian
+HGDP01319,Lahu,East Asian,hgdp,,East Asian
+HGDP01320,Lahu,East Asian,hgdp,,East Asian
+HGDP01321,Lahu,East Asian,hgdp,,East Asian
+HGDP01322,Lahu,East Asian,hgdp,,East Asian
+HGDP01323,Lahu,East Asian,hgdp,,East Asian
+HGDP01326,Lahu,East Asian,hgdp,,East Asian
+HGDP01327,She,East Asian,hgdp,,East Asian
+HGDP01328,She,East Asian,hgdp,,East Asian
+HGDP01329,She,East Asian,hgdp,,East Asian
+HGDP01330,She,East Asian,hgdp,,East Asian
+HGDP01331,She,East Asian,hgdp,,East Asian
+HGDP01332,She,East Asian,hgdp,,East Asian
+HGDP01333,She,East Asian,hgdp,,East Asian
+HGDP01334,She,East Asian,hgdp,,East Asian
+HGDP01335,She,East Asian,hgdp,,East Asian
+HGDP01336,She,East Asian,hgdp,,East Asian
+HGDP01337,Naxi,East Asian,hgdp,,East Asian
+HGDP01338,Naxi,East Asian,hgdp,,East Asian
+HGDP01339,Naxi,East Asian,hgdp,,East Asian
+HGDP01340,Naxi,East Asian,hgdp,,East Asian
+HGDP01341,Naxi,East Asian,hgdp,,East Asian
+HGDP01342,Naxi,East Asian,hgdp,,East Asian
+HGDP01345,Naxi,East Asian,hgdp,,East Asian
+HGDP01346,Naxi,East Asian,hgdp,,East Asian
+HGDP01347,Tu,East Asian,hgdp,,East Asian
+HGDP01348,Tu,East Asian,hgdp,,East Asian
+HGDP01349,Tu,East Asian,hgdp,,East Asian
+HGDP01350,Tu,East Asian,hgdp,,East Asian
+HGDP01351,Tu,East Asian,hgdp,,East Asian
+HGDP01352,Tu,East Asian,hgdp,,East Asian
+HGDP01353,Tu,East Asian,hgdp,,East Asian
+HGDP01354,Tu,East Asian,hgdp,,East Asian
+HGDP01355,Tu,East Asian,hgdp,,East Asian
+HGDP01356,Tu,East Asian,hgdp,,East Asian
+HGDP01357,Basque,European,hgdp,,European
+HGDP01358,Basque,European,hgdp,,European
+HGDP01359,Basque,European,hgdp,,European
+HGDP01360,Basque,European,hgdp,,European
+HGDP01361,Basque,European,hgdp,,European
+HGDP01362,Basque,European,hgdp,,European
+HGDP01363,Basque,European,hgdp,,European
+HGDP01364,Basque,European,hgdp,,European
+HGDP01365,Basque,European,hgdp,,European
+HGDP01366,Basque,European,hgdp,,European
+HGDP01367,Basque,European,hgdp,,European
+HGDP01368,Basque,European,hgdp,,European
+HGDP01369,Basque,European,hgdp,,European
+HGDP01370,Basque,European,hgdp,,European
+HGDP01372,Basque,European,hgdp,,European
+HGDP01373,Basque,European,hgdp,,European
+HGDP01374,Basque,European,hgdp,,European
+HGDP01375,Basque,European,hgdp,,European
+HGDP01376,Basque,European,hgdp,,European
+HGDP01377,Basque,European,hgdp,,European
+HGDP01378,Basque,European,hgdp,,European
+HGDP01379,Basque,European,hgdp,,European
+HGDP01380,Basque,European,hgdp,,European
+HGDP01382,Adygei,European,hgdp,,European
+HGDP01383,Adygei,European,hgdp,,European
+HGDP01384,Adygei,European,hgdp,,European
+HGDP01385,Adygei,European,hgdp,,European
+HGDP01386,Adygei,European,hgdp,,European
+HGDP01387,Adygei,European,hgdp,,European
+HGDP01388,Adygei,European,hgdp,,European
+HGDP01396,Adygei,European,hgdp,,European
+HGDP01397,Adygei,European,hgdp,,European
+HGDP01398,Adygei,European,hgdp,,European
+HGDP01399,Adygei,European,hgdp,,European
+HGDP01400,Adygei,European,hgdp,,European
+HGDP01401,Adygei,European,hgdp,,European
+HGDP01402,Adygei,European,hgdp,,European
+HGDP01403,Adygei,European,hgdp,,European
+HGDP01404,Adygei,European,hgdp,,European
+HGDP01405,BantuKenya,African,hgdp,,African
+HGDP01406,BantuKenya,African,hgdp,,African
+HGDP01408,BantuKenya,African,hgdp,,African
+HGDP01411,BantuKenya,African,hgdp,,African
+HGDP01412,BantuKenya,African,hgdp,,African
+HGDP01414,BantuKenya,African,hgdp,,African
+HGDP01415,BantuKenya,African,hgdp,,African
+HGDP01416,BantuKenya,African,hgdp,,African
+HGDP01417,BantuKenya,African,hgdp,,African
+HGDP01418,BantuKenya,African,hgdp,,African
+HGDP01419,BantuKenya,African,hgdp,,African
+IHW9118,Australian,Oceanian,sgdp,Australia,Oceanian
+IHW9193,Australian,Oceanian,sgdp,Australia,Oceanian
+AV-21,Crete,West Eurasian,sgdp,Greece,European
+TZ-11,Crete,West Eurasian,sgdp,Greece,European
+DNK07,Dinka,African,sgdp,Sudan,African
+mixe0007,Mixe,American,sgdp,Mexico,American
+ALB212,Albanian,West Eurasian,sgdp,Albania,European
+altai363p,Altaian,Central Asian Siberian,sgdp,Russia,East Asian
+NA13604,Atayal,East Asian,sgdp,Taiwan,East Asian
+TGBS21,Chane,American,sgdp,Argentina,American
+ch113,Chechen,West Eurasian,sgdp,Russia,European
+Sir19,Chukchi,Central Asian Siberian,sgdp,Russia,
+NA15728,Czech,West Eurasian,sgdp,Czechoslovia(pre1989),European
+Esk29,Eskimo_Chaplin,Central Asian Siberian,sgdp,Russia,East Asian
+NA17385,Hawaiian,Oceanian,sgdp,USA,
+Kor82,Itelman,Central Asian Siberian,sgdp,Russia,East Asian
+KD4,Khonda_Dora,South Asian,sgdp,India,South Asian
+NA17386,Maori,Oceanian,sgdp,New Zealand,
+NOR111,Norwegian,West Eurasian,sgdp,Norway,European
+ND15865,Polish,West Eurasian,sgdp,Poland,European
+Sam02,Samaritan,West Eurasian,sgdp,Israel,European
+Ayodo_81S,Somali,African,sgdp,Kenya,African
+armenia293,Armenian,West Eurasian,sgdp,Armenia,West Asian
+Armenian222,Armenian,West Eurasian,sgdp,Armenia,West Asian
+NA21490,Masai,African,sgdp,Kenya,African
+NA21581,Masai,African,sgdp,Kenya,African
+Jordan603,Jordanian,West Eurasian,sgdp,Jordan,West Asian
+abh107,Abkhasian,West Eurasian,sgdp,Abkhazia,European
+abh100,Abkhasian,West Eurasian,sgdp,Russia,European
+Ale22,Aleut,Central Asian Siberian,sgdp,Russia,
+Ale20,Aleut,Central Asian Siberian,sgdp,Russia,
+NA13607,Ami,East Asian,sgdp,Taiwan,East Asian
+NA13616,Ami,East Asian,sgdp,Taiwan,East Asian
+B11,Brahmin,South Asian,sgdp,India,South Asian
+B17,Brahmin,South Asian,sgdp,India,South Asian
+BulgarianB4,Bulgarian,West Eurasian,sgdp,Bulgaria,European
+BulgarianC1,Bulgarian,West Eurasian,sgdp,Bulgaria,European
+Bu16,Burmese,East Asian,sgdp,Myanmar,East Asian
+Bu5,Burmese,East Asian,sgdp,Myanmar,East Asian
+DNK5,Dinka,African,sgdp,Sudan,African
+DNK11,Dinka,African,sgdp,Sudan,African
+Dus22,Dusun,Oceanian,sgdp,Brunei,Oceanian
+Dus16,Dusun,Oceanian,sgdp,Brunei,Oceanian
+Nesk_22,Eskimo_Naukan,Central Asian Siberian,sgdp,Russia,East Asian
+Nesk_25,Eskimo_Naukan,Central Asian Siberian,sgdp,Russia,East Asian
+Sir26,Eskimo_Sireniki,Central Asian Siberian,sgdp,Russia,East Asian
+Sir40,Eskimo_Sireniki,Central Asian Siberian,sgdp,Russia,East Asian
+Est375,Estonian,West Eurasian,sgdp,Estonia,European
+Est400,Estonian,West Eurasian,sgdp,Estonia,European
+mg27,Georgian,West Eurasian,sgdp,Georgia,West Asian
+mg31,Georgian,West Eurasian,sgdp,Georgia,West Asian
+NA17377,Greek,West Eurasian,sgdp,Greece,European
+NA17374,Greek,West Eurasian,sgdp,Greece,European
+NA15203,Hungarian,West Eurasian,sgdp,Hungary,European
+NA15202,Hungarian,West Eurasian,sgdp,Hungary,European
+NA15761,Icelandic,West Eurasian,sgdp,Iceland,European
+NA15763,Icelandic,West Eurasian,sgdp,Iceland,European
+Igor20,Igorot,Oceanian,sgdp,Philippines,East Asian
+Igor21,Igorot,Oceanian,sgdp,Philippines,East Asian
+iran17,Iranian,West Eurasian,sgdp,Iran,West Asian
+iran11,Iranian,West Eurasian,sgdp,Iran,West Asian
+IraqiJew1771,Iraqi_Jew,West Eurasian,sgdp,Iraq,West Asian
+IraqiJew4291,Iraqi_Jew,West Eurasian,sgdp,Iraq,West Asian
+I1,Irula,South Asian,sgdp,India,South Asian
+I3,Irula,South Asian,sgdp,India,South Asian
+K1,Kapu,South Asian,sgdp,India,South Asian
+K4,Kapu,South Asian,sgdp,India,South Asian
+SA0342,Khomani_San,African,sgdp,SouthAfrica,African
+SA0722,Khomani_San,African,sgdp,SouthAfrica,African
+ND19394,Korean,East Asian,sgdp,Korea,East Asian
+NA00726,Korean,East Asian,sgdp,Korea,East Asian
+K-2,Kusunda,South Asian,sgdp,Nepal,South Asian
+K-15,Kusunda,South Asian,sgdp,Nepal,South Asian
+Bishkek28440,Kyrgyz,Central Asian Siberian,sgdp,Kyrgyzystan,East Asian
+Bishkek28439,Kyrgyz,Central Asian Siberian,sgdp,Kyrgyzystan,East Asian
+lez49,Lezgin,West Eurasian,sgdp,Russia,European
+lez42,Lezgin,West Eurasian,sgdp,Russia,West Asian
+NA19044,Luhya,African,sgdp,Kenya,African
+Ayodo_430C,Luo,African,sgdp,Kenya,African
+Ayodo_502C,Luo,African,sgdp,Kenya,African
+M4,Madiga,South Asian,sgdp,India,South Asian
+M13,Madiga,South Asian,sgdp,India,South Asian
+ML2,Mala,South Asian,sgdp,India,South Asian
+ML3,Mala,South Asian,sgdp,India,South Asian
+Mansi79,Mansi,Central Asian Siberian,sgdp,Russia,East Asian
+Mansi41,Mansi,Central Asian Siberian,sgdp,Russia,East Asian
+mixe0002,Mixe,American,sgdp,Mexico,American
+mixe0042,Mixe,American,sgdp,Mexico,American
+mixa0099,Mixtec,American,sgdp,Mexico,
+mixa0105,Mixtec,American,sgdp,Mexico,
+NorthOssetia12,North_Ossetian,West Eurasian,sgdp,Russia,European
+NorthOssetia5,North_Ossetian,West Eurasian,sgdp,Russia,European
+R3,Relli,South Asian,sgdp,India,South Asian
+R6,Relli,South Asian,sgdp,India,South Asian
+Utsa21,Saami,West Eurasian,sgdp,Finland,European
+Utsa22,Saami,West Eurasian,sgdp,Finland,European
+SAH31,Saharawi,African,sgdp,Western Sahara (Morocco),African
+SAH41,Saharawi,African,sgdp,Western Sahara (Morocco),African
+tdj409_shugnan,Tajik,West Eurasian,sgdp,Tajikistan,South Asian
+tdj430_shugnan,Tajik,West Eurasian,sgdp,Tajikistan,South Asian
+CHI-007,Thai,East Asian,sgdp,Thailand,East Asian
+CHI-034,Thai,East Asian,sgdp,Thailand,East Asian
+Ale32,Tlingit,Central Asian Siberian,sgdp,Russia,
+Ale14,Tlingit,Central Asian Siberian,sgdp,Russia,
+Tuba19,Tubalar,Central Asian Siberian,sgdp,Russia,East Asian
+Tuba9,Tubalar,Central Asian Siberian,sgdp,Russia,East Asian
+Kayseri23827,Turkish,West Eurasian,sgdp,Turkey,West Asian
+Kayseri24424,Turkish,West Eurasian,sgdp,Turkey,West Asian
+Ul31,Ulchi,Central Asian Siberian,sgdp,Russia,East Asian
+Ul5,Ulchi,Central Asian Siberian,sgdp,Russia,East Asian
+Y4,Yadava,South Asian,sgdp,India,South Asian
+Y8,Yadava,South Asian,sgdp,India,South Asian
+YemeniteJew4695,Yemenite_Jew,West Eurasian,sgdp,Yemen,West Asian
+YemeniteJew5433,Yemenite_Jew,West Eurasian,sgdp,Yemen,West Asian
+zapo0098,Zapotec,American,sgdp,Mexico,American
+zapo0099,Zapotec,American,sgdp,Mexico,American
+Nlk1,Even,Central Asian Siberian,sgdp,Russia,East Asian
+Nlk18,Even,Central Asian Siberian,sgdp,Russia,East Asian
+Nlk3,Even,Central Asian Siberian,sgdp,Russia,East Asian
+Jordan445,Jordanian,West Eurasian,sgdp,Jordan,West Asian
+Jordan214,Jordanian,West Eurasian,sgdp,Jordan,West Asian
+NA11201,Quechua,American,sgdp,Peru,American
+NA11200,Quechua,American,sgdp,Peru,American
+Peru60,Quechua,American,sgdp,Peru,American
+SS6004486,Kashmiri_Pandit,South Asian,sgdp,India,
+SS6004481,Kharia,South Asian,sgdp,India,
+SS6004482,Kurumba,South Asian,sgdp,India,
+SS6004485,Mala,South Asian,sgdp,India,
+SS6004483,Onge,South Asian,sgdp,India,
+SS6004484,Onge,South Asian,sgdp,India,
+COKN016,Kongo,African,sgdp,Congo,
+Mex02,Nahua,American,sgdp,Mexico,
+Mex20,Nahua,American,sgdp,Mexico,
+NAD93,Chipewyan,American,sgdp,Canada,
+NAD59,Chipewyan,American,sgdp,Canada,
+Cree5,Cree,American,sgdp,Canada,
+Cree6,Cree,American,sgdp,Canada,
+NGIB034,Igbo,African,sgdp,Nigeria,
+NGIB042,Igbo,African,sgdp,Nigeria,
+CALM031,Lemande,African,sgdp,Cameroon,
+CALM016,Lemande,African,sgdp,Cameroon,
+ADR1,Sherpa,South Asian,sgdp,Nepal,
+ADR2,Sherpa,South Asian,sgdp,Nepal,
+ADR3,Tibetan,South Asian,sgdp,Tibet,
+ADR4,Tibetan,South Asian,sgdp,Tibet,
+ETAR011,Aari,African,sgdp,Ethiopia,
+ETAR005,Aari,African,sgdp,Ethiopia,
+ETAI021,Agaw,African,sgdp,Ethiopia,
+ETAI032,Agaw,African,sgdp,Ethiopia,
+ETAM046,Amhara,African,sgdp,Ethiopia,
+ETAM048,Amhara,African,sgdp,Ethiopia,
+CAPB016,Baka,African,sgdp,Cameroon,
+CAPB007,Baka,African,sgdp,Cameroon,
+CAPL056,Bakola,African,sgdp,Cameroon,
+CAPL044,Bakola,African,sgdp,Cameroon,
+CAPM001,Bedzan,African,sgdp,Cameroon,
+CAPM019,Bedzan,African,sgdp,Cameroon,
+CHBU007,Bulala,African,sgdp,Chad,
+CHBU001,Bulala,African,sgdp,Chad,
+KEEL005B,Elmolo,African,sgdp,Kenya,
+KEEL023A,Elmolo,African,sgdp,Kenya,
+CAMF011,Fulani,African,sgdp,Cameroon,
+CAMF023,Fulani,African,sgdp,Cameroon,
+TZHZ027,Hadza,African,sgdp,Tanzania,
+TZHZ018,Hadza,African,sgdp,Tanzania,
+TZIQ045,Iraqw,African,sgdp,Tanzania,
+TZIQ065,Iraqw,African,sgdp,Tanzania,
+CARKA005,Kaba,African,sgdp,CentralAfricanRepublic,
+CARKA030,Kaba,African,sgdp,CentralAfricanRepublic,
+KEGK001,Kikuyu,African,sgdp,Kenya,
+KEGK032,Kikuyu,African,sgdp,Kenya,
+CHLA001,Laka,African,sgdp,Chad,
+CHLA074,Laka,African,sgdp,Chad,
+CAMD042,Mada,African,sgdp,Cameroon,
+CAMD045,Mada,African,sgdp,Cameroon,
+ETMS008,Mursi,African,sgdp,Ethiopia,
+ETMS033,Mursi,African,sgdp,Ethiopia,
+CANG014,Ngumba,African,sgdp,Cameroon,
+CANG007,Ngumba,African,sgdp,Cameroon,
+KEOG013,Ogiek,African,sgdp,Kenya,
+KEOG015,Ogiek,African,sgdp,Kenya,
+KERD022,Rendille,African,sgdp,Kenya,
+KERD016,Rendille,African,sgdp,Kenya,
+TZSW131,Sandawe,African,sgdp,Tanzania,
+TZSW057,Sandawe,African,sgdp,Tanzania,
+KESN014,Sengwer,African,sgdp,Kenya,
+KESN030,Sengwer,African,sgdp,Kenya,
+CATS023,Tikar_South,African,sgdp,Cameroon,
+CATS005,Tikar_South,African,sgdp,Cameroon,
+HGDP01344,Naxi,East Asian,sgdp,,
+IHW9195,Australian,Oceanian,sgdp,,
+HG003,Ashkenazi,European,giab,,
+HG004,Ashkenazi,European,giab,,
