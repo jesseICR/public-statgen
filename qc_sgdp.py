@@ -59,9 +59,13 @@ bed_unmapped = os.path.join(QC_DIR, "_liftover_unmapped.bed")
 
 sgdp_bim = sgdp_bim.reset_index(drop=True)
 sgdp_bim["idx"] = sgdp_bim.index
-with open(bed_in, "w") as f:
-    for idx, row in sgdp_bim.iterrows():
-        f.write(f"chr{row.chrom}\t{row.pos_hg19 - 1}\t{row.pos_hg19}\t{idx}\n")
+bed_df = pd.DataFrame({
+    "chrom": "chr" + sgdp_bim["chrom"].astype(str),
+    "start": (sgdp_bim["pos_hg19"] - 1).astype(int),
+    "end": sgdp_bim["pos_hg19"].astype(int),
+    "idx": sgdp_bim["idx"].astype(int),
+})
+bed_df.to_csv(bed_in, sep="\t", header=False, index=False)
 
 subprocess.run([LIFTOVER, bed_in, CHAIN_FILE, bed_out, bed_unmapped], check=True)
 
@@ -71,6 +75,8 @@ mapped = pd.read_csv(
     names=["chrom_hg38", "start", "end", "idx"],
 )
 mapped["pos_hg38"] = mapped["start"] + 1
+# Drop variants that mapped to alt contigs (e.g. chr7_KI270803v1_alt)
+mapped = mapped[mapped["chrom_hg38"].str.match(r"^chr\d+$")].copy()
 mapped["chrom_hg38_num"] = mapped["chrom_hg38"].str.replace("chr", "").astype(int)
 
 # Merge back on index and drop variants that changed chromosome
