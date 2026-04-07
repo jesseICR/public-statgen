@@ -2,7 +2,40 @@
 
 A fully reproducible bioinformatics pipeline for harmonizing, aligning, and performing rigorous quality control on the 1000 Genomes (KG), Human Genome Diversity Project (HGDP), Simons Genome Diversity Project (SGDP), and Genome in a Bottle (GIAB) Ashkenazi Jewish reference panels, followed by supervised ADMIXTURE ancestry estimation. The pipeline merges four major human genetic diversity datasets into a single reference panel of 4,324 samples, runs supervised ADMIXTURE with cross-validation, and produces continental ancestry fractions, structure plots, and estimated allele frequencies — all from a single `bash main.sh` command.
 
-## Quick Start
+## Quick Start — Docker (recommended)
+
+Pull the pre-built image and run with defaults (K=6, MAF=1%):
+
+```bash
+docker pull ghcr.io/jesseicr/public-statgen:latest
+docker run --rm -v $(pwd)/statgen-data:/app/pipeline-output ghcr.io/jesseicr/public-statgen:latest
+```
+
+Override parameters with environment variables:
+
+```bash
+docker run --rm \
+  -e K_MODEL=3 \
+  -e MAF_ADMIXTURE=0.0200 \
+  -v $(pwd)/statgen-data:/app/pipeline-output \
+  ghcr.io/jesseicr/public-statgen:latest
+```
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `K_MODEL` | ADMIXTURE K model (3, 5, or 6) | `6` |
+| `MAF_ADMIXTURE` | Minor allele frequency threshold (decimal) | `0.0100` |
+
+Results are written to the mounted volume. The pipeline needs approximately **91 GB peak disk space** during execution and **~15 GB** for final outputs.
+
+### Build locally
+
+```bash
+docker build -t public-statgen .
+docker run --rm -v $(pwd)/statgen-data:/app/pipeline-output public-statgen
+```
+
+## Quick Start — Local (no Docker)
 
 ```bash
 bash main.sh
@@ -15,7 +48,21 @@ The pipeline will prompt for two configuration choices:
 
 After that it runs unattended. The pipeline is idempotent — re-running skips any steps that have already completed.
 
+You can also skip the interactive prompts by setting environment variables:
+
+```bash
+K_MODEL=6 MAF_ADMIXTURE=0.0100 bash main.sh
+```
+
 ## Requirements
+
+### Docker
+
+- **Docker** (any platform with x86_64 support)
+
+All tools and dependencies are bundled in the image — nothing else to install.
+
+### Local
 
 - **Python 3** (for SGDP QC; a venv is created automatically)
 - **curl** (for downloading data and tools)
