@@ -1,0 +1,23 @@
+# Runtime data directories (large, generated at runtime)
+tools/
+downloads/
+qc/
+merge/
+supervised_admixture/
+supervised_admix/
+summary/
+logs/
+
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.pyc
+
+# Dev files
+CLAUDE.md
+notes.md
+drafter.ipynb
+archive/

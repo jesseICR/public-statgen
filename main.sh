@@ -78,51 +78,68 @@ export ADMIXTURE_SEED=42
 export FLAG_THRESHOLD=0.95
 
 # ---------------------------------------------------------------------------
-# Interactive configuration
+# Configuration — interactive or via environment variables
 # ---------------------------------------------------------------------------
-echo "============================================"
-echo "Pipeline Configuration"
-echo "============================================"
-echo ""
-echo "Select ADMIXTURE model:"
-echo ""
-echo "  K=3  African, American, European"
-echo "       Basic 3-way continental ancestry. Use for populations of"
-echo "       primarily African, American, and European descent."
-echo ""
-echo "  K=5  African, American, East Asian, European, South Asian"
-echo "       Adds East Asian and South Asian ancestry components."
-echo "       Use when samples may include or be admixed with"
-echo "       these ancestries."
-echo ""
-echo "  K=6  African, American, East Asian, European, Oceanian, South Asian"
-echo "       Full global ancestry including Oceanian / Pacific Islander."
-echo ""
-read -r -p "Enter K (3, 5, or 6) [default: 6]: " K_INPUT
-K_INPUT="${K_INPUT:-6}"
-if [[ "$K_INPUT" != "3" && "$K_INPUT" != "5" && "$K_INPUT" != "6" ]]; then
-    echo "Error: K must be 3, 5, or 6." >&2
-    exit 1
-fi
-export K_MODEL="${K_INPUT}"
-echo "  -> K=${K_MODEL}"
-echo ""
+# Non-interactive mode: set K_MODEL and MAF_ADMIXTURE as environment variables
+# to skip the interactive prompts (useful for Docker / CI).
+#   Example: K_MODEL=6 MAF_ADMIXTURE=0.0100 bash main.sh
+# ---------------------------------------------------------------------------
+if [[ -n "${K_MODEL:-}" && -n "${MAF_ADMIXTURE:-}" ]]; then
+    echo "============================================"
+    echo "Pipeline Configuration (from environment)"
+    echo "============================================"
+    if [[ "$K_MODEL" != "3" && "$K_MODEL" != "5" && "$K_MODEL" != "6" ]]; then
+        echo "Error: K_MODEL must be 3, 5, or 6." >&2
+        exit 1
+    fi
+    echo "  K_MODEL=${K_MODEL}"
+    echo "  MAF_ADMIXTURE=${MAF_ADMIXTURE}"
+    echo ""
+else
+    echo "============================================"
+    echo "Pipeline Configuration"
+    echo "============================================"
+    echo ""
+    echo "Select ADMIXTURE model:"
+    echo ""
+    echo "  K=3  African, American, European"
+    echo "       Basic 3-way continental ancestry. Use for populations of"
+    echo "       primarily African, American, and European descent."
+    echo ""
+    echo "  K=5  African, American, East Asian, European, South Asian"
+    echo "       Adds East Asian and South Asian ancestry components."
+    echo "       Use when samples may include or be admixed with"
+    echo "       these ancestries."
+    echo ""
+    echo "  K=6  African, American, East Asian, European, Oceanian, South Asian"
+    echo "       Full global ancestry including Oceanian / Pacific Islander."
+    echo ""
+    read -r -p "Enter K (3, 5, or 6) [default: 6]: " K_INPUT
+    K_INPUT="${K_INPUT:-6}"
+    if [[ "$K_INPUT" != "3" && "$K_INPUT" != "5" && "$K_INPUT" != "6" ]]; then
+        echo "Error: K must be 3, 5, or 6." >&2
+        exit 1
+    fi
+    export K_MODEL="${K_INPUT}"
+    echo "  -> K=${K_MODEL}"
+    echo ""
 
-echo "Select minor allele frequency (MAF) threshold for ADMIXTURE QC."
-echo "  Recommended range: 0.5% to 5%."
-echo "  Higher MAF = fewer, more common SNPs (faster, less noise)."
-echo "  Lower MAF  = more SNPs retained (more resolution, noisier)."
-echo ""
-read -r -p "Enter MAF as a percentage, e.g. 1 for 1% [default: 1]: " MAF_INPUT
-MAF_INPUT="${MAF_INPUT:-1}"
-if ! [[ "$MAF_INPUT" =~ ^[0-9]*\.?[0-9]+$ ]]; then
-    echo "Error: MAF must be a number." >&2
-    exit 1
+    echo "Select minor allele frequency (MAF) threshold for ADMIXTURE QC."
+    echo "  Recommended range: 0.5% to 5%."
+    echo "  Higher MAF = fewer, more common SNPs (faster, less noise)."
+    echo "  Lower MAF  = more SNPs retained (more resolution, noisier)."
+    echo ""
+    read -r -p "Enter MAF as a percentage, e.g. 1 for 1% [default: 1]: " MAF_INPUT
+    MAF_INPUT="${MAF_INPUT:-1}"
+    if ! [[ "$MAF_INPUT" =~ ^[0-9]*\.?[0-9]+$ ]]; then
+        echo "Error: MAF must be a number." >&2
+        exit 1
+    fi
+    MAF_ADMIXTURE=$(awk "BEGIN {printf \"%.4f\", ${MAF_INPUT} / 100}")
+    export MAF_ADMIXTURE
+    echo "  -> MAF=${MAF_ADMIXTURE} (${MAF_INPUT}%)"
+    echo ""
 fi
-MAF_ADMIXTURE=$(awk "BEGIN {printf \"%.4f\", ${MAF_INPUT} / 100}")
-export MAF_ADMIXTURE
-echo "  -> MAF=${MAF_ADMIXTURE} (${MAF_INPUT}%)"
-echo ""
 
 # ---------------------------------------------------------------------------
 # Logging — all subsequent output goes to both terminal and log file
