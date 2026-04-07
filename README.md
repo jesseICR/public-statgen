@@ -17,26 +17,26 @@ After that it runs unattended. The pipeline is idempotent — re-running skips a
 
 ## Requirements
 
-- **Python 3** (for SGDP liftover / QC; a venv is created automatically)
+- **Python 3** (for SGDP QC; a venv is created automatically)
 - **curl** (for downloading data and tools)
 - macOS (Intel or Apple Silicon), Linux (x86_64), or Windows via WSL
 
-PLINK 1.9, PLINK 2.0, and ADMIXTURE are installed automatically by the pipeline.
-Python dependencies (`pandas`, `liftover`, `numpy`, `matplotlib`) are installed into a local venv.
+PLINK 1.9, PLINK 2.0, UCSC liftOver, and ADMIXTURE are installed automatically by the pipeline.
+Python dependencies (`pandas`, `numpy`, `matplotlib`) are installed into a local venv.
 
 ## Pipeline Overview
 
-`main.sh` is the top-level orchestrator. It runs each stage in order and exports shared paths (`DOWNLOADS_DIR`, `QC_DIR`, `MERGE_DIR`, `PLINK1`, `PLINK2`, `PYTHON`, `SNPS_FILE`, `PLINK_MEMORY`, `PLINK_THREADS`, `SUPERVISED_ADMIXTURE`, `ADMIXTURE`) so that all downstream scripts use consistent locations.
+`main.sh` is the top-level orchestrator. It runs each stage in order and exports shared paths (`DOWNLOADS_DIR`, `QC_DIR`, `MERGE_DIR`, `PLINK1`, `PLINK2`, `LIFTOVER`, `CHAIN_FILE`, `PYTHON`, `SNPS_FILE`, `PLINK_MEMORY`, `PLINK_THREADS`, `SUPERVISED_ADMIXTURE`, `ADMIXTURE`) so that all downstream scripts use consistent locations.
 
 ### Stages
 
 | Stage | Script | Description |
 |-------|--------|-------------|
-| 1 | `setup_plink.sh` | Downloads and installs PLINK 1.9 & 2.0 into `tools/bin/` |
+| 1 | `setup_plink.sh`, `setup_liftover.sh` | Downloads and installs PLINK 1.9, PLINK 2.0, and UCSC liftOver into `tools/bin/` |
 | 2 | `download_files.sh` | Downloads KG, HGDP, SGDP, Neural ADMIXTURE, and GIAB files into `downloads/` |
 | 3 | `qc_kg_hgdp.sh` | Decompress, filter (autosomal, biallelic, SNP extract, remove KG relatives), and convert to bed/bim/fam in `qc/` |
 | 4 | `setup_python.sh` | Creates a Python venv in `tools/venv/` and installs dependencies from `requirements.txt` |
-| 5 | `qc_sgdp.py` | Lifts SGDP from hg19 to hg38, matches to KG by (chrom, pos, alleles), assigns rsIDs, outputs `qc/sgdp_qc.{bed,bim,fam}` |
+| 5 | `qc_sgdp.py` | Lifts SGDP from hg19 to hg38 using UCSC liftOver, matches to KG by (chrom, pos, alleles), assigns rsIDs, outputs `qc/sgdp_qc.{bed,bim,fam}` |
 | 6 | `merge_kg_hgdp_sgdp.sh` | Aligns alleles, merges KG+HGDP, deduplicates SGDP samples, three-way merge, removes ambiguous SNPs, applies geno filter |
 | 7 | `prepare_giab.py` + `merge_giab.sh` | Converts GIAB Ashkenazi parent VCFs to PLINK (filling hom-ref from high-confidence BED), merges into reference panel, normalizes fam |
 | 8 | `build_metadata.py` | Merges KG, HGDP, SGDP, GIAB metadata with Neural ADMIXTURE ancestry labels into `summary/metadata.csv` |
@@ -52,10 +52,11 @@ Python dependencies (`pandas`, `liftover`, `numpy`, `matplotlib`) are installed 
 public-statgen/
 ├── main.sh                      # Run this
 ├── setup_plink.sh               # Stage 1: install PLINK
+├── setup_liftover.sh            # Stage 1: install UCSC liftOver
 ├── download_files.sh            # Stage 2: download reference panels + GIAB + neural data
 ├── qc_kg_hgdp.sh               # Stage 3: QC KG and HGDP
 ├── setup_python.sh              # Stage 4: set up Python venv
-├── qc_sgdp.py                   # Stage 5: QC SGDP (liftover + rsID match)
+├── qc_sgdp.py                   # Stage 5: QC SGDP (UCSC liftOver + rsID match)
 ├── merge_kg_hgdp_sgdp.sh       # Stage 6: three-way merge
 ├── prepare_giab.py              # Stage 7a: convert GIAB VCFs to PLINK
 ├── merge_giab.sh                # Stage 7b: merge GIAB into reference panel
@@ -71,6 +72,7 @@ public-statgen/
 │   ├── bin/                     # Binaries (created by setup scripts)
 │   │   ├── plink1
 │   │   ├── plink2
+│   │   ├── liftOver
 │   │   └── admixture
 │   └── venv/                    # Python venv (created by setup_python.sh)
 ├── downloads/                   # Raw downloaded data (created by main.sh)
@@ -79,6 +81,7 @@ public-statgen/
 │   ├── hgdp_all.{pgen.zst,pvar.zst,psam}
 │   ├── sgdp_all.{bed,bim.zip,fam}
 │   ├── sgdp_metadata.txt
+│   ├── hg19ToHg38.over.chain.gz # UCSC liftOver chain file
 │   ├── neural/                  # Neural ADMIXTURE pretrained data
 │   └── giab/                    # GIAB Ashkenazi parents (VCFs + BEDs)
 │       ├── HG003_GRCh38_1_22_v4.2.1_benchmark.vcf.gz
@@ -123,11 +126,11 @@ public-statgen/
 
 | Step | Description | Runtime |
 |------|-------------|---------|
-| 1 | Install PLINK (1.9 + 2.0) | 1 s |
+| 1 | Install PLINK (1.9 + 2.0) and UCSC liftOver | 2 s |
 | 2 | Download KG, HGDP, SGDP, Neural ADMIXTURE, GIAB | ~7 m 30 s |
 | 3 | QC KG and HGDP (decompress zst, filter, convert) | 9 m 49 s |
 | 4 | Set up Python venv + dependencies | 11 s |
-| 5 | QC SGDP (liftover hg19 → hg38, filter) | 1 m 38 s |
+| 5 | QC SGDP (UCSC liftOver hg19 → hg38, filter) | 1 m 38 s |
 | 6 | Merge KG + HGDP + SGDP | 16 s |
 | 7 | Prepare and merge GIAB Ashkenazi parents | 16 s |
 | 8 | Build metadata CSV | < 1 s |
@@ -146,7 +149,7 @@ The two dominant steps are Step 3 (QC KG + HGDP, ~10 min) and Step 12 (ADMIXTURE
 | Directory | Size | Contents |
 |-----------|------|----------|
 | `downloads/` | 13 GB | Raw downloaded files (KG, HGDP pgen.zst, SGDP bed, Neural ADMIXTURE, GIAB VCFs) |
-| `tools/` | 296 MB | PLINK 1.9 + 2.0, ADMIXTURE, Python venv |
+| `tools/` | 306 MB | PLINK 1.9 + 2.0, UCSC liftOver, ADMIXTURE, Python venv |
 | `qc/` | 496 MB | QC'd BED/BIM/FAM for KG, HGDP, SGDP |
 | `merge/` | 389 MB | Merged three-dataset BED/BIM/FAM |
 | `supervised_admixture/` | 858 MB | ADMIXTURE QC panel, fold .Q/.P files, final .Q/.P |

@@ -12,6 +12,8 @@ Expected environment variables:
   PLINK2         — path to plink2 binary
   PLINK_MEMORY   — memory limit in MB for PLINK
   PLINK_THREADS  — number of threads for PLINK
+  LIFTOVER       — path to UCSC liftOver binary
+  CHAIN_FILE     — path to hg19ToHg38.over.chain.gz
 
 Inputs (in QC_DIR):
   sgdp_all.{bed,bim,fam}   — SGDP data (hg19 coordinates)
@@ -25,7 +27,6 @@ import os
 import subprocess
 
 import pandas as pd
-from liftover import get_lifter
 
 # ---------------------------------------------------------------------------
 # Environment
@@ -34,22 +35,8 @@ QC_DIR = os.environ["QC_DIR"]
 PLINK2 = os.environ["PLINK2"]
 PLINK_MEMORY = os.environ["PLINK_MEMORY"]
 PLINK_THREADS = os.environ["PLINK_THREADS"]
-
-# ---------------------------------------------------------------------------
-# Liftover helper
-# ---------------------------------------------------------------------------
-converter = get_lifter("hg19", "hg38", one_based=True)
-
-
-def liftover_pos(chrom: int, pos_hg19: int):
-    """Lift a single (chrom, pos) from hg19 → hg38. Returns None on failure."""
-    result = converter.convert_coordinate(str(chrom), pos_hg19)
-    if len(result) != 1:
-        return None
-    lifted_chrom, lifted_pos = result[0][0], result[0][1]
-    if lifted_chrom != f"chr{chrom}":
-        return None
-    return lifted_pos
+LIFTOVER = os.environ["LIFTOVER"]
+CHAIN_FILE = os.environ["CHAIN_FILE"]
 
 
 # ---------------------------------------------------------------------------
@@ -65,11 +52,31 @@ sgdp_bim = pd.read_csv(
 # Keep autosomes only
 sgdp_bim = sgdp_bim[sgdp_bim["chrom"].isin(range(1, 23))].copy()
 
-# Liftover
-sgdp_bim["pos_hg38"] = [
-    liftover_pos(row.chrom, row.pos_hg19) for row in sgdp_bim.itertuples()
-]
-sgdp_bim = sgdp_bim.dropna(subset=["pos_hg38"])
+# Write temporary BED for UCSC liftOver (BIM is 1-based; BED is 0-based half-open)
+bed_in = os.path.join(QC_DIR, "_liftover_input.bed")
+bed_out = os.path.join(QC_DIR, "_liftover_mapped.bed")
+bed_unmapped = os.path.join(QC_DIR, "_liftover_unmapped.bed")
+
+sgdp_bim = sgdp_bim.reset_index(drop=True)
+sgdp_bim["idx"] = sgdp_bim.index
+with open(bed_in, "w") as f:
+    for idx, row in sgdp_bim.iterrows():
+        f.write(f"chr{row.chrom}\t{row.pos_hg19 - 1}\t{row.pos_hg19}\t{idx}\n")
+
+subprocess.run([LIFTOVER, bed_in, CHAIN_FILE, bed_out, bed_unmapped], check=True)
+
+# Parse mapped output and convert 0-based start back to 1-based position
+mapped = pd.read_csv(
+    bed_out, sep="\t", header=None,
+    names=["chrom_hg38", "start", "end", "idx"],
+)
+mapped["pos_hg38"] = mapped["start"] + 1
+mapped["chrom_hg38_num"] = mapped["chrom_hg38"].str.replace("chr", "").astype(int)
+
+# Merge back on index and drop variants that changed chromosome
+sgdp_bim = sgdp_bim.merge(mapped[["idx", "pos_hg38", "chrom_hg38_num"]], on="idx", how="inner")
+sgdp_bim = sgdp_bim[sgdp_bim["chrom"] == sgdp_bim["chrom_hg38_num"]].copy()
+sgdp_bim.drop(columns=["idx", "chrom_hg38_num"], inplace=True)
 sgdp_bim["pos_hg38"] = sgdp_bim["pos_hg38"].astype(int)
 
 # ---------------------------------------------------------------------------
@@ -138,7 +145,10 @@ qc_bim.to_csv(
 # ---------------------------------------------------------------------------
 # 5. Clean up intermediates
 # ---------------------------------------------------------------------------
-for name in ["sgdp_select_ids.txt", "sgdp_qc.log"]:
+for name in [
+    "sgdp_select_ids.txt", "sgdp_qc.log",
+    "_liftover_input.bed", "_liftover_mapped.bed", "_liftover_unmapped.bed",
+]:
     path = os.path.join(QC_DIR, name)
     if os.path.exists(path):
         os.remove(path)

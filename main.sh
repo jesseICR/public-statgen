@@ -12,11 +12,11 @@
 #   - Minor allele frequency (MAF) threshold
 #
 # Steps:
-#   1. Install PLINK 1.9 & 2.0
+#   1. Install PLINK 1.9 & 2.0 and UCSC liftOver
 #   2. Download KG, HGDP, SGDP, Neural ADMIXTURE, GIAB, and population data
 #   3. QC KG and HGDP data
 #   4. Set up Python virtual environment
-#   5. QC SGDP data (liftover hg19->hg38, match to KG, assign rsIDs)
+#   5. QC SGDP data (UCSC liftOver hg19->hg38, match to KG, assign rsIDs)
 #   6. Merge KG + HGDP + SGDP into a single fileset
 #   7. Prepare and merge GIAB Ashkenazi parents (HG003, HG004)
 #   8. Build merged metadata CSV with Neural ADMIXTURE ancestry labels
@@ -45,6 +45,8 @@ export PLINK_THREADS=6
 export PYTHON="${PROJECT_DIR}/tools/venv/bin/python"
 export SUPERVISED_ADMIXTURE="${PROJECT_DIR}/supervised_admixture"
 export ADMIXTURE="${TOOLS_BIN}/admixture"
+export LIFTOVER="${TOOLS_BIN}/liftOver"
+export CHAIN_FILE="${DOWNLOADS_DIR}/hg19ToHg38.over.chain.gz"
 
 # ---------------------------------------------------------------------------
 # Pipeline constants
@@ -147,16 +149,18 @@ echo ""
 K="${K_MODEL}"
 
 # ---------------------------------------------------------------------------
-# Step 1 — Install PLINK
+# Step 1 — Install PLINK and liftOver
 # ---------------------------------------------------------------------------
 echo "============================================"
-echo "Step 1: Install PLINK"
+echo "Step 1: Install PLINK and liftOver"
 echo "============================================"
 bash "${PROJECT_DIR}/setup_plink.sh"
+bash "${PROJECT_DIR}/setup_liftover.sh"
 
 # Verify the binaries are functional
 "${PLINK1}" --version > /dev/null 2>&1 || { echo "Error: plink1 failed to run" >&2; exit 1; }
 "${PLINK2}" --version > /dev/null 2>&1 || { echo "Error: plink2 failed to run" >&2; exit 1; }
+[[ -x "${LIFTOVER}" ]] || { echo "Error: liftOver not found at ${LIFTOVER}" >&2; exit 1; }
 echo ""
 
 # ---------------------------------------------------------------------------
@@ -194,7 +198,7 @@ bash "${PROJECT_DIR}/setup_python.sh"
 echo ""
 
 # ---------------------------------------------------------------------------
-# Step 5 — QC SGDP (liftover + rsID matching)
+# Step 5 — QC SGDP (UCSC liftOver + rsID matching)
 # ---------------------------------------------------------------------------
 echo "============================================"
 echo "Step 5: QC SGDP data"

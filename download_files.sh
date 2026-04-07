@@ -14,6 +14,7 @@
 #   sgdp_all.{bed,bim.zip,fam}           — SGDP bed/bim/fam (hg19)
 #   sgdp_metadata.txt                    — SGDP sample metadata
 #   neural/data/                         — Neural ADMIXTURE pretrained data
+#   hg19ToHg38.over.chain.gz             — UCSC liftOver chain file (hg19 → hg38)
 #   high_ld_regions_hg38.bed             — Long-range LD regions (hg38)
 #
 set -euo pipefail
@@ -91,6 +92,14 @@ download "${DOWNLOADS_DIR}/sgdp_all.fam" \
 
 download "${DOWNLOADS_DIR}/sgdp_metadata.txt" \
     "https://sharehost.hms.harvard.edu/genetics/reich_lab/sgdp/SGDP_metadata.279public.21signedLetter.44Fan.samples.txt"
+
+# ---------------------------------------------------------------------------
+# hg19 → hg38 chain file (for SGDP liftover)
+# ---------------------------------------------------------------------------
+echo "==> Downloading hg19 → hg38 chain file ..."
+
+download "${DOWNLOADS_DIR}/hg19ToHg38.over.chain.gz" \
+    "https://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz"
 
 # ---------------------------------------------------------------------------
 # Neural ADMIXTURE — pretrained data from Figshare
