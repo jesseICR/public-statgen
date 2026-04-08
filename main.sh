@@ -142,6 +142,30 @@ else
 fi
 
 # ---------------------------------------------------------------------------
+# Volume mount support (Docker)
+# ---------------------------------------------------------------------------
+# When a volume is mounted at pipeline-output/ (the documented Docker usage),
+# redirect all generated data directories there via symlinks so that results
+# persist after the container exits.
+#
+#   docker run --rm -v $(pwd)/data:/app/pipeline-output public-statgen
+#
+PIPELINE_OUTPUT="${PROJECT_DIR}/pipeline-output"
+if [[ -d "${PIPELINE_OUTPUT}" ]]; then
+    echo "==> Volume detected at ${PIPELINE_OUTPUT} — redirecting output directories"
+    for subdir in downloads qc merge supervised_admixture summary logs; do
+        target="${PIPELINE_OUTPUT}/${subdir}"
+        link="${PROJECT_DIR}/${subdir}"
+        mkdir -p "${target}"
+        if [[ ! -L "${link}" ]]; then
+            rm -rf "${link}"
+            ln -s "${target}" "${link}"
+        fi
+    done
+    echo ""
+fi
+
+# ---------------------------------------------------------------------------
 # Logging — all subsequent output goes to both terminal and log file
 # ---------------------------------------------------------------------------
 mkdir -p "${PROJECT_DIR}/logs"

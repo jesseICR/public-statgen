@@ -62,6 +62,7 @@ ENV MAF_ADMIXTURE=0.0100
 
 # ---- Runtime -----------------------------------------------------------------
 # The pipeline generates ~15 GB of intermediate data and needs ~91 GB peak.
-# Mount a volume at /app/pipeline-output to persist results, or run in /app
-# and accept that data lives inside the container.
+# Mount a volume at /app/pipeline-output to persist results — the entrypoint
+# detects the mount and symlinks all data directories there automatically.
+# Without a mount, data lives inside the container (lost on --rm).
 ENTRYPOINT ["bash", "main.sh"]
